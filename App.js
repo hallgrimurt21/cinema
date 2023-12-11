@@ -1,12 +1,14 @@
+/* eslint-disable require-jsdoc */
 import React from "react"
-import {Provider} from "react-redux"
-import {store} from "./src/store"
-import {Main} from "./src/main"
+import {View} from "react-native"
+// import {Provider} from "react-redux"
+// import store from "./src/store"
+import {Main} from "./src/index"
 
-const App = () => (
-    <Provider store={store}>
-        <Main />
-    </Provider>
-)
-
-export default App
+export default function App() {
+    return (
+        <View>
+            <Main />
+        </View>
+    )
+}

@@ -36,7 +36,7 @@ module.exports = {
         "spaced-comment": ["error", "always", {markers: ["/"]}],
         "react/prop-types": ["off"],
         "space-before-function-paren": ["error", "never"],
-        "valid-jsdoc": "off",
+        "jsdoc/require-jsdoc": "off",
         "linebreak-style": "off",
     },
 }
