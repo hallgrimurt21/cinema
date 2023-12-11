@@ -1,12 +1,9 @@
 import {configureStore} from "@reduxjs/toolkit"
+import movierReducer from "../features/movies/movie-slice"
 
-// This is a placeholder reducer
-const placeholderReducer = (state = {}, action) => {
-    return state
-}
 
 export const store = configureStore({
     reducer: {
-        placeholder: placeholderReducer,
+        movie: movierReducer,
     },
 })
