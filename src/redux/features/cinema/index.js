@@ -1,26 +1,50 @@
-import {createSlice} from "@reduxjs/toolkit"
+import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
+import {getAuthToken} from "../../../services/cinema"
+
+
+// Async thunk for fetching data
+export const fetchCinemas = createAsyncThunk(
+    "cinema/fetchCinemas",
+    async() => {
+        const token = await getAuthToken()
+        const response = await fetch("https://api.kvikmyndir.is/movies", {
+            headers: {
+                "x-access-token": token,
+            },
+        })
+        const data = await response.json()
+        return data
+    },
+)
 
 // Initial state
 const initialState = {
     cinemas: [],
+    status: "idle",
+    error: null,
 }
 
 // Create cinema slice
 const cinemaSlice = createSlice({
     name: "cinema",
     initialState,
-    reducers: {
-        setCinemas: (state, action) => {
-            state.cinemas = action.payload
-        },
-        addCinema: (state, action) => {
-            state.cinemas.push(action.payload)
-        },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchCinemas.pending, (state) => {
+                state.status = "loading"
+            })
+            .addCase(fetchCinemas.fulfilled, (state, action) => {
+                state.status = "succeeded"
+                // Add cinemas to the state array
+                state.cinemas = state.cinemas.concat(action.payload)
+            })
+            .addCase(fetchCinemas.rejected, (state, action) => {
+                state.status = "failed"
+                state.error = action.error.message
+            })
     },
 })
-
-// Export actions
-export const {setCinemas, addCinema} = cinemaSlice.actions
 
 // Export reducer
 export default cinemaSlice.reducer
