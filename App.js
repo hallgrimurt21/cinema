@@ -1,14 +1,14 @@
 /* eslint-disable require-jsdoc */
 import React from "react"
-import {View} from "react-native"
+import "react-native-gesture-handler"
 import {Provider} from "react-redux"
 import {store} from "./src/store"
-import {Main} from "./src/index"
+import Appcontainer from "./src/routes"
 
 export default function App() {
     return (
         <Provider store={store}>
-            <Main />
+            <Appcontainer />
         </Provider>
     )
 }
