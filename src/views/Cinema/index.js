@@ -11,7 +11,6 @@ const Cinema = ({route}) => {
     useEffect(() => {
         dispatch(getCinema(id))
     }, [dispatch, id])
-    console.log(cinema)
     return (
         <View>
             <Text>{cinema.name}</Text>

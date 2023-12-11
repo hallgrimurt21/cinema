@@ -35,7 +35,7 @@ function Routes() {
                 screenOptions={StackOptions}
             >
                 <Stack.Screen name="Home" component={Home} />
-                <Stack.Screen name="Cinema" component={Cinema} />
+                <Stack.Screen name="Cinema" component={Cinema} options={{headerShown: true}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

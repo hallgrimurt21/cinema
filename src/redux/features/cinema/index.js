@@ -1,17 +1,19 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 
-// Async thunk for getting cinema
-export const getCinema = createAsyncThunk(
-    "cinema/getCinema",
-    async(id, {getState}) => {
-        const {allCinemas} = getState()
-        const cinema = allCinemas.cinemas.find((cinema) => cinema.id === id)
-        console.log(cinema)
+// Async thunk
+export const getCinema = createAsyncThunk("cinema/getCinema", async(id, {getState}) => {
+    try {
+        const cinemas = getState().allCinemas.cinemas
+        const cinema = cinemas.find((cinema) => cinema.id === id)
+        if (!cinema) {
+            throw new Error(`No cinema found with id ${id}`)
+        }
         return cinema
-    },
-)
-
-
+    } catch (error) {
+        console.error("Error in getCinema:", error)
+        throw error
+    }
+})
 // Initial state
 const initialState = {
     name: "",
@@ -19,33 +21,35 @@ const initialState = {
     address: "",
     phone: "",
     website: "",
+    status: "idle",
+    error: null,
 }
 
-// Create cinema slice
+// Slice
 const cinemaSlice = createSlice({
     name: "cinema",
     initialState,
-    reducers: {
-        setCinema: (state, action) => {
-            state.name = action.payload.name
-            state.description = action.payload.description
-            state.address = action.payload["address\t"] + action.payload.address.city
-            state.phone = action.payload.phone
-            state.website = action.payload.website
-        },
-    },
+    reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(getCinema.fulfilled, (state, action) => {
-            state.name = action.payload.name
-            state.description = action.payload.description
-            state.address = action.payload["address\t"] + action.payload.address.city
-            state.phone = action.payload.phone
-            state.website = action.payload.website
-        })
+        builder
+            .addCase(getCinema.pending, (state) => {
+                state.status = "loading"
+                console.log("Loading cinema...")
+            })
+            .addCase(getCinema.fulfilled, (state, action) => {
+                console.log(action)
+                state.status = "succeeded"
+                state.name = action.payload.name
+                state.description = action.payload.description
+                state.address = action.payload["address\t"] + ", " + action.payload.city
+                state.phone = action.payload.phone
+                state.website = action.payload.website
+            })
+            .addCase(getCinema.rejected, (state, action) => {
+                state.status = "failed"
+                state.error = action.error.message
+            })
     },
-
 })
 
-// Export reducer and actions
-export const {setCinema} = cinemaSlice.actions
 export default cinemaSlice.reducer
