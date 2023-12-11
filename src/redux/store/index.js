@@ -1,12 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit"
-
-// This is a placeholder reducer
-const placeholderReducer = (state = {}, action) => {
-    return state
-}
+import cinemaReducer from "../features/cinema/index"
 
 export const store = configureStore({
     reducer: {
-        placeholder: placeholderReducer,
+        cinema: cinemaReducer,
     },
 })
