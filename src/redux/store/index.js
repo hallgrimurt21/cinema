@@ -1,12 +1,11 @@
+// src/redux/store/index.js
 import {configureStore} from "@reduxjs/toolkit"
+import movieReducer from "../features/movieSlice"
 
-// This is a placeholder reducer
-const placeholderReducer = (state = {}, action) => {
-    return state
-}
-
-export const store = configureStore({
+const store = configureStore({
     reducer: {
-        placeholder: placeholderReducer,
+        movie: movieReducer,
     },
 })
+
+export default store

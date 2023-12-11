@@ -2,6 +2,7 @@ import React from "react"
 import {NavigationContainer} from "@react-navigation/native"
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import Main from "../views/Main"
+import Movie from "../views/Movie"
 
 const Tab = createBottomTabNavigator()
 /**
@@ -10,15 +11,12 @@ const Tab = createBottomTabNavigator()
  * @return {JSX.Element} The Routes component.
  */
 function Routes() {
-    const TabOptions = {
-    }
+    const TabOptions = {}
 
     return (
         <NavigationContainer>
-            <Tab.Navigator
-                initialRouteName="Main"
-                screenOptions={TabOptions}
-            >
+            <Tab.Navigator initialRouteName="Movie" screenOptions={TabOptions}>
+                <Tab.Screen name="Movie" component={Movie} />
                 <Tab.Screen name="Main" component={Main} />
             </Tab.Navigator>
         </NavigationContainer>
