@@ -37,5 +37,6 @@ module.exports = {
         "react/prop-types": ["off"],
         "space-before-function-paren": ["error", "never"],
         "valid-jsdoc": "off",
+        "linebreak-style": "off",
     },
 }

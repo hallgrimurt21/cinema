@@ -1,12 +1,12 @@
 import React from "react"
 import {Provider} from "react-redux"
-import {store} from "./src/app/store"
-import {App} from "./src/"
+import {store} from "./src/store"
+import {Main} from "./src/main"
 
-const MainApp = () => (
+const App = () => (
     <Provider store={store}>
-        <App />
+        <Main />
     </Provider>
 )
 
-export default MainApp
+export default App

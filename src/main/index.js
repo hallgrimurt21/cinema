@@ -2,7 +2,7 @@ import React from "react"
 import {StatusBar} from "expo-status-bar"
 import {StyleSheet, View} from "react-native"
 
-export const App = () => {
+const Main = () => {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
@@ -18,3 +18,5 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
 })
+
+export default Main
