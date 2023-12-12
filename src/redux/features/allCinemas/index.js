@@ -12,7 +12,8 @@ export const fetchCinemas = createAsyncThunk(
                 "x-access-token": token,
             },
         })
-        const data = await response.json()
+        let data = await response.json()
+        data = data.sort((a, b) => a.name.localeCompare(b.name))
         return data
     },
 )
