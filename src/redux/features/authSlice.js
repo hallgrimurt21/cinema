@@ -2,38 +2,53 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 import {Buffer} from "buffer"
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import {REACT_APP_USERNAME, REACT_APP_PASSWORD} from "@env"
+import {USERNAME, PASSWORD} from "@env"
 
-const encodedCredentials = Buffer.from(
-    `${REACT_APP_USERNAME}:${REACT_APP_PASSWORD}`,
-).toString("base64")
+const encodedCredentials = Buffer.from(`${USERNAME}:${PASSWORD}`).toString(
+    "base64",
+)
 
-export const getAuthToken = createAsyncThunk("auth/getToken", async () => {
-    const savedToken = await AsyncStorage.getItem("token")
-    const savedDate = await AsyncStorage.getItem("tokenDate")
+export const getAuthToken = createAsyncThunk(
+    "auth/getToken",
+    async (_, thunkAPI) => {
+        const savedToken = await AsyncStorage.getItem("token")
+        const savedDate = await AsyncStorage.getItem("tokenDate")
 
-    if (
-        savedToken &&
-        savedDate &&
-        new Date() - new Date(savedDate) < ONE_DAY_IN_MS
-    ) {
-        return savedToken
-    }
+        if (
+            savedToken &&
+            savedDate &&
+            new Date() - new Date(savedDate) < ONE_DAY_IN_MS
+        ) {
+            return savedToken
+        }
 
-    const response = await fetch("https://api.kvikmyndir.is/authenticate", {
-        method: "POST",
-        headers: {
-            Authorization: `Basic ${encodedCredentials}`,
-        },
-    })
+        try {
+            const response = await fetch(
+                "https://api.kvikmyndir.is/authenticate",
+                {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Basic ${encodedCredentials}`,
+                    },
+                },
+            )
 
-    const data = await response.json()
-
-    await AsyncStorage.setItem("token", data.token)
-    await AsyncStorage.setItem("tokenDate", new Date().toISOString())
-
-    return data.token
-})
+            if (response.ok) {
+                const data = await response.json()
+                await AsyncStorage.setItem("token", data.token)
+                await AsyncStorage.setItem(
+                    "tokenDate",
+                    new Date().toISOString(),
+                )
+                return data.token
+            } else {
+                return thunkAPI.rejectWithValue("Authentication failed")
+            }
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message)
+        }
+    },
+)
 
 const authSlice = createSlice({
     name: "auth",
