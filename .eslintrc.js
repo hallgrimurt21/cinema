@@ -38,5 +38,6 @@ module.exports = {
         "space-before-function-paren": ["error", "never"],
         "jsdoc/require-jsdoc": "off",
         "linebreak-style": "off",
+        "max-len": ["error", {"code": 100}],
     },
 }
