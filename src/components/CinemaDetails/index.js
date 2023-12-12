@@ -1,15 +1,10 @@
-import React, {useEffect} from "react"
+import React from "react"
 import {View, Text} from "react-native"
-import {useDispatch, useSelector} from "react-redux"
-import {getCinema} from "../../redux/features/cinemaSlice"
+import {useSelector} from "react-redux"
 
 const CinemaDetails = ({id}) => {
-    const dispatch = useDispatch()
-    const cinema = useSelector((state) => state.cinema)
-
-    useEffect(() => {
-        dispatch(getCinema(id))
-    }, [dispatch, id])
+    const cinemas = useSelector((state) => state.cinemas.cinemas)
+    const cinema = cinemas.find((cinema) => cinema.id === id)
     return (
         <View>
             <Text>{cinema.name}</Text>

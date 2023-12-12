@@ -4,7 +4,7 @@ import {useSelector} from "react-redux"
 import {useNavigation} from "@react-navigation/native"
 
 const CinemaMovies = ({id}) => {
-    const movies = useSelector((state) => state.allMovies.movies)
+    const movies = useSelector((state) => state.movies.movies)
     const filteredMovies = movies.filter((movie) =>
         movie.showtimes.some((showtime) => showtime.cinema.id === id),
     )

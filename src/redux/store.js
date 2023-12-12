@@ -1,14 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit"
-import cinemaReducer from "./features/cinemaSlice"
-import allCinemasReducer from "./features/allCinemasSlice"
-import allMoviesReducer from "./features/allMoviesSlice"
+import cinemasReducer from "./features/cinemasSlice"
+import moviesReducer from "./features/moviesSlice"
 import authReducer from "./features/authSlice"
 
 export const store = configureStore({
     reducer: {
-        cinema: cinemaReducer,
-        allCinemas: allCinemasReducer,
-        allMovies: allMoviesReducer,
+        cinemas: cinemasReducer,
+        movies: moviesReducer,
         auth: authReducer,
     },
 })
