@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         height: deviceWidth * 0.25,
         alignItems: "flex-end",
-        backgroundColor: "rgba(0,0,0,0.5)",
+        backgroundColor: "rgba(0,0,0,0.8)",
     },
     safe: {
         width: "100%",
