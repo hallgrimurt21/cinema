@@ -1,7 +1,6 @@
 import React from "react"
 import {View, Text} from "react-native"
 import {useSelector} from "react-redux"
-import styles from "./styles"
 
 const CinemaDetails = ({id}) => {
     const cinemas = useSelector((state) => state.cinemas.cinemas)
