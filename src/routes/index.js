@@ -16,7 +16,11 @@ function CinemaStackScreen() {
     return (
         <CinemaStack.Navigator>
             <CinemaStack.Screen name="Cinemas" component={AllCinemas} />
-            <CinemaStack.Screen name="Cinema" component={Cinema} />
+            <CinemaStack.Screen
+                name="Cinema"
+                component={Cinema}
+                options={{headerShown: false}}
+            />
             <CinemaStack.Screen
                 name="Movie"
                 component={Movie}
