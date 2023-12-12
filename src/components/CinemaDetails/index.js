@@ -9,7 +9,7 @@ const CinemaDetails = ({id}) => {
         <View>
             <Text>{cinema.name}</Text>
             <Text>{cinema.description}</Text>
-            <Text>{cinema.address}</Text>
+            <Text>{cinema["address\t"]}, {cinema.city}</Text>
             <Text>{cinema.phone}</Text>
             <Text>{cinema.website}</Text>
         </View>
