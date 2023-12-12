@@ -23,7 +23,8 @@
     "react-native-dotenv": "^3.4.9",
     "react-native-gesture-handler": "^2.14.0",
     "react-redux": "^9.0.2",
-    "redux": "^5.0.0"
+    "redux": "^5.0.0",
+    "web": "^0.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
