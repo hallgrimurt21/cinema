@@ -1,14 +1,14 @@
 import React, {useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux"
-import {View, Text, TouchableOpacity} from "react-native"
-import {fetchUpcomingMovies} from "../../redux/features/UpcomingMovies/upcomingMovies"
+import {View, Text, TouchableOpacity, Image} from "react-native"
+import {fetchUpcomingMovies} from "../../redux/features/upcomingMovies"
 import {useNavigation} from "@react-navigation/native"
 import {ScrollView} from "react-native-gesture-handler"
 
 const UpcomingMovies = () => {
     const navigate = useNavigation().navigate
     const dispatch = useDispatch()
-    const movies = useSelector((state) => state.upcomingMovies.movies)
+    const upcoming = useSelector((state) => state.upcomingMovies.movies)
 
     useEffect(() => {
         dispatch(fetchUpcomingMovies())
@@ -17,12 +17,17 @@ const UpcomingMovies = () => {
     return (
         <ScrollView>
             <View>
-                {movies.map((movie, index) => (
+                {upcoming.map((movie, index) => (
+                    console.log(movie),
+                    console.log(movie.poster),
                     <TouchableOpacity
                         key={index}
-                        onPress={() => navigate("Movie", {id: movie.id})}
-                    >
+                        onPress={() => navigate("Upcoming", {id: movie.id})}>
                         <Text>{movie.title}</Text>
+                        <Text>{movie.year}</Text>
+                        <Text>{movie.releasedateIS}</Text>
+                        <Text>{movie["release-dateIS"]}</Text>
+                        <Image source={{uri: movie.poster}} style={{width: 100, height: 100}} />
                     </TouchableOpacity>
                 ))}
             </View>
