@@ -10,7 +10,7 @@ const encodedCredentials = Buffer.from(`${USERNAME}:${PASSWORD}`).toString(
 
 export const getAuthToken = createAsyncThunk(
     "auth/getToken",
-    async (_, thunkAPI) => {
+    async(_, thunkAPI) => {
         const savedToken = await AsyncStorage.getItem("token")
         const savedDate = await AsyncStorage.getItem("tokenDate")
 

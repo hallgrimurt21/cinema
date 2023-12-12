@@ -1,5 +1,5 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
-import {getAuthToken} from "../../services/cinema"
+import {getAuthToken} from "./authSlice"
 
 
 // Async thunk for fetching data
