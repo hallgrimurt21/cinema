@@ -6,6 +6,7 @@ import Main from "../views/Main"
 import Cinema from "../views/Cinema"
 import AllCinemas from "../views/AllCinemas"
 import Upcoming from "../views/UpcomingMovies"
+import UpcomingDetail from "../views/UpcomingDetail"
 import Movie from "../views/Movie"
 
 const Tab = createBottomTabNavigator()
@@ -48,6 +49,12 @@ function Routes() {
                     component={Movie}
                     options={{headerShown: true}}
                 />
+                <Stack.Screen
+                    name="Upcoming"
+                    component={UpcomingDetail}
+                    options={{headerShown: true}}
+                />
+
             </Stack.Navigator>
         </NavigationContainer>
     )
