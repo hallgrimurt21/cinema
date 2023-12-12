@@ -13,12 +13,13 @@ function AppContent() {
     const dispatch = useDispatch()
     const token = useSelector((state) => state.auth.token)
 
-
     useEffect(() => {
-        dispatch(getAuthToken()).then(() => {})
-        dispatch(fetchCinemas(token))
-        dispatch(fetchMovies(token))
-    }, [dispatch])
+        dispatch(getAuthToken())
+        if (token) {
+            dispatch(fetchCinemas(token))
+            dispatch(fetchMovies(token))
+        }
+    }, [dispatch, token])
 
     return <Appcontainer />
 }

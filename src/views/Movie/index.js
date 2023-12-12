@@ -5,14 +5,14 @@ import {useSelector} from "react-redux"
 // eslint-disable-next-line require-jsdoc
 function MovieDetailsScreen({route}) {
     const {cinemaID, movieID} = route.params
-    const movie = useSelector((state) =>
-        state.movies.movies.find((movie) => movie.id === movieID),
-    )
+    const movies = useSelector((state) => state.movies.movies)
+    const movie = movies.find((movie) => movie.id === movieID)
+    console.log(movie)
 
-    const showtimes = movie.showtimes
-        .filter((showtime) => showtime.cinema.id === cinemaID)
-        .map((showtime) => showtime.schedule)
-        .flat()
+    // const showtimes = movie.showtimes
+    //     .filter((showtime) => showtime.cinema.id === cinemaID)
+    //     .map((showtime) => showtime.schedule)
+    //     .flat()
 
     const handlePress = (url) => {
         Linking.openURL(url)
@@ -32,7 +32,7 @@ function MovieDetailsScreen({route}) {
                 ))}
             </View>
             <View>
-                {showtimes.map((showtime, index) => (
+                {/* {showtimes.map((showtime, index) => (
                     <Pressable
                         key={index}
                         onPress={() => handlePress(showtime.purchase_url)}
@@ -40,9 +40,8 @@ function MovieDetailsScreen({route}) {
                         <Text>{showtime.time}</Text>
                         <Text>Buy ticket</Text>
                     </Pressable>
-                ))}
+                ))} */}
             </View>
-            {console.log(showtimes)}
         </View>
     )
 }
