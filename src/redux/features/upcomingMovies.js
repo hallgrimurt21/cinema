@@ -1,10 +1,8 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
-import {getAuthToken} from "./authSlice"
 
 export const fetchUpcomingMovies = createAsyncThunk(
     "upcoming/fetchUpcomingMovies",
-    async (_, {getState}) => {
-        const token = getAuthToken(getState())
+    async(token) => {
         const response = await fetch("https://api.kvikmyndir.is/upcoming", {
             headers: {
                 "x-access-token": token,

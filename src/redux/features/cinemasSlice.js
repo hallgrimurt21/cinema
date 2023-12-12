@@ -1,10 +1,9 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
-import {getAuthToken} from "./authSlice"
 
 // Async thunk for fetching data
 export const fetchCinemas = createAsyncThunk(
     "cinema/fetchCinemas",
-    async (token, thunkAPI) => {
+    async(token) => {
         console.log("fetchCinemas", token)
         const response = await fetch("https://api.kvikmyndir.is/theaters", {
             headers: {
