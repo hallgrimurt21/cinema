@@ -2,10 +2,11 @@ import React from "react"
 import {View, Text, Linking, Pressable, Image} from "react-native"
 import {useSelector} from "react-redux"
 
+// eslint-disable-next-line require-jsdoc
 function MovieDetailsScreen({route}) {
     const {cinemaID, movieID} = route.params
     const movie = useSelector((state) =>
-        state.allMovies.movies.find((movie) => movie.id === movieID),
+        state.movies.movies.find((movie) => movie.id === movieID),
     )
 
     const showtimes = movie.showtimes

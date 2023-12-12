@@ -1,5 +1,5 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
-import {getAuthToken} from "../../services/cinema"
+import {getAuthToken} from "./authSlice"
 
 
 // Async thunk for fetching data
@@ -26,8 +26,8 @@ const initialState = {
 }
 
 // Create cinema slice
-const allCinemasSlice = createSlice({
-    name: "allCinemas",
+const cinemasSlice = createSlice({
+    name: "cinemas",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -48,4 +48,4 @@ const allCinemasSlice = createSlice({
 })
 
 // Export reducer
-export default allCinemasSlice.reducer
+export default cinemasSlice.reducer

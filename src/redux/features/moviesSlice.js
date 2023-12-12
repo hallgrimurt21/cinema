@@ -1,41 +1,46 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
+import {getAuthToken} from "./authSlice"
 
 
 // Async thunk for fetching data
-export const getMovies = createAsyncThunk(
-    "cinema/getMovies",
-    async(id, {getState}) => {
-        const allMovies = getState().allMovies.movies
-        return allMovies.filter((movie) =>
-            movie.showtimes.some((showtime) => showtime.cinema.id === id),
-        )
+export const fetchMovies = createAsyncThunk(
+    "cinema/fetchMovies",
+    async() => {
+        const token = await getAuthToken()
+        const response = await fetch("https://api.kvikmyndir.is/movies", {
+            headers: {
+                "x-access-token": token,
+            },
+        })
+        const data = await response.json()
+        return data
     },
 )
 
 // Initial state
 const initialState = {
-    filteredMovies: [],
+    movies: [],
     status: "idle",
     error: null,
 }
 
 // Create cinema slice
-const filteredMoviesSlice = createSlice({
-    name: "filteredMovies",
+const moviesSlice = createSlice({
+    name: "movies",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getMovies.pending, (state) => {
+            .addCase(fetchMovies.pending, (state) => {
                 state.status = "loading"
                 state.movies = []
             })
-            .addCase(getMovies.fulfilled, (state, action) => {
+            .addCase(fetchMovies.fulfilled, (state, action) => {
                 state.status = "succeeded"
                 // Add movies to the state array
                 state.movies = state.movies.concat(action.payload)
             })
-            .addCase(getMovies.rejected, (state, action) => {
+            .addCase(fetchMovies.rejected, (state, action) => {
                 state.status = "failed"
                 state.error = action.error.message
             })
@@ -43,4 +48,4 @@ const filteredMoviesSlice = createSlice({
 })
 
 // Export reducer
-export default filteredMoviesSlice.reducer
+export default moviesSlice.reducer
