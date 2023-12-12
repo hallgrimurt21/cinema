@@ -16,7 +16,6 @@ const CinemaMovies = ({id}) => {
     return (
         <ScrollView contentContainerStyle={{paddingBottom: 200}}>
             {filteredMovies.map((movie) => (
-                <View key={movie.id}>
                 <View key={movie.id} style={{margin: 10}}>
                     <Pressable onPress={() => handlePress(movie.id)}>
                         <Text>{movie.title}</Text>

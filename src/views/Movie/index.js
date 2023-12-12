@@ -1,5 +1,5 @@
 import React from "react"
-import {View, Text, Linking, Pressable} from "react-native"
+import {View, Text, Linking, Pressable, Image} from "react-native"
 import {useSelector} from "react-redux"
 
 function MovieDetailsScreen({route}) {
@@ -22,7 +22,10 @@ function MovieDetailsScreen({route}) {
             <Text>Cinema ID: {cinemaID}</Text>
             <Text>Movie ID: {movieID}</Text>
             <Text>{movie.title}</Text>
-            <Text>{movie.poster}</Text>
+            <Image
+                source={{uri: movie.poster}}
+                style={{width: 100, height: 100}}
+            />
             <Text>{movie.plot}</Text>
             <Text>{movie.year}</Text>
             <View>
