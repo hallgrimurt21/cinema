@@ -9,7 +9,7 @@ const CinemaMovies = ({id}) => {
 
     useEffect(() => {
         dispatch(fetchMovies())
-        dispatch(filterMovies(id))
+            .then(dispatch(filterMovies(id)))
     }, [dispatch, id])
     return (
         <View>

@@ -22,14 +22,16 @@ export const filterMovies = createAsyncThunk("cinema/filterMovies", async(cinema
         const movies = getState().allMovies.movies
         console.log("Movies:", movies) // Log filtered movies
         console.log("ID:", cinemaId) // Log filtered movies
-        const filteredMovies = movies.filter((movie) =>
-            movie.showtimes.some((showtime) => showtime.cinema.id === cinemaId),
-        )
-        console.log("Filtered Movies:", filteredMovies) // Log filtered movies
-        if (filteredMovies.length === 0) {
-            throw new Error(`No movies found with cinema id ${cinemaId}`)
+        if (getState().allMovies.movies) {
+            const filteredMovies = movies.filter((movie) =>
+                movie.showtimes.some((showtime) => showtime.cinema.id === cinemaId),
+            )
+            console.log("Filtered Movies:", filteredMovies) // Log filtered movies
+            if (filteredMovies.length === 0) {
+                throw new Error(`No movies found with cinema id ${cinemaId}`)
+            }
+            return filteredMovies
         }
-        return filteredMovies
     } catch (error) {
         throw error
     }
@@ -50,34 +52,37 @@ const allMoviesSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchMovies.pending, (state) => {
+                console.log("Fetch Loading...")
                 state.status = "loading"
+                state.movies = []
             })
             .addCase(fetchMovies.fulfilled, (state, action) => {
                 state.status = "succeeded"
                 // Add movies to the state array
                 state.movies = state.movies.concat(action.payload)
+                console.log("fetchMovies.fulfilled")
             })
             .addCase(fetchMovies.rejected, (state, action) => {
                 state.status = "failed"
                 state.error = action.error.message
+                console.log("fetchMovies.rejected")
             })
 
             .addCase(filterMovies.pending, (state) => {
-                console.log("Loading...")
+                console.log("Filter Loading...")
                 state.status = "loading"
             })
             .addCase(filterMovies.fulfilled, (state, action) => {
-                console.log("Fulfilled")
                 state.status = "succeeded"
                 state.movies = []
                 // Add movies to the state array
                 state.movies = action.payload
+                console.log("Filter Fulfilled")
             })
             .addCase(filterMovies.rejected, (state, action) => {
-                console.log("Rejected")
                 state.status = "failed"
-                state.movies = []
                 state.error = action.error.message
+                console.log("Filter Rejected")
             })
     },
 })
