@@ -12,23 +12,48 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: strongGrey,
     },
+    header: {
+        paddingRight: 20,
+        paddingLeft: 20,
+        paddingBottom: 10,
+        height: deviceWidth * 0.25,
+        alignItems: "flex-end",
+        backgroundColor: "rgba(0,0,0,0.5)",
+    },
+    safe: {
+        width: "100%",
+        height: "100%",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+    },
+
+    rightInfo: {
+        justifyContent: "flex-end",
+        alignItems: "flex-end",
+    },
+
+    back: {
+        color: strongWhite,
+        fontSize: 20,
+        fontWeight: "bold",
+    },
     poster: {
         width: deviceWidth,
         height: deviceWidth * 1.5,
     },
     title: {
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: "bold",
         color: strongWhite,
         textAlign: "right",
-        backgroundColor: "rgba(0,0,0,0.5)",
+
         width: "100%",
     },
     year: {
-        fontSize: 20,
+        fontSize: 15,
         color: strongWhite,
         textAlign: "right",
-        backgroundColor: "rgba(0,0,0,0.5)",
         width: "100%",
     },
     plot: {
