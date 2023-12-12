@@ -1,50 +1,55 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
-import {getAuthToken} from "../../../services/cinema"
 
-
-// Async thunk for fetching data
-export const fetchCinemas = createAsyncThunk(
-    "cinema/fetchCinemas",
-    async() => {
-        const token = await getAuthToken()
-        const response = await fetch("https://api.kvikmyndir.is/movies", {
-            headers: {
-                "x-access-token": token,
-            },
-        })
-        const data = await response.json()
-        return data
-    },
-)
-
+// Async thunk
+export const getCinema = createAsyncThunk("cinema/getCinema", async(id, {getState}) => {
+    try {
+        const cinemas = getState().allCinemas.cinemas
+        const cinema = cinemas.find((cinema) => cinema.id === id)
+        if (!cinema) {
+            throw new Error(`No cinema found with id ${id}`)
+        }
+        return cinema
+    } catch (error) {
+        console.error("Error in getCinema:", error)
+        throw error
+    }
+})
 // Initial state
 const initialState = {
-    cinemas: [],
+    id: "",
+    name: "",
+    description: "",
+    address: "",
+    phone: "",
+    website: "",
     status: "idle",
     error: null,
 }
 
-// Create cinema slice
+// Slice
 const cinemaSlice = createSlice({
     name: "cinema",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchCinemas.pending, (state) => {
+            .addCase(getCinema.pending, (state) => {
                 state.status = "loading"
             })
-            .addCase(fetchCinemas.fulfilled, (state, action) => {
+            .addCase(getCinema.fulfilled, (state, action) => {
                 state.status = "succeeded"
-                // Add cinemas to the state array
-                state.cinemas = state.cinemas.concat(action.payload)
+                state.id = action.payload.id
+                state.name = action.payload.name
+                state.description = action.payload.description
+                state.address = action.payload["address\t"] + ", " + action.payload.city
+                state.phone = action.payload.phone
+                state.website = action.payload.website
             })
-            .addCase(fetchCinemas.rejected, (state, action) => {
+            .addCase(getCinema.rejected, (state, action) => {
                 state.status = "failed"
                 state.error = action.error.message
             })
     },
 })
 
-// Export reducer
 export default cinemaSlice.reducer
