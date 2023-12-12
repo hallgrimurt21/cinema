@@ -43,10 +43,9 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     allShows: {
-        flexDirection: mediumWhite,
         flexDirection: "row",
         flexWrap: "wrap",
-        flex: 1,
+        justifyContent: "space-between",
         shadowColor: "#000000",
         shadowOffset: {width: 0, height: 0},
         shadowOpacity: 0.5,
@@ -58,7 +57,7 @@ const styles = StyleSheet.create({
         padding: 10,
         justifyContent: "center",
         alignItems: "center",
-        flex: 1,
+        width: "33.33%",
     },
     genres: {
         flexDirection: "row",
