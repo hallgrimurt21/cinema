@@ -1,6 +1,14 @@
 import React from "react"
-import {View, Text, Linking, Pressable} from "react-native"
+import {
+    View,
+    Text,
+    Linking,
+    Pressable,
+    ImageBackground,
+    ScrollView,
+} from "react-native"
 import {useSelector} from "react-redux"
+import styles from "./styles"
 
 // eslint-disable-next-line require-jsdoc
 function MovieDetailsScreen({route}) {
@@ -19,21 +27,24 @@ function MovieDetailsScreen({route}) {
     }
 
     return (
-        <View>
-            <Text>Cinema ID: {cinemaID}</Text>
-            <Text>Movie ID: {movieID}</Text>
-            <Text>{movie.title}</Text>
-            <Text>{movie.poster}</Text>
-            <Text>{movie.plot}</Text>
-            <Text>{movie.year}</Text>
-            <View>
+        <ScrollView style={styles.container}>
+            <ImageBackground style={styles.poster} source={{uri: movie.poster}}>
+                <Text style={styles.title}>{movie.title}</Text>
+                <Text style={styles.year}>{movie.year}</Text>
+            </ImageBackground>
+            <Text style={styles.plot}>{movie.plot}</Text>
+
+            <View style={styles.genres}>
                 {movie.genres.map((genre, index) => (
-                    <Text key={index}>{genre["NameEN\t"]}</Text>
+                    <Text style={styles.genre} key={index}>
+                        {genre["NameEN\t"]}
+                    </Text>
                 ))}
             </View>
-            <View>
+            <View style={styles.allShows}>
                 {showtimes.map((showtime, index) => (
                     <Pressable
+                        style={styles.showtime}
                         key={index}
                         onPress={() => handlePress(showtime.purchase_url)}
                     >
@@ -42,7 +53,7 @@ function MovieDetailsScreen({route}) {
                     </Pressable>
                 ))}
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
