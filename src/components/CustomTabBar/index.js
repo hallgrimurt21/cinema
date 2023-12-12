@@ -46,7 +46,7 @@ function CustomTabBar({state, descriptors, navigation}) {
                                 source={{uri: "https://batterseapowerstation.co.uk/content/uploads/2022/08/Cinema-in-the-Power-Station-image001hero-1600x869.jpg"}}
                                 style={{...tabStyle, width: "100%", height: "100%"}}
                             >
-                                <Text style={{color: isFocused ? "white" : "grey", fontSize: 14, textShadowColor: "rgba(0, 0, 0, 0.75)", textShadowOffset: {width: -1, height: 1}, textShadowRadius: 10}}>
+                                <Text style={{color: isFocused ? "white" : "white", fontSize: 14, textShadowColor: "rgba(0, 0, 0, 0.75)", textShadowOffset: {width: -1, height: 1}, textShadowRadius: 10}}>
                                     {label}
                                 </Text>
                             </ImageBackground>
@@ -55,12 +55,12 @@ function CustomTabBar({state, descriptors, navigation}) {
                                 source={{uri: "https://shspublications.com/wp-content/uploads/2023/02/938EC347-405F-4FF1-B447-40BDDEE91026_1_201_a.jpeg"}}
                                 style={{...tabStyle, width: "100%", height: "100%"}}
                             >
-                                <Text style={{color: isFocused ? "white" : "grey", fontSize: 14, textShadowColor: "rgba(0, 0, 0, 0.75)", textShadowOffset: {width: -1, height: 1}, textShadowRadius: 10}}>
+                                <Text style={{color: isFocused ? "white" : "white", fontSize: 14, textShadowColor: "rgba(0, 0, 0, 0.75)", textShadowOffset: {width: -1, height: 1}, textShadowRadius: 10}}>
                                     {label}
                                 </Text>
                             </ImageBackground>
                         ) : (
-                            <Text style={{color: isFocused ? "white" : "grey", fontSize: 14, textShadowColor: "rgba(0, 0, 0, 0.75)", textShadowOffset: {width: -1, height: 1}, textShadowRadius: 10}}>
+                            <Text style={{color: isFocused ? "white" : "white", fontSize: 14, textShadowColor: "rgba(0, 0, 0, 0.75)", textShadowOffset: {width: -1, height: 1}, textShadowRadius: 10}}>
                                 {label}
                             </Text>
                         )}
