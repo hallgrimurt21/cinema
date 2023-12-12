@@ -9,8 +9,7 @@ import {ScrollView} from "react-native-gesture-handler"
 const CinemaList = () => {
     const navigate = useNavigation().navigate
     const dispatch = useDispatch()
-    const cinemas = useSelector((state) => [...state.allCinemas.cinemas])
-        .sort((a, b) => a.name.localeCompare(b.name))
+    const cinemas = useSelector((state) => state.allCinemas.cinemas)
 
     useEffect(() => {
         dispatch(fetchCinemas())
