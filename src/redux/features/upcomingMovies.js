@@ -1,5 +1,5 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
-import {getAuthToken} from "../../services/cinema"
+import {getAuthToken} from "./authSlice"
 
 export const fetchUpcomingMovies = createAsyncThunk(
     "upcoming/fetchUpcomingMovies",
@@ -10,7 +10,8 @@ export const fetchUpcomingMovies = createAsyncThunk(
                 "x-access-token": token,
             },
         })
-        const data = await response.json()
+        let data = await response.json()
+        data = data.sort((a, b) => new Date(a["release-dateIS"]) - new Date(b["release-dateIS"]))
         return data
     },
 )
