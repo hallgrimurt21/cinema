@@ -16,6 +16,7 @@ export const getCinema = createAsyncThunk("cinema/getCinema", async(id, {getStat
 })
 // Initial state
 const initialState = {
+    id: "",
     name: "",
     description: "",
     address: "",
@@ -34,11 +35,10 @@ const cinemaSlice = createSlice({
         builder
             .addCase(getCinema.pending, (state) => {
                 state.status = "loading"
-                console.log("Loading cinema...")
             })
             .addCase(getCinema.fulfilled, (state, action) => {
-                console.log(action)
                 state.status = "succeeded"
+                state.id = action.payload.id
                 state.name = action.payload.name
                 state.description = action.payload.description
                 state.address = action.payload["address\t"] + ", " + action.payload.city
