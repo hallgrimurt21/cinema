@@ -1,7 +1,17 @@
 import {StyleSheet} from "react-native"
 import {deviceWidth} from "../../styles/sizes"
+import {
+    mediumWhite,
+    mediumGrey,
+    strongGrey,
+    strongWhite,
+} from "../../styles/colors"
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: strongGrey,
+    },
     poster: {
         width: deviceWidth,
         height: deviceWidth * 1.5,
@@ -9,44 +19,79 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         fontWeight: "bold",
-        color: "white",
+        color: strongWhite,
         textAlign: "right",
         backgroundColor: "rgba(0,0,0,0.5)",
         width: "100%",
     },
     year: {
         fontSize: 20,
-        color: "white",
+        color: strongWhite,
         textAlign: "right",
         backgroundColor: "rgba(0,0,0,0.5)",
         width: "100%",
     },
     plot: {
-        color: "black",
+        color: mediumWhite,
         textAlign: "center",
         padding: 10,
     },
     genre: {
+        color: mediumWhite,
         fontSize: 20,
-        color: "black",
         textAlign: "center",
         padding: 10,
     },
     allShows: {
+        flexDirection: mediumWhite,
         flexDirection: "row",
         flexWrap: "wrap",
-        justifyContent: "space-around",
+        flex: 1,
+        shadowColor: "#000000",
+        shadowOffset: {width: 0, height: 0},
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        marginTop: 10,
     },
     showtime: {
-        backgroundColor: "lightblue",
+        backgroundColor: mediumGrey,
         padding: 10,
-        margin: 10,
-        borderRadius: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        flex: 1,
     },
     genres: {
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-around",
+    },
+    buttonRow: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        backgroundColor: "#000000",
+        shadowColor: "#000000",
+        shadowOffset: {width: 0, height: 0},
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+    },
+    botButton: {
+        backgroundColor: mediumGrey,
+        flex: 1,
+        padding: 10,
+        alignItems: "center",
+        justifyContent: "center",
+        height: 50,
+    },
+    botButText: {
+        color: mediumWhite,
+    },
+    time: {
+        color: mediumWhite,
+        fontSize: 15,
+    },
+    buy: {
+        color: mediumWhite,
+        fontSize: 10,
     },
 })
 
