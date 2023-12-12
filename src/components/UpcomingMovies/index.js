@@ -20,10 +20,14 @@ const UpcomingMovies = () => {
                 {upcoming.map((movie, index) => (
                     <TouchableOpacity
                         key={index}
-                        onPress={() => navigate("Upcoming", {id: movie.id})}>
+                        onPress={() => navigate("Upcoming", {id: movie.id})}
+                    >
                         <Text>{movie.title}</Text>
                         <Text>{movie["release-dateIS"]}</Text>
-                        <Image source={{uri: movie.poster}} style={{width: 100, height: 100}} />
+                        <Image
+                            source={{uri: movie.poster}}
+                            style={{width: 100, height: 100}}
+                        />
                     </TouchableOpacity>
                 ))}
             </View>

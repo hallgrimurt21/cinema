@@ -1,12 +1,12 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 import {getAuthToken} from "./authSlice"
 
-
 // Async thunk for fetching data
 export const fetchMovies = createAsyncThunk(
     "cinema/fetchMovies",
-    async() => {
-        const token = await getAuthToken()
+    async (_, {getState}) => {
+        const token = getAuthToken(getState())
+        console.log(token)
         const response = await fetch("https://api.kvikmyndir.is/movies", {
             headers: {
                 "x-access-token": token,
@@ -16,7 +16,6 @@ export const fetchMovies = createAsyncThunk(
         return data
     },
 )
-
 // Initial state
 const initialState = {
     movies: [],

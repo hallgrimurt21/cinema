@@ -3,15 +3,18 @@ import {getAuthToken} from "./authSlice"
 
 export const fetchUpcomingMovies = createAsyncThunk(
     "upcoming/fetchUpcomingMovies",
-    async() => {
-        const token = await getAuthToken()
+    async (_, {getState}) => {
+        const token = getAuthToken(getState())
         const response = await fetch("https://api.kvikmyndir.is/upcoming", {
             headers: {
                 "x-access-token": token,
             },
         })
         let data = await response.json()
-        data = data.sort((a, b) => new Date(a["release-dateIS"]) - new Date(b["release-dateIS"]))
+        data = data.sort(
+            (a, b) =>
+                new Date(a["release-dateIS"]) - new Date(b["release-dateIS"]),
+        )
         return data
     },
 )
