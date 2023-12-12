@@ -1,19 +1,13 @@
 import React, {useEffect} from "react"
-import {useDispatch, useSelector} from "react-redux"
+import {useSelector} from "react-redux"
 import {View, Text, TouchableOpacity} from "react-native"
-import {fetchCinemas} from "../../redux/features/allCinemasSlice"
 import {useNavigation} from "@react-navigation/native"
 import styles from "./styles"
 import {ScrollView} from "react-native-gesture-handler"
 
 const CinemaList = () => {
     const navigate = useNavigation().navigate
-    const dispatch = useDispatch()
     const cinemas = useSelector((state) => state.allCinemas.cinemas)
-
-    useEffect(() => {
-        dispatch(fetchCinemas())
-    }, [])
 
     return (
         <ScrollView>
