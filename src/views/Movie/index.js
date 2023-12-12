@@ -6,7 +6,7 @@ import {
     Pressable,
     ImageBackground,
     ScrollView,
-    Button,
+    SafeAreaView,
 } from "react-native"
 import styles from "./styles"
 import {useSelector, useDispatch} from "react-redux"
@@ -16,6 +16,7 @@ import {
     showShowtimes,
     hideAll,
 } from "../../redux/features/visibilitySlice"
+import {useNavigation} from "@react-navigation/native"
 
 // eslint-disable-next-line require-jsdoc
 function MovieDetailsScreen({route}) {
@@ -26,6 +27,7 @@ function MovieDetailsScreen({route}) {
     const visibleSection = useSelector(
         (state) => state.visibility.visibleSection,
     )
+    const navigation = useNavigation()
 
     const handleToggle = (section) => {
         if (visibleSection === section) {
@@ -56,12 +58,26 @@ function MovieDetailsScreen({route}) {
         Linking.openURL(url)
     }
 
+    handleNavigate = () => {
+        return () => navigation.goBack()
+    }
+
     return (
         <ScrollView style={styles.container}>
             <ImageBackground style={styles.poster} source={{uri: movie.poster}}>
-                <Text style={styles.title}>{movie.title}</Text>
-                <Text style={styles.year}>{movie.year}</Text>
+                <View style={styles.header}>
+                    <SafeAreaView style={styles.safe}>
+                        <Pressable onPress={handleNavigate()}>
+                            <Text style={styles.back}>Back</Text>
+                        </Pressable>
+                        <View style={styles.rightInfo}>
+                            <Text style={styles.title}>{movie.title}</Text>
+                            <Text style={styles.year}>{movie.year}</Text>
+                        </View>
+                    </SafeAreaView>
+                </View>
             </ImageBackground>
+
             <View style={styles.buttonRow}>
                 <Pressable
                     style={({pressed}) => [

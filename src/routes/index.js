@@ -25,6 +25,7 @@ function CinemaStackScreen() {
             <CinemaStack.Screen
                 name="Movie Page"
                 component={Movie}
+                options={{headerShown: false}}
             />
         </CinemaStack.Navigator>
     )
