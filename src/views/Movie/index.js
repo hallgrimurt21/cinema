@@ -27,7 +27,7 @@ function MovieDetailsScreen({route}) {
             <Text>{movie.year}</Text>
             <View>
                 {movie.genres.map((genre, index) => (
-                    <Text key={index}>{genre.Name}</Text>
+                    <Text key={index}>{genre["NameEN\t"]}</Text>
                 ))}
             </View>
             <View>
