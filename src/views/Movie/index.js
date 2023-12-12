@@ -1,10 +1,13 @@
 // src/views/movie/index.js
 import React from "react"
-import {Text, Image, View} from "react-native"
-import {useSelector} from "react-redux"
+import {Text, Image, View, Button} from "react-native"
+import {useSelector, useDispatch} from "react-redux"
+import {nextMovie} from "../../redux/features/movieSlice"
 
 const Movie = () => {
-    const movie = useSelector((state) => state.movie)
+    const dispatch = useDispatch()
+    const movies = useSelector((state) => state.movie)
+    const movie = movies.movie
 
     return (
         <View>
@@ -16,6 +19,7 @@ const Movie = () => {
             <Text>{movie.plot}</Text>
             <Text>Duration: {movie.duration} minutes</Text>
             <Text>Genre: {movie.genre}</Text>
+            <Button title="Next Movie" onPress={() => dispatch(nextMovie())} />
         </View>
     )
 }
