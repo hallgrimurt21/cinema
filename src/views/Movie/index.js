@@ -1,6 +1,14 @@
 import React from "react"
-import {View, Text, Linking, Pressable, Image} from "react-native"
+import {
+    View,
+    Text,
+    Linking,
+    Pressable,
+    Image,
+    ImageBackground,
+} from "react-native"
 import {useSelector} from "react-redux"
+import styles from "./styles"
 
 // eslint-disable-next-line require-jsdoc
 function MovieDetailsScreen({route}) {
@@ -20,31 +28,31 @@ function MovieDetailsScreen({route}) {
 
     return (
         <View>
-            <Text>Cinema ID: {cinemaID}</Text>
-            <Text>Movie ID: {movieID}</Text>
-            <Text>{movie.title}</Text>
-            <Image
-                source={{uri: movie.poster}}
-                style={{width: 100, height: 100}}
-            />
-            <Text>{movie.plot}</Text>
-            <Text>{movie.year}</Text>
-            <View>
+            <ImageBackground source={{uri: movie.poster}} style={styles.image}>
+                <Text style={styles.title}>{movie.title}</Text>
+            </ImageBackground>
+            <Text style={styles.info}>{movie.plot}</Text>
+            <Text style={styles.info}>{movie.year}</Text>
+            <View style={styles.genreBox}>
                 {movie.genres.map((genre, index) => (
-                    <Text key={index}>{genre["NameEN\t"]}</Text>
+                    <Text style={styles.genre} key={index}>
+                        {genre["NameEN\t"]}
+                    </Text>
                 ))}
             </View>
             <View>
                 {showtimes.map((showtime, index) => (
                     <Pressable
+                        style={styles.showtime}
                         key={index}
                         onPress={() => handlePress(showtime.purchase_url)}
                     >
-                        <Text>{showtime.time}</Text>
-                        <Text>Buy ticket</Text>
+                        <Text style={styles.time}>{showtime.time}</Text>
+                        <Text style={styles.buy}>Buy ticket</Text>
                     </Pressable>
                 ))}
             </View>
+
             {console.log(showtimes)}
         </View>
     )
