@@ -1,12 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit"
-
-// This is a placeholder reducer
-const placeholderReducer = (state = {}, action) => {
-    return state
-}
+import userReducer from "./features/userSlice"
 
 export const store = configureStore({
     reducer: {
-        placeholder: placeholderReducer,
+        user: userReducer,
     },
 })
