@@ -5,9 +5,10 @@ import {createStackNavigator} from "@react-navigation/stack"
 import Main from "../views/Main"
 import Cinema from "../views/Cinema"
 import AllCinemas from "../views/AllCinemas"
-import Upcoming from "../views/UpcomingMovies"
+import UpcomingList from "../views/UpcomingMovies"
 import UpcomingDetail from "../views/UpcomingDetail"
 import Movie from "../views/Movie"
+
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -18,7 +19,7 @@ function Home() {
         <Tab.Navigator>
             <Tab.Screen name="Main" component={Main} />
             <Tab.Screen name="Cinemas" component={AllCinemas} />
-            <Tab.Screen name="Upcoming Movies" component={Upcoming} />
+            <Tab.Screen name="Upcoming Movies" component={UpcomingList} />
         </Tab.Navigator>
     )
 }

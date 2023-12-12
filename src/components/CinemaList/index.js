@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React from "react"
 import {useSelector} from "react-redux"
 import {View, Text, TouchableOpacity} from "react-native"
 import {useNavigation} from "@react-navigation/native"
@@ -7,7 +7,7 @@ import {ScrollView} from "react-native-gesture-handler"
 
 const CinemaList = () => {
     const navigate = useNavigation().navigate
-    const cinemas = useSelector((state) => state.allCinemas.cinemas)
+    const cinemas = useSelector((state) => state.cinemas.cinemas)
 
     return (
         <ScrollView>

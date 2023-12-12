@@ -18,8 +18,6 @@ const UpcomingMovies = () => {
         <ScrollView>
             <View>
                 {upcoming.map((movie, index) => (
-                    console.log(movie),
-                    console.log(movie.poster),
                     <TouchableOpacity
                         key={index}
                         onPress={() => navigate("Upcoming", {id: movie.id})}>

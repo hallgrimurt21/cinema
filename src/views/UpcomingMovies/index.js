@@ -2,7 +2,7 @@ import React from "react"
 import {View, Text} from "react-native"
 import UpcomingMovies from "../../components/UpcomingMovies"
 
-const Upcoming = () => {
+const UpcomingList = () => {
     return (
         <View>
             <Text>Upcoming Movies</Text>
@@ -11,4 +11,4 @@ const Upcoming = () => {
     )
 }
 
-export default Upcoming
+export default UpcomingList

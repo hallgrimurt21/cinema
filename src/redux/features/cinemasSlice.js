@@ -3,44 +3,44 @@ import {getAuthToken} from "../../services/cinema"
 
 
 // Async thunk for fetching data
-export const fetchMovies = createAsyncThunk(
-    "cinema/fetchMovies",
+export const fetchCinemas = createAsyncThunk(
+    "cinema/fetchCinemas",
     async() => {
         const token = await getAuthToken()
-        const response = await fetch("https://api.kvikmyndir.is/movies", {
+        const response = await fetch("https://api.kvikmyndir.is/theaters", {
             headers: {
                 "x-access-token": token,
             },
         })
-        const data = await response.json()
+        let data = await response.json()
+        data = data.sort((a, b) => a.name.localeCompare(b.name))
         return data
     },
 )
 
 // Initial state
 const initialState = {
-    movies: [],
+    cinemas: [],
     status: "idle",
     error: null,
 }
 
 // Create cinema slice
-const allMoviesSlice = createSlice({
-    name: "allMovies",
+const cinemasSlice = createSlice({
+    name: "cinemas",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchMovies.pending, (state) => {
+            .addCase(fetchCinemas.pending, (state) => {
                 state.status = "loading"
-                state.movies = []
             })
-            .addCase(fetchMovies.fulfilled, (state, action) => {
+            .addCase(fetchCinemas.fulfilled, (state, action) => {
                 state.status = "succeeded"
-                // Add movies to the state array
-                state.movies = state.movies.concat(action.payload)
+                // Add cinemas to the state array
+                state.cinemas = state.cinemas.concat(action.payload)
             })
-            .addCase(fetchMovies.rejected, (state, action) => {
+            .addCase(fetchCinemas.rejected, (state, action) => {
                 state.status = "failed"
                 state.error = action.error.message
             })
@@ -48,4 +48,4 @@ const allMoviesSlice = createSlice({
 })
 
 // Export reducer
-export default allMoviesSlice.reducer
+export default cinemasSlice.reducer
