@@ -8,6 +8,7 @@ import {fetchCinemas} from "./src/redux/features/cinemasSlice"
 import {fetchMovies} from "./src/redux/features/moviesSlice"
 import {useDispatch, useSelector} from "react-redux"
 import {getAuthToken} from "./src/redux/features/authSlice"
+import { fetchUpcomingMovies } from "./src/redux/features/upcomingMovies"
 
 function AppContent() {
     const dispatch = useDispatch()
@@ -18,6 +19,7 @@ function AppContent() {
         if (token) {
             dispatch(fetchCinemas(token))
             dispatch(fetchMovies(token))
+            dispatch(fetchUpcomingMovies(token))
         }
     }, [dispatch, token])
 
