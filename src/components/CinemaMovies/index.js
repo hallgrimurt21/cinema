@@ -1,7 +1,7 @@
 import React, {useEffect} from "react"
 import {View, Text} from "react-native"
 import {useDispatch, useSelector} from "react-redux"
-import {fetchMovies, filterMovies} from "../../redux/features/allMovies"
+import {fetchMovies, filterMovies} from "../../redux/features/allMoviesSlice"
 
 const CinemaMovies = ({id}) => {
     const dispatch = useDispatch()

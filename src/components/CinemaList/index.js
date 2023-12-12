@@ -1,7 +1,7 @@
 import React, {useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux"
 import {View, Text, TouchableOpacity} from "react-native"
-import {fetchCinemas} from "../../redux/features/allCinemas"
+import {fetchCinemas} from "../../redux/features/allCinemasSlice"
 import {useNavigation} from "@react-navigation/native"
 import styles from "./styles"
 import {ScrollView} from "react-native-gesture-handler"
