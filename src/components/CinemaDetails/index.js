@@ -1,17 +1,18 @@
 import React from "react"
 import {View, Text} from "react-native"
 import {useSelector} from "react-redux"
+import styles from "./styles"
 
 const CinemaDetails = ({id}) => {
     const cinemas = useSelector((state) => state.cinemas.cinemas)
     const cinema = cinemas.find((cinema) => cinema.id === id)
     return (
-        <View>
-            <Text>{cinema.name}</Text>
-            <Text>{cinema.description}</Text>
-            <Text>{cinema.address}</Text>
-            <Text>{cinema.phone}</Text>
-            <Text>{cinema.website}</Text>
+        <View style={styles.container}>
+            <Text style={styles.cinemaName}>{cinema.name}</Text>
+            <Text style={styles.cinemaDescription}>{cinema.description}</Text>
+            <Text style={styles.address}>{cinema.address}</Text>
+            <Text style={styles.phone}>{cinema.phone}</Text>
+            <Text style={styles.cinemaWebsite}>{cinema.website}</Text>
         </View>
     )
 }
