@@ -1,7 +1,7 @@
-import React from "react";
-import {View} from "react-native";
-import UpcomingMovies from "../../components/UpcomingMovies";
-import UpcomingDetail from "../../components/UpcomingDetail";
+import React from "react"
+import {View} from "react-native"
+import UpcomingMovies from "../../components/UpcomingMovies"
+import UpcomingDetail from "../../components/UpcomingDetail"
 
 const Upcoming = ({route}) => {
     const {id} = route.params
