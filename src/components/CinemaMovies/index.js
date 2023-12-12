@@ -1,5 +1,5 @@
 import React from "react"
-import {View, Text, Pressable} from "react-native"
+import {View, Text, Pressable, Image, ScrollView} from "react-native"
 import {useSelector} from "react-redux"
 import {useNavigation} from "@react-navigation/native"
 
@@ -14,15 +14,25 @@ const CinemaMovies = ({id}) => {
         navigate("Movie", {movieID, cinemaID: id})
     }
     return (
-        <View>
+        <ScrollView contentContainerStyle={{paddingBottom: 200}}>
             {filteredMovies.map((movie) => (
                 <View key={movie.id}>
+                <View key={movie.id} style={{margin: 10}}>
                     <Pressable onPress={() => handlePress(movie.id)}>
                         <Text>{movie.title}</Text>
+                        <Text>{movie.year}</Text>
+
+                        <Image
+                            source={{uri: movie.poster}}
+                            style={{width: 100, height: 100}}
+                        />
+                        {movie.genres.map((genre, index) => (
+                            <Text key={index}>{genre["NameEN\t"]}</Text>
+                        ))}
                     </Pressable>
                 </View>
             ))}
-        </View>
+        </ScrollView>
     )
 }
 
