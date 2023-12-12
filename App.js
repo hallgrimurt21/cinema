@@ -15,6 +15,9 @@ function AppContent() {
 
     useEffect(() => {
         dispatch(getAuthToken())
+    }, [dispatch])
+
+    useEffect(() => {
         if (token) {
             dispatch(fetchCinemas(token))
             dispatch(fetchMovies(token))

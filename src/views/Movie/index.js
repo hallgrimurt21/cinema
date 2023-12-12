@@ -9,10 +9,10 @@ function MovieDetailsScreen({route}) {
     const movie = movies.find((movie) => movie.id === movieID)
     console.log(movie)
 
-    // const showtimes = movie.showtimes
-    //     .filter((showtime) => showtime.cinema.id === cinemaID)
-    //     .map((showtime) => showtime.schedule)
-    //     .flat()
+    const showtimes = movie.showtimes
+        .filter((showtime) => showtime.cinema.id === cinemaID)
+        .map((showtime) => showtime.schedule)
+        .flat()
 
     const handlePress = (url) => {
         Linking.openURL(url)
@@ -32,7 +32,7 @@ function MovieDetailsScreen({route}) {
                 ))}
             </View>
             <View>
-                {/* {showtimes.map((showtime, index) => (
+                {showtimes.map((showtime, index) => (
                     <Pressable
                         key={index}
                         onPress={() => handlePress(showtime.purchase_url)}
@@ -40,7 +40,7 @@ function MovieDetailsScreen({route}) {
                         <Text>{showtime.time}</Text>
                         <Text>Buy ticket</Text>
                     </Pressable>
-                ))} */}
+                ))}
             </View>
         </View>
     )
