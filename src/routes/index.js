@@ -5,6 +5,7 @@ import {createStackNavigator} from "@react-navigation/stack"
 import Main from "../views/Main"
 import Cinema from "../views/Cinema"
 import AllCinemas from "../views/AllCinemas"
+import Upcoming from "../views/UpcomingMovies"
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -15,6 +16,7 @@ function Home() {
         <Tab.Navigator>
             <Tab.Screen name="Main" component={Main} />
             <Tab.Screen name="Cinemas" component={AllCinemas} />
+            <Tab.Screen name="Upcoming Movies" component={Upcoming} />
         </Tab.Navigator>
     )
 }
