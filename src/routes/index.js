@@ -5,6 +5,7 @@ import {createStackNavigator} from "@react-navigation/stack"
 import Main from "../views/Main"
 import Cinema from "../views/Cinema"
 import AllCinemas from "../views/AllCinemas"
+import Movie from "../views/Movie"
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()

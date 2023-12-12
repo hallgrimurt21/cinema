@@ -1,3 +1,4 @@
+// src/redux/store/index.js
 import {configureStore} from "@reduxjs/toolkit"
 import cinemaReducer from "../features/cinema/index"
 import allCinemasReducer from "../features/allCinemas/index"
@@ -10,3 +11,5 @@ export const store = configureStore({
         allMovies: allMoviesReducer,
     },
 })
+
+export default store
