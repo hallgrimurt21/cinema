@@ -12,12 +12,12 @@ import {getAuthToken} from "./src/redux/features/authSlice"
 function AppContent() {
     const dispatch = useDispatch()
     const token = useSelector((state) => state.auth.token)
-    console.log(token)
+
 
     useEffect(() => {
         dispatch(getAuthToken()).then(() => {})
-        dispatch(fetchCinemas())
-        dispatch(fetchMovies())
+        dispatch(fetchCinemas(token))
+        dispatch(fetchMovies(token))
     }, [dispatch])
 
     return <Appcontainer />

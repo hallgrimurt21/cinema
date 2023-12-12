@@ -4,8 +4,7 @@ import {getAuthToken} from "./authSlice"
 // Async thunk for fetching data
 export const fetchMovies = createAsyncThunk(
     "cinema/fetchMovies",
-    async (_, {getState}) => {
-        const token = getAuthToken(getState())
+    async(token) => {
         console.log(token)
         const response = await fetch("https://api.kvikmyndir.is/movies", {
             headers: {

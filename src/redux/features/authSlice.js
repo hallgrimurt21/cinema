@@ -5,7 +5,7 @@ import base64 from "react-native-base64"
 export const getAuthToken = createAsyncThunk(
     "auth/getToken",
 
-    async (_, thunkAPI) => {
+    async(_, thunkAPI) => {
         const encodedCredentials = base64.encode(`${USERNAME}:${PASSWORD}`)
         try {
             const response = await fetch(

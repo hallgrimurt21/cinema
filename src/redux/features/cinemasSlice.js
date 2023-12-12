@@ -5,8 +5,7 @@ import {getAuthToken} from "./authSlice"
 // Async thunk for fetching data
 export const fetchCinemas = createAsyncThunk(
     "cinema/fetchCinemas",
-    async() => {
-        const token = await getAuthToken()
+    async(token) => {
         const response = await fetch("https://api.kvikmyndir.is/theaters", {
             headers: {
                 "x-access-token": token,
