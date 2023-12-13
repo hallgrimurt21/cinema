@@ -3,6 +3,7 @@ import cinemasReducer from "./features/cinemasSlice"
 import moviesReducer from "./features/moviesSlice"
 import authReducer from "./features/authSlice"
 import upcomingMoviesReducer from "./features/upcomingMovies"
+import visibilityReducer from "./features/visibilitySlice"
 
 export const store = configureStore({
     reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
         movies: moviesReducer,
         auth: authReducer,
         upcomingMovies: upcomingMoviesReducer,
+        visibility: visibilityReducer,
     },
 })

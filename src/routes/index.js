@@ -1,60 +1,61 @@
+/* eslint-disable require-jsdoc */
 import React from "react"
 import {NavigationContainer} from "@react-navigation/native"
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import {createStackNavigator} from "@react-navigation/stack"
 import Cinema from "../views/Cinema"
 import AllCinemas from "../views/AllCinemas"
-import UpcomingList from "../views/UpcomingMovies"
-import UpcomingDetail from "../views/UpcomingDetail"
 import Movie from "../views/Movie"
-
+import UpcomingMovies from "../components/UpcomingMovies"
 
 const Tab = createBottomTabNavigator()
-const Stack = createStackNavigator()
+const CinemaStack = createStackNavigator()
+const UpcomingStack = createStackNavigator()
 
-// eslint-disable-next-line require-jsdoc
-function Home() {
+function CinemaStackScreen() {
     return (
-        <Tab.Navigator>
-            <Tab.Screen name="Cinemas" component={AllCinemas} />
-            <Tab.Screen name="Upcoming Movies" component={UpcomingList} />
-        </Tab.Navigator>
+        <CinemaStack.Navigator>
+            <CinemaStack.Screen name="Cinemas" component={AllCinemas} />
+            <CinemaStack.Screen
+                name="Cinema"
+                component={Cinema}
+                options={{headerShown: false}}
+            />
+            <CinemaStack.Screen
+                name="Movie"
+                component={Movie}
+                options={{headerShown: false}}
+            />
+        </CinemaStack.Navigator>
     )
 }
-/**
- * Nacigates between Views.
- *
- * @return {JSX.Element} The Routes component.
- */
+function UpcomingStackScreen() {
+    return (
+        <UpcomingStack.Navigator>
+            <UpcomingStack.Screen
+                name="Upcoming Movies"
+                component={UpcomingMovies}
+            />
+        </UpcomingStack.Navigator>
+    )
+}
 function Routes() {
-    const StackOptions = {
-        headerShown: true,
+    const TabOptions = {
+        headerShown: false,
     }
 
     return (
         <NavigationContainer>
-            <Stack.Navigator
-                initialRouteName="Home"
-                screenOptions={StackOptions}
+            <Tab.Navigator
+                initialRouteName="Cinemas"
+                screenOptions={TabOptions}
             >
-                <Stack.Screen
-                    name="Home" component={Home}
-                    options={{headerShown: false}}
+                <Tab.Screen name="CinemasTab" component={CinemaStackScreen} />
+                <Tab.Screen
+                    name="UpcomingMoviesTab"
+                    component={UpcomingStackScreen}
                 />
-                <Stack.Screen
-                    name="Cinema"
-                    component={Cinema}
-                />
-                <Stack.Screen
-                    name="Movie"
-                    component={Movie}
-                />
-                <Stack.Screen
-                    name="Upcoming"
-                    component={UpcomingDetail}
-                />
-
-            </Stack.Navigator>
+            </Tab.Navigator>
         </NavigationContainer>
     )
 }

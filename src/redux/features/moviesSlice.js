@@ -3,7 +3,7 @@ import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 // Async thunk for fetching data
 export const fetchMovies = createAsyncThunk(
     "cinema/fetchMovies",
-    async (token, thunkAPI) => {
+    async(token) => {
         console.log("fetchMovies", token)
         const response = await fetch("https://api.kvikmyndir.is/movies", {
             headers: {

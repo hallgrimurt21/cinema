@@ -2,8 +2,7 @@ import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 
 export const fetchUpcomingMovies = createAsyncThunk(
     "upcoming/fetchUpcomingMovies",
-    async(token, thunkAPI) => {
-        console.log("fetchUpcomingMovies", token)
+    async(token) => {
         const response = await fetch("https://api.kvikmyndir.is/upcoming", {
             headers: {
                 "x-access-token": token,

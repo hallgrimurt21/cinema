@@ -6,6 +6,7 @@ import {store} from "./src/redux/store"
 import Appcontainer from "./src/routes"
 import {fetchCinemas} from "./src/redux/features/cinemasSlice"
 import {fetchMovies} from "./src/redux/features/moviesSlice"
+import {fetchUpcomingMovies} from "./src/redux/features/upcomingMovies"
 import {useDispatch, useSelector} from "react-redux"
 import {getAuthToken} from "./src/redux/features/authSlice"
 import { fetchUpcomingMovies } from "./src/redux/features/upcomingMovies"
@@ -16,6 +17,9 @@ function AppContent() {
 
     useEffect(() => {
         dispatch(getAuthToken())
+    }, [dispatch])
+
+    useEffect(() => {
         if (token) {
             dispatch(fetchCinemas(token))
             dispatch(fetchMovies(token))
