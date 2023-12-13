@@ -1,29 +1,63 @@
 import {StyleSheet} from "react-native"
-import {Dimensions} from "react-native"
-
-const windowWidth = Dimensions.get("window").width
-const windowHeight = Dimensions.get("window").height
+import {
+    strongGrey,
+    mediumGrey,
+    mediumWhite,
+    strongWhite,
+    black,
+} from "../../styles/colors"
+import {deviceWidth} from "../../styles/sizes"
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#fff",
+        backgroundColor: strongGrey,
     },
     cinemaContainer: {
-        backgroundColor: "gold",
-        width: windowWidth,
-        height: windowHeight / 8,
+        marginLeft: 10,
+        backgroundColor: mediumGrey,
         padding: 10,
-        borderBottomWidth: 4,
-        borderBottomColor: "#ccc",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        height: deviceWidth / 5,
+        alignItems: "center",
+        flex: 1,
     },
+
+    linkContainer: {
+        width: deviceWidth / 2.5,
+        backgroundColor: mediumGrey,
+        padding: 10,
+        flexDirection: "row",
+        justifyContent: "center",
+        height: deviceWidth / 5,
+        alignItems: "center",
+        shadowColor: strongGrey,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 1,
+        marginRight: 10,
+    },
+
+    buttons: {
+        flexDirection: "row",
+        width: deviceWidth,
+        marginBottom: 10,
+        shadowColor: black,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 1,
+    },
+
     cinemaName: {
-        color: "navy",
+        color: strongWhite,
         fontSize: 20,
         fontWeight: "bold",
     },
     cinemaWebsite: {
         fontSize: 16,
-        color: "blue",
+        color: mediumWhite,
     },
 })
 

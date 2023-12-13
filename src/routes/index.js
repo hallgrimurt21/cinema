@@ -10,7 +10,6 @@ import UpcomingMovies from "../components/UpcomingMovies"
 import UpcomingDetail from "../components/UpcomingDetail"
 import CustomTabBar from "../components/CustomTabBar"
 
-
 const Tab = createBottomTabNavigator()
 const CinemaStack = createStackNavigator()
 const UpcomingStack = createStackNavigator()
@@ -18,13 +17,14 @@ const UpcomingStack = createStackNavigator()
 function CinemaStackScreen() {
     return (
         <CinemaStack.Navigator>
-            <CinemaStack.Screen name="Cinemas Page" component={AllCinemas} />
             <CinemaStack.Screen
-
+                name="Cinemas Page"
+                component={AllCinemas}
+                options={{headerShown: false}}
+            />
+            <CinemaStack.Screen
                 name="Cinema Page"
-
                 component={Cinema}
-
                 options={{headerShown: false}}
             />
             <CinemaStack.Screen
@@ -38,35 +38,18 @@ function CinemaStackScreen() {
 function UpcomingStackScreen() {
     return (
         <UpcomingStack.Navigator>
-            <UpcomingStack.Screen name="Upcoming Movies Page" component={UpcomingMovies} />
-            <UpcomingStack.Screen name="Upcoming Detail" component={UpcomingDetail} />
+            <UpcomingStack.Screen
+                name="Upcoming Movies Page"
+                component={UpcomingMovies}
+            />
+            <UpcomingStack.Screen
+                name="Upcoming Detail"
+                component={UpcomingDetail}
+            />
         </UpcomingStack.Navigator>
     )
 }
 function Routes() {
-    // const TabOptions = {
-    //     tabBarActiveTintColor: "white",
-    //     headerShown: false,
-    //     tabBarInactiveTintColor: "grey",
-    //     tabBarIcon: () => null,
-    //     tabBarLabelStyle: {
-    //         fontSize: 20,
-    //         marginBottom: 25,
-    //         textShadowColor: "black",
-    //         textShadowOffset: {width: -1, height: -1},
-    //         textShadowRadius: 0.1,
-    //     },
-    //     tabBarStyle: {
-    //         flexDirection: "row",
-    //         justifyContent: "space-between",
-    //         backgroundColor: "black",
-    //     },
-    //     tabBarItemStyle: {
-    //         height: 75,
-    //         borderRightWidth: 1,
-    //         borderColor: "red",
-    //     },
-    // }
     return (
         <NavigationContainer>
             <Tab.Navigator
@@ -74,7 +57,10 @@ function Routes() {
                 screenOptions={{headerShown: false}} // Add this line
             >
                 <Tab.Screen name="Cinemas" component={CinemaStackScreen} />
-                <Tab.Screen name="Upcoming Movies" component={UpcomingStackScreen} />
+                <Tab.Screen
+                    name="Upcoming Movies"
+                    component={UpcomingStackScreen}
+                />
             </Tab.Navigator>
         </NavigationContainer>
     )
