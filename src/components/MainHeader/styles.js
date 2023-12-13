@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
     safeContainer: {
         borderBottomRightRadius: 20,
         borderBottomLeftRadius: 20,
+        borderWidth: 1,
+        borderTopWidth: 0,
+        borderColor: "rgba(220, 20, 60, 0.25)",
         width: deviceWidth,
         position: "absolute",
         alignItems: "center",
@@ -32,11 +35,14 @@ const styles = StyleSheet.create({
     },
 
     drText: {
-        paddingBottom: 10,
         color: strongWhite,
         fontSize: 30,
         fontWeight: "bold",
         textAlign: "center",
+        textShadowColor: "crimson",
+        textShadowOffset: {width: -1, height: -1},
+        textShadowRadius: 4,
+        paddingBottom: 10,
     },
 })
 
