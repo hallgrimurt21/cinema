@@ -21,12 +21,6 @@ const UpcomingDetail = ({id}) => {
         }
     }, [])
 
-
-    console.log("upcoming 1: ", upcoming)
-
-
-    console.log("upcoming 2: ", upcoming)
-
     if (!upcoming) {
         return <Text>Loading...</Text>
     }
