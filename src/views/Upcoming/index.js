@@ -1,6 +1,5 @@
 import React from "react"
 import {View} from "react-native"
-import UpcomingMovies from "../../components/UpcomingMovies"
 import UpcomingDetail from "../../components/UpcomingDetail"
 
 const Upcoming = ({route}) => {
@@ -8,7 +7,6 @@ const Upcoming = ({route}) => {
     return (
         <View>
             <UpcomingDetail id={id} />
-            <UpcomingMovies id={id} />
         </View>
     )
 }

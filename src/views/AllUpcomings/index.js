@@ -1,14 +1,13 @@
 import React from "react"
-import {View, Text} from "react-native"
+import {View} from "react-native"
 import UpcomingMovies from "../../components/UpcomingMovies"
 
-const UpcomingList = () => {
+const AllUpcomings = () => {
     return (
         <View>
-            <Text>Upcoming Movies</Text>
             <UpcomingMovies />
         </View>
     )
 }
 
-export default UpcomingList
+export default AllUpcomings

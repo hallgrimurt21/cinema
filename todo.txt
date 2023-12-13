@@ -1,5 +1,6 @@
 Core: 
 Finish styling
+remove linebreak from descriptions/text
 
 Extra: 
 Search in movies

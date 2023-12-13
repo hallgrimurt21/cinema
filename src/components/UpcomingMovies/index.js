@@ -14,7 +14,7 @@ const UpcomingMovies = () => {
                 {upcomingMovies.map((movie, index) => (
                     <TouchableOpacity
                         key={index}
-                        onPress={() => navigate("Upcoming Detail", {id: movie._id})}
+                        onPress={() => navigate("Upcoming Movie Screen", {id: movie._id})}
                     >
                         <Text>{movie.title}</Text>
                         <Text>{movie["release-dateIS"]}</Text>

@@ -18,7 +18,7 @@ const CinemaMovies = ({id}) => {
     }
 
     const handlePress = (movieID) => {
-        navigate("Movie Page", {movieID, cinemaID: id})
+        navigate("Movie Screen", {movieID, cinemaID: id})
     }
     return (
         <ScrollView
