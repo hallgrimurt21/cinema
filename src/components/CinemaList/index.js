@@ -12,7 +12,8 @@ const CinemaList = () => {
     return (
         <ScrollView
             style={styles.container}
-            contentContainerStyle={{paddingTop: 100}}
+            contentContainerStyle={{paddingTop: 120}}
+            pagingEnabled={true}
         >
             <View>
                 {cinemas.map((cinema, index) => (
@@ -20,7 +21,7 @@ const CinemaList = () => {
                         <TouchableOpacity
                             style={styles.cinemaContainer}
                             onPress={() =>
-                                navigate("Cinema Page", {id: cinema.id})
+                                navigate("Cinema Screen", {id: cinema.id})
                             }
                         >
                             <Text style={styles.cinemaName}>{cinema.name}</Text>

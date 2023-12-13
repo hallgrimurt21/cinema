@@ -6,60 +6,77 @@ import {createStackNavigator} from "@react-navigation/stack"
 import Cinema from "../views/Cinema"
 import AllCinemas from "../views/AllCinemas"
 import Movie from "../views/Movie"
-import UpcomingMovies from "../components/UpcomingMovies"
-import UpcomingDetail from "../components/UpcomingDetail"
+import AllMovies from "../views/AllMovies"
+import AllUpcomings from "../views/AllUpcomings"
+import Upcoming from "../views/Upcoming"
 import CustomTabBar from "../components/CustomTabBar"
+import {CardStyleInterpolators} from "@react-navigation/stack"
 
 const Tab = createBottomTabNavigator()
 const CinemaStack = createStackNavigator()
-const UpcomingStack = createStackNavigator()
+const MovieStack = createStackNavigator()
 
 function CinemaStackScreen() {
+    const CinemaStackOptions = {headerShown: false}
     return (
-        <CinemaStack.Navigator>
+        <CinemaStack.Navigator
+            screenOptions={CinemaStackOptions}
+        >
             <CinemaStack.Screen
-                name="Cinemas Page"
+                name="Cinemas Screen"
                 component={AllCinemas}
-                options={{headerShown: false}}
             />
             <CinemaStack.Screen
-                name="Cinema Page"
+                name="Cinema Screen"
                 component={Cinema}
-                options={{headerShown: false}}
+                options={{
+                    cardStyleInterpolator:
+                        CardStyleInterpolators.forVerticalIOS,
+                }}
             />
             <CinemaStack.Screen
-                name="Movie Page"
+                name="Movie Screen"
                 component={Movie}
-                options={{headerShown: false}}
             />
         </CinemaStack.Navigator>
     )
 }
-function UpcomingStackScreen() {
+function MovieStackScreen() {
+    const MovieStackOptions = {headerShown: false}
     return (
-        <UpcomingStack.Navigator>
-            <UpcomingStack.Screen
-                name="Upcoming Movies Page"
-                component={UpcomingMovies}
+        <MovieStack.Navigator
+            screenOptions={MovieStackOptions}
+        >
+            <MovieStack.Screen
+                name="Movies Screen"
+                component={AllMovies}
             />
-            <UpcomingStack.Screen
-                name="Upcoming Detail"
-                component={UpcomingDetail}
+            <MovieStack.Screen
+                name="Upcoming Movies Screen"
+                component={AllUpcomings}
             />
-        </UpcomingStack.Navigator>
+            <MovieStack.Screen
+                name="Upcoming Movie Screen"
+                component={Upcoming}
+            />
+        </MovieStack.Navigator>
     )
 }
 function Routes() {
+    const TabOptions = {headerShown: false}
     return (
         <NavigationContainer>
             <Tab.Navigator
                 tabBar={(props) => <CustomTabBar {...props} />}
-                screenOptions={{headerShown: false}} // Add this line
+                screenOptions={TabOptions}
             >
-                <Tab.Screen name="Cinemas" component={CinemaStackScreen} />
                 <Tab.Screen
-                    name="Upcoming Movies"
-                    component={UpcomingStackScreen}
+                    name="Cinemas"
+                    component={CinemaStackScreen}
+                />
+                <Tab.Screen
+                    name="Movies"
+                    component={MovieStackScreen}
                 />
             </Tab.Navigator>
         </NavigationContainer>

@@ -1,11 +1,22 @@
-import React from "react"
-import {View, Text, Pressable, SafeAreaView} from "react-native"
+import React, {useEffect, useRef} from "react"
+import {
+    View,
+    Text,
+    Pressable,
+    SafeAreaView,
+    Animated,
+    LayoutAnimation,
+    Platform,
+} from "react-native"
 import {useSelector, useDispatch} from "react-redux"
 import {toggleDescription} from "../../redux/features/visibilitySlice"
 import styles from "./styles"
 import {useNavigation} from "@react-navigation/native"
+import {mediumGrey, strongGrey} from "../../styles/colors"
 
 const CinemaDetails = ({id}) => {
+    const fadeAnim = useRef(new Animated.Value(0)).current // Initial value for opacity: 0
+    const buttonAnim = useRef(new Animated.Value(0)).current // Initial value for button: 0
     const navigation = useNavigation()
     const dispatch = useDispatch()
     const cinemas = useSelector((state) => state.cinemas.cinemas)
@@ -14,31 +25,64 @@ const CinemaDetails = ({id}) => {
         (state) => state.visibility.descriptionVisible,
     )
 
+    const handleBack = () => {
+        navigation.goBack()
+        if (descriptionVisible) {
+            dispatch(toggleDescription())
+        }
+    }
+
+    useEffect(() => {
+        Animated.timing(fadeAnim, {
+            toValue: descriptionVisible ? 1 : 0,
+            duration: 500,
+            useNativeDriver: true,
+        }).start()
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
+    }, [descriptionVisible])
+
+    const buttonStyle = {
+        backgroundColor: fadeAnim.interpolate({
+            inputRange: [0, 1],
+            outputRange: ["transparent", mediumGrey], // Change the colors as per your need
+        }),
+        borderColor: fadeAnim.interpolate({
+            inputRange: [0, 1],
+            outputRange: ["transparent", "crimson"], // Change the colors as per your need
+        }),
+    }
+
     return (
         <SafeAreaView style={styles.header}>
+            <SafeAreaView style={styles.padder}></SafeAreaView>
+
             <View style={styles.topPart}>
                 <Pressable
                     style={styles.backButton}
-                    onPress={navigation.goBack}
+                    onPress={() => {
+                        handleBack()
+                    }}
                 >
                     <Text style={styles.backBtnText}>Back</Text>
                 </Pressable>
                 <View style={styles.rightPart}>
                     <Text style={styles.name}>{cinema.name}</Text>
                 </View>
-                <Pressable
-                    style={
-                        descriptionVisible
-                            ? styles.infoButtonToggled
-                            : styles.infoButton
-                    }
-                    onPress={() => dispatch(toggleDescription())}
-                >
-                    <Text style={styles.infoButText}>Info</Text>
-                </Pressable>
+                <Animated.View style={[buttonStyle, styles.animButton]}>
+                    <Pressable
+                        style={
+                            descriptionVisible
+                                ? styles.infoButtonToggled
+                                : styles.infoButton
+                        }
+                        onPress={() => dispatch(toggleDescription())}
+                    >
+                        <Text style={styles.infoButText}>Info</Text>
+                    </Pressable>
+                </Animated.View>
             </View>
             {descriptionVisible && (
-                <View style={styles.info}>
+                <Animated.View style={{...styles.info, opacity: fadeAnim}}>
                     <Text style={styles.description}>{cinema.description}</Text>
                     <View style={styles.bottomPart}>
                         <View style={styles.leftPart}>
@@ -51,7 +95,7 @@ const CinemaDetails = ({id}) => {
                             <Text style={styles.phone}>{cinema.phone}</Text>
                         </View>
                     </View>
-                </View>
+                </Animated.View>
             )}
         </SafeAreaView>
     )

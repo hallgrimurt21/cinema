@@ -17,10 +17,12 @@ const styles = StyleSheet.create({
         backgroundColor: mediumGrey,
         padding: 10,
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "center",
         height: deviceWidth / 5,
         alignItems: "center",
         flex: 1,
+        borderBottomLeftRadius: 10,
+        borderTopLeftRadius: 10,
     },
 
     linkContainer: {
@@ -37,6 +39,8 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 1,
         marginRight: 10,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
     },
 
     buttons: {
@@ -58,6 +62,11 @@ const styles = StyleSheet.create({
     cinemaWebsite: {
         fontSize: 16,
         color: mediumWhite,
+    },
+
+    centerElement: {
+        borderColor: "red",
+        borderWidth: 2,
     },
 })
 

@@ -7,9 +7,7 @@ import {SafeAreaView} from "react-native-safe-area-context"
 import YoutubePlayer from "react-native-youtube-iframe"
 
 
-const UpcomingDetail = ({route}) => {
-    const {id} = route.params
-    console.log("id: ", id)
+const UpcomingDetail = ({id}) => {
     const navigate = useNavigation().navigate
     const upcomingMovies = useSelector((state) => state.upcomingMovies.movies)
     const upcoming = upcomingMovies.find((movie) => movie._id === id)

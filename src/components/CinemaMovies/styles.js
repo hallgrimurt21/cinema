@@ -6,6 +6,7 @@ import {
     strongWhite,
     crimson,
 } from "../../styles/colors"
+import {deviceHeight} from "../../styles/sizes"
 
 export default StyleSheet.create({
     card: {
@@ -55,5 +56,8 @@ export default StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "flex-end",
+    },
+    scroller: {
+        height: deviceHeight,
     },
 })
