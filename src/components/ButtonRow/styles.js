@@ -58,9 +58,12 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     plot: {
+        backgroundColor: mediumGrey,
+        marginTop: 10,
         color: mediumWhite,
-        textAlign: "center",
+        textAlign: "left",
         padding: 10,
+        fontSize: 16,
     },
     genre: {
         color: mediumWhite,
@@ -86,9 +89,11 @@ const styles = StyleSheet.create({
         width: "33.33%",
     },
     genres: {
+        marginTop: 10,
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-around",
+        backgroundColor: mediumGrey,
     },
     buttonRow: {
         flexDirection: "row",
