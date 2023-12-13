@@ -41,9 +41,11 @@ function Movie({route}) {
     }
 
     handleNavigate = () => {
-        return () => navigation.goBack()
+        return () => {
+            dispatch(hideAll())
+            navigation.goBack()
+        }
     }
-
     const handleToggle = (section) => {
         if (visibleSection === section) {
             dispatch(hideAll())
