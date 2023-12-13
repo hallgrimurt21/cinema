@@ -130,27 +130,15 @@ const styles = StyleSheet.create({
         width: "100%", // adjust this as needed
         height: 200, // adjust this as needed
         backgroundColor: crimson,
-        // borderRadius: 20,
-        // padding: 35,
-        // alignItems: "center",
-        // justifyContent: "center",
-        // shadowColor: "#000",
-        // shadowOffset: {
-        //     width: 0,
-        //     height: 2,
-        // },
-        // shadowOpacity: 0.25,
-        // shadowRadius: 4,
-        // elevation: 5,
     },
     trailerButton: {
         backgroundColor: mediumGrey,
+        marginTop: 10,
         padding: 10,
         alignItems: "center",
         justifyContent: "center",
         height: 50,
     },
-
 })
 
 export default styles
