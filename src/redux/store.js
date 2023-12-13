@@ -13,6 +13,5 @@ export const store = configureStore({
         auth: authReducer,
         upcomingMovies: upcomingMoviesReducer,
         visibility: visibilityReducer,
-        modalReducer: modalReducer,
     },
 })

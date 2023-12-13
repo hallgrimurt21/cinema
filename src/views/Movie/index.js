@@ -7,12 +7,9 @@ import {
     ImageBackground,
     ScrollView,
     SafeAreaView,
-    Modal,
-    TouchableWithoutFeedback,
-
 } from "react-native"
 import styles from "./styles"
-import {useSelector, useDispatch, connect} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
 import {
     showPlot,
     showGenres,
@@ -20,50 +17,38 @@ import {
     hideAll,
 } from "../../redux/features/visibilitySlice"
 import {useNavigation} from "@react-navigation/native"
-import YoutubePlayer from "react-native-youtube-iframe"
-import {openModal, closeModal} from "../../constants/constants"
-
-
-const mapStateToProps = (state) => ({
-    modalVisible: state.modalReducer.modalVisible,
-})
-
-const mapDispatchToProps = {
-    openModal,
-    closeModal,
-}
-
 // eslint-disable-next-line require-jsdoc
-function MovieDetailsScreen({route, openModal, closeModal, modalVisible}) {
+function Movie({route}) {
     const {cinemaID, movieID} = route.params
     const movies = useSelector((state) => state.movies.movies)
     const movie = movies.find((movie) => movie.id === movieID)
     const dispatch = useDispatch()
-    const visibleSection = useSelector(
-        (state) => state.visibility.visibleSection,
-    )
-    const navigation = useNavigation()
 
+    const navigation = useNavigation()
 
     const handleToggle = (section) => {
         if (visibleSection === section) {
             dispatch(hideAll())
         } else {
             switch (section) {
-            case "plot":
-                dispatch(showPlot())
-                break
-            case "genres":
-                dispatch(showGenres())
-                break
-            case "showtimes":
-                dispatch(showShowtimes())
-                break
-            default:
-                break
+                case "plot":
+                    dispatch(showPlot())
+                    break
+                case "genres":
+                    dispatch(showGenres())
+                    break
+                case "showtimes":
+                    dispatch(showShowtimes())
+                    break
+                default:
+                    break
             }
         }
     }
+
+    const visibleSection = useSelector(
+        (state) => state.visibility.visibleSection,
+    )
 
     const showtimes = movie.showtimes
         .filter((showtime) => showtime.cinema.id === cinemaID)
@@ -77,7 +62,6 @@ function MovieDetailsScreen({route, openModal, closeModal, modalVisible}) {
     handleNavigate = () => {
         return () => navigation.goBack()
     }
-
 
     return (
         <ScrollView style={styles.container}>
@@ -152,43 +136,9 @@ function MovieDetailsScreen({route, openModal, closeModal, modalVisible}) {
                         </Pressable>
                     ))}
                 </View>
-
             )}
-
-            <Pressable
-                style={({pressed}) => [
-                    {opacity: pressed ? 0.5 : 1},
-                    styles.trailerButton,
-                ]}
-                onPress={() => openModal()}
-            >
-                <Text style={styles.botButText}>Play Trailer</Text>
-            </Pressable>
-
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={closeModal}
-            >
-                <TouchableWithoutFeedback onPress={closeModal}>
-                    <View style={styles.modalOverlay}>
-                        <TouchableWithoutFeedback onPress={(event) => event.stopPropagation()}>
-
-                            <View style={styles.modal}>
-                                <YoutubePlayer
-                                    height={300}
-                                    play={false}
-                                    videoId={movie.trailers[0].results[0].key}
-                                />
-                            </View>
-                        </TouchableWithoutFeedback>
-                    </View>
-                </TouchableWithoutFeedback>
-            </Modal>
-
         </ScrollView>
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieDetailsScreen)
+export default Movie
