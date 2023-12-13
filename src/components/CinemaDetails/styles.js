@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
             width: 0,
             height: 0,
         },
+        position: "absolute",
+        width: deviceWidth,
+        zIndex: 1,
     },
     name: {
         fontSize: 20,
@@ -82,6 +85,8 @@ const styles = StyleSheet.create({
             width: 0,
             height: 0,
         },
+        borderColor: "crimson",
+        borderWidth: 1,
     },
 
     animButton: {
@@ -107,6 +112,8 @@ const styles = StyleSheet.create({
         },
         width: deviceWidth - 20,
         alignSelf: "center",
+        borderColor: "rgba(220, 20, 60, 0.25)",
+        borderWidth: 1,
     },
     topPart: {
         flexDirection: "row",
