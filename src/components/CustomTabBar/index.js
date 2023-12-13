@@ -50,7 +50,7 @@ function CustomTabBar({state, descriptors, navigation}) {
                                     {label}
                                 </Text>
                             </ImageBackground>
-                        ) : route.name === "Upcoming Movies" ? (
+                        ) : route.name === "Movies" ? (
                             <ImageBackground
                                 source={{uri: "https://shspublications.com/wp-content/uploads/2023/02/938EC347-405F-4FF1-B447-40BDDEE91026_1_201_a.jpeg"}}
                                 style={{...tabStyle, width: "100%", height: "100%"}}

@@ -21,7 +21,7 @@ const CinemaList = () => {
                         <TouchableOpacity
                             style={styles.cinemaContainer}
                             onPress={() =>
-                                navigate("Cinema Page", {id: cinema.id})
+                                navigate("Cinema Screen", {id: cinema.id})
                             }
                         >
                             <Text style={styles.cinemaName}>{cinema.name}</Text>
