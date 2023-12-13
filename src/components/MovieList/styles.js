@@ -4,29 +4,25 @@ import {
     mediumGrey,
     mediumWhite,
     strongWhite,
-    black,
 } from "../../styles/colors"
 import {deviceHeight} from "../../styles/sizes"
-import hexToRGBA from "../../styles/hexToRgba"
 
 export default StyleSheet.create({
     card: {
         backgroundColor: mediumGrey,
-        marginVertical: 10,
+        margin: 10,
+        borderRadius: 10,
         flexDirection: "row",
-        shadowColor: black,
+        shadowColor: "black",
         shadowOpacity: 0.5,
         shadowRadius: 5,
         shadowOffset: {
             width: 0,
             height: 0,
         },
-        borderBottomWidth: 1,
-        borderColor: "#C9B082",
     },
     poster: {
         marginVertical: -3,
-        marginLeft: -3,
         width: 100,
         height: 175,
         borderRadius: 10,
@@ -63,8 +59,4 @@ export default StyleSheet.create({
     scroller: {
         height: deviceHeight,
     },
-    someBackground: {
-        backgroundColor: strongGrey,
-    },
-},
-)
+})

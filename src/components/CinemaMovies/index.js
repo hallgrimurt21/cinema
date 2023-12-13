@@ -13,15 +13,20 @@ import {useNavigation} from "@react-navigation/native"
 import styles from "./styles"
 
 const CinemaMovies = ({id}) => {
+    let filteredMovies
     const movies = useSelector((state) => state.movies.movies)
     const dispatch = useDispatch()
     const navigate = useNavigation().navigate
-    const filteredMovies = movies.filter((movie) =>
-        movie.showtimes.some((showtime) => showtime.cinema.id === id),
-    )
+    if (id) {
+        filteredMovies = movies.filter((movie) =>
+            movie.showtimes.some((showtime) => showtime.cinema.id === id),
+        )
 
-    if (filteredMovies.length === 0) {
-        dispatch(toggleDescription())
+        if (filteredMovies.length === 0) {
+            dispatch(toggleDescription())
+        }
+    } else {
+        filteredMovies = movies
     }
 
     const handlePress = (movieID) => {
@@ -30,7 +35,7 @@ const CinemaMovies = ({id}) => {
     return (
         <ScrollView
             style={styles.scroller}
-            contentContainerStyle={{paddingBottom: 200, paddingTop: 100}}
+            contentContainerStyle={{paddingBottom: 200, paddingTop: 120}}
         >
             {filteredMovies.map((movie) => (
                 <View key={movie.id}>

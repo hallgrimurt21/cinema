@@ -12,7 +12,7 @@ const CinemaList = () => {
     return (
         <ScrollView
             style={styles.container}
-            contentContainerStyle={{paddingTop: 120}}
+            contentContainerStyle={{paddingTop: 120, paddingBottom: 100}}
             pagingEnabled={true}
         >
             <View>
