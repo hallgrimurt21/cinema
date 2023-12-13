@@ -16,10 +16,13 @@ const visibilitySlice = createSlice({
         hideAll(state) {
             state.visibleSection = null
         },
+        toggleDescription(state) {
+            state.descriptionVisible = !state.descriptionVisible
+        },
     },
 })
 
-export const {showPlot, showGenres, showShowtimes, hideAll} =
+export const {showPlot, showGenres, showShowtimes, hideAll, toggleDescription} =
     visibilitySlice.actions
 
 export default visibilitySlice.reducer

@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
     back: {
         color: strongWhite,
         fontSize: 20,
-        fontWeight: "bold",
     },
     poster: {
         width: deviceWidth,

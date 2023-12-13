@@ -16,11 +16,15 @@ const UpcomingStack = createStackNavigator()
 
 function CinemaStackScreen() {
     return (
-        <CinemaStack.Navigator screenOptions={{headerShown: false}}>
+        <CinemaStack.Navigator>
             <CinemaStack.Screen name="Cinemas Page" component={AllCinemas} />
             <CinemaStack.Screen
+
                 name="Cinema Page"
+
                 component={Cinema}
+
+                options={{headerShown: false}}
             />
             <CinemaStack.Screen
                 name="Movie Page"

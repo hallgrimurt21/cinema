@@ -2,6 +2,7 @@ import React from "react"
 import {View, Text, Pressable, Image, ScrollView} from "react-native"
 import {useSelector} from "react-redux"
 import {useNavigation} from "@react-navigation/native"
+import styles from "./styles"
 
 const CinemaMovies = ({id}) => {
     const movies = useSelector((state) => state.movies.movies)
@@ -16,17 +17,36 @@ const CinemaMovies = ({id}) => {
     return (
         <ScrollView contentContainerStyle={{paddingBottom: 200}}>
             {filteredMovies.map((movie) => (
-                <View key={movie.id} style={{margin: 10}}>
-                    <Pressable onPress={() => handlePress(movie.id)}>
-                        <Text>{movie.title}</Text>
+                <View key={movie.id}>
+                    <Pressable
+                        style={styles.card}
+                        onPress={() => handlePress(movie.id)}
+                    >
                         <Image
                             source={{uri: movie.poster}}
-                            style={{width: 100, height: 100}}
+                            style={styles.poster}
                         />
-                        <Text>{movie.year}</Text>
-                        {movie.genres.map((genre, index) => (
-                            <Text key={index}>{genre["NameEN\t"]}</Text>
-                        ))}
+                        <View style={styles.info}>
+                            <View style={styles.titleView}>
+                                <Text
+                                    numberOfLines={2}
+                                    ellipsizeMode="clip"
+                                    style={styles.title}
+                                >
+                                    {movie.title}
+                                </Text>
+                            </View>
+                            <View style={styles.bottomPart}>
+                                <View style={styles.genres}>
+                                    {movie.genres.map((genre, index) => (
+                                        <Text style={styles.genre} key={index}>
+                                            {genre["NameEN\t"]}
+                                        </Text>
+                                    ))}
+                                </View>
+                                <Text style={styles.year}>{movie.year}</Text>
+                            </View>
+                        </View>
                     </Pressable>
                 </View>
             ))}
