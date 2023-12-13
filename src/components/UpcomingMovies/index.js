@@ -6,16 +6,15 @@ import {ScrollView} from "react-native-gesture-handler"
 
 const UpcomingMovies = () => {
     const navigate = useNavigation().navigate
-    const upcoming = useSelector((state) => state.upcomingMovies.movies)
-
+    const upcomingMovies = useSelector((state) => state.upcomingMovies.movies)
 
     return (
         <ScrollView>
             <View>
-                {upcoming.map((movie, index) => (
+                {upcomingMovies.map((movie, index) => (
                     <TouchableOpacity
                         key={index}
-                        onPress={() => navigate("Upcoming", {id: movie.id})}
+                        onPress={() => navigate("Upcoming Detail", {id: movie._id})}
                     >
                         <Text>{movie.title}</Text>
                         <Text>{movie["release-dateIS"]}</Text>
