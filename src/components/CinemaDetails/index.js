@@ -12,7 +12,7 @@ import {useSelector, useDispatch} from "react-redux"
 import {toggleDescription} from "../../redux/features/visibilitySlice"
 import styles from "./styles"
 import {useNavigation} from "@react-navigation/native"
-import {mediumGrey} from "../../styles/colors"
+import {mediumGrey, strongGrey} from "../../styles/colors"
 
 const CinemaDetails = ({id}) => {
     const fadeAnim = useRef(new Animated.Value(0)).current // Initial value for opacity: 0
@@ -46,10 +46,16 @@ const CinemaDetails = ({id}) => {
             inputRange: [0, 1],
             outputRange: ["transparent", mediumGrey], // Change the colors as per your need
         }),
+        borderColor: fadeAnim.interpolate({
+            inputRange: [0, 1],
+            outputRange: ["transparent", "crimson"], // Change the colors as per your need
+        }),
     }
 
     return (
         <SafeAreaView style={styles.header}>
+            <SafeAreaView style={styles.padder}></SafeAreaView>
+
             <View style={styles.topPart}>
                 <Pressable
                     style={styles.backButton}
