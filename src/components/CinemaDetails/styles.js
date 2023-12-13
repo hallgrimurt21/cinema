@@ -13,13 +13,6 @@ const styles = StyleSheet.create({
     header: {
         justifyContent: "space-between",
         flexDirection: "column",
-        shadowColor: "black",
-        shadowOpacity: 0.5,
-        shadowRadius: 5,
-        shadowOffset: {
-            width: 0,
-            height: 0,
-        },
         position: "absolute",
         width: deviceWidth,
         zIndex: 1,
@@ -52,6 +45,18 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
+        borderWidth: 1,
+        borderTopWidth: 0,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
+        borderColor: "rgba(220, 20, 60, 0.25)",
+        shadowColor: "black",
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        shadowOffset: {
+            width: 0,
+            height: 7,
+        },
     },
 
     backButton: {
@@ -84,7 +89,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         flexDirection: "row",
         justifyContent: "center",
-        backgroundColor: mediumGrey,
         shadowColor: black,
         shadowOpacity: 0.5,
         shadowRadius: 5,
@@ -95,6 +99,7 @@ const styles = StyleSheet.create({
     },
 
     animButton: {
+        marginBottom: 10,
         borderRadius: 10,
         overflow: "hidden",
         width: deviceWidth / 5,
@@ -102,7 +107,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     infoButText: {
-        color: strongWhite,
+        color: "crimson",
         fontSize: 18,
     },
 

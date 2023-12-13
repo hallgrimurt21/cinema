@@ -12,7 +12,7 @@ import {useSelector, useDispatch} from "react-redux"
 import {toggleDescription} from "../../redux/features/visibilitySlice"
 import styles from "./styles"
 import {useNavigation} from "@react-navigation/native"
-import {mediumGrey, strongGrey} from "../../styles/colors"
+import {mediumGrey, strongWhite} from "../../styles/colors"
 
 const CinemaDetails = ({id}) => {
     const fadeAnim = useRef(new Animated.Value(0)).current // Initial value for opacity: 0
