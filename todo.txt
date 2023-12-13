@@ -1,0 +1,7 @@
+Core: 
+Finish styling
+
+Extra: 
+Search in movies
+Genres in movies
+filter by area cinemas
