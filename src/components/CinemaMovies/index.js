@@ -1,21 +1,30 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {View, Text, Pressable, Image, ScrollView} from "react-native"
-import {useSelector} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
+import {toggleDescription} from "../../redux/features/visibilitySlice"
 import {useNavigation} from "@react-navigation/native"
 import styles from "./styles"
 
 const CinemaMovies = ({id}) => {
     const movies = useSelector((state) => state.movies.movies)
+    const dispatch = useDispatch()
+    const navigate = useNavigation().navigate
     const filteredMovies = movies.filter((movie) =>
         movie.showtimes.some((showtime) => showtime.cinema.id === id),
     )
-    const navigate = useNavigation().navigate
+
+    if (filteredMovies.length === 0) {
+        dispatch(toggleDescription())
+    }
 
     const handlePress = (movieID) => {
         navigate("Movie Page", {movieID, cinemaID: id})
     }
     return (
-        <ScrollView contentContainerStyle={{paddingBottom: 200}}>
+        <ScrollView
+            style={styles.scroller}
+            contentContainerStyle={{paddingBottom: 200}}
+        >
             {filteredMovies.map((movie) => (
                 <View key={movie.id}>
                     <Pressable

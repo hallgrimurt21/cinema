@@ -14,12 +14,21 @@ const CinemaDetails = ({id}) => {
         (state) => state.visibility.descriptionVisible,
     )
 
+    const handleBack = () => {
+        navigation.goBack()
+        if (descriptionVisible) {
+            dispatch(toggleDescription())
+        }
+    }
+
     return (
         <SafeAreaView style={styles.header}>
             <View style={styles.topPart}>
                 <Pressable
                     style={styles.backButton}
-                    onPress={navigation.goBack}
+                    onPress={() => {
+                        handleBack()
+                    }}
                 >
                     <Text style={styles.backBtnText}>Back</Text>
                 </Pressable>
