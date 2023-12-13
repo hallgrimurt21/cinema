@@ -6,6 +6,7 @@ import {
     strongWhite,
     mediumWhite,
     black,
+    champagne,
 } from "../../styles/colors"
 
 const styles = StyleSheet.create({
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         marginTop: -50,
         bottom: 18,
-        borderColor: "#C9B082",
+        borderColor: champagne,
         borderWidth: 1,
         overflow: "hidden",
     },
