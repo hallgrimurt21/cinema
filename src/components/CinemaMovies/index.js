@@ -12,7 +12,7 @@ const CinemaMovies = ({id}) => {
     const navigate = useNavigation().navigate
 
     const handlePress = (movieID) => {
-        navigate("Movie", {movieID, cinemaID: id})
+        navigate("Movie Page", {movieID, cinemaID: id})
     }
     return (
         <ScrollView contentContainerStyle={{paddingBottom: 200}}>
