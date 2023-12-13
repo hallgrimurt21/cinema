@@ -94,7 +94,6 @@ function MovieDetailsScreen({route, openModal, closeModal, modalVisible}) {
                     </SafeAreaView>
                 </View>
             </ImageBackground>
-
             <View style={styles.buttonRow}>
                 <Pressable
                     style={({pressed}) => [
@@ -119,7 +118,7 @@ function MovieDetailsScreen({route, openModal, closeModal, modalVisible}) {
                         {opacity: pressed ? 0.5 : 1},
                         styles.botButton,
                     ]}
-                    onPress={() => handleToggle("showtimes")}
+                    onPress={() => handleToggle("showtimes")&& console.log(movie)}
                 >
                     <Text style={styles.botButText}>Showtimes</Text>
                 </Pressable>
