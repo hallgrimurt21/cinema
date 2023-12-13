@@ -5,6 +5,7 @@ import {useSelector} from "react-redux"
 import {useNavigation} from "@react-navigation/native"
 import {SafeAreaView} from "react-native-safe-area-context"
 import YoutubePlayer from "react-native-youtube-iframe"
+import styles from "../../views/Movie/styles"
 
 
 const UpcomingDetail = ({id}) => {
