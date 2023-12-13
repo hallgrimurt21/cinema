@@ -11,6 +11,7 @@ import AllUpcomings from "../views/AllUpcomings"
 import Upcoming from "../views/Upcoming"
 import CustomTabBar from "../components/CustomTabBar"
 import {CardStyleInterpolators} from "@react-navigation/stack"
+import Trailer from "../views/Trailer"
 
 const Tab = createBottomTabNavigator()
 const CinemaStack = createStackNavigator()
@@ -30,6 +31,13 @@ function CinemaStackScreen() {
                 }}
             />
             <CinemaStack.Screen name="Movie Screen" component={Movie} />
+            <CinemaStack.Screen name="Trailer"
+                component={Trailer}
+                options={{
+                    cardStyleInterpolator:
+                        CardStyleInterpolators.forModalPresentationIOS,
+                }}
+            />
         </CinemaStack.Navigator>
     )
 }
@@ -45,6 +53,7 @@ function MovieStackScreen() {
             <MovieStack.Screen
                 name="Upcoming Movie Screen"
                 component={Upcoming}
+
             />
         </MovieStack.Navigator>
     )
