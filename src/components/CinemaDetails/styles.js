@@ -5,6 +5,7 @@ import {
     mediumGrey,
     strongWhite,
     mediumWhite,
+    black,
 } from "../../styles/colors"
 
 const styles = StyleSheet.create({
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     },
 
     backButton: {
+        marginLeft: 10,
         width: deviceWidth / 5,
         padding: 5,
         borderRadius: 10,
@@ -69,20 +71,42 @@ const styles = StyleSheet.create({
         width: deviceWidth / 5,
         padding: 5,
         paddingTop: 10,
-        borderTopLeftRadius: 5,
-        borderTopRightRadius: 5,
+        borderRadius: 10,
         flexDirection: "row",
         justifyContent: "center",
         backgroundColor: mediumGrey,
+        shadowColor: black,
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
     },
 
+    animButton: {
+        borderRadius: 10,
+        width: deviceWidth / 5,
+        marginRight: 10,
+    },
     infoButText: {
         color: strongWhite,
         fontSize: 18,
     },
     info: {
+        marginTop: 10,
         padding: 10,
         backgroundColor: mediumGrey,
+        borderRadius: 15,
+        shadowColor: black,
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        width: deviceWidth - 20,
+        alignSelf: "center",
     },
     topPart: {
         flexDirection: "row",
