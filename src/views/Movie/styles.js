@@ -5,6 +5,7 @@ import {
     mediumGrey,
     strongGrey,
     strongWhite,
+    crimson,
 } from "../../styles/colors"
 
 const styles = StyleSheet.create({
@@ -116,6 +117,40 @@ const styles = StyleSheet.create({
         color: mediumWhite,
         fontSize: 10,
     },
+    ytContainer: {
+        flexDirection: "row",
+    },
+
+    modalOverlay: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    modal: {
+        width: "100%", // adjust this as needed
+        height: 200, // adjust this as needed
+        backgroundColor: crimson,
+        // borderRadius: 20,
+        // padding: 35,
+        // alignItems: "center",
+        // justifyContent: "center",
+        // shadowColor: "#000",
+        // shadowOffset: {
+        //     width: 0,
+        //     height: 2,
+        // },
+        // shadowOpacity: 0.25,
+        // shadowRadius: 4,
+        // elevation: 5,
+    },
+    trailerButton: {
+        backgroundColor: mediumGrey,
+        padding: 10,
+        alignItems: "center",
+        justifyContent: "center",
+        height: 50,
+    },
+
 })
 
 export default styles
