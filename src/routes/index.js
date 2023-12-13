@@ -10,6 +10,7 @@ import AllMovies from "../views/AllMovies"
 import AllUpcomings from "../views/AllUpcomings"
 import Upcoming from "../views/Upcoming"
 import CustomTabBar from "../components/CustomTabBar"
+import {CardStyleInterpolators} from "@react-navigation/stack"
 
 const Tab = createBottomTabNavigator()
 const CinemaStack = createStackNavigator()
@@ -28,6 +29,10 @@ function CinemaStackScreen() {
             <CinemaStack.Screen
                 name="Cinema Screen"
                 component={Cinema}
+                options={{
+                    cardStyleInterpolator:
+                        CardStyleInterpolators.forVerticalIOS,
+                }}
             />
             <CinemaStack.Screen
                 name="Movie Screen"

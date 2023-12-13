@@ -1,5 +1,12 @@
 import React, {useEffect} from "react"
-import {View, Text, Pressable, Image, ScrollView} from "react-native"
+import {
+    View,
+    Text,
+    Pressable,
+    Image,
+    ScrollView,
+    TouchableOpacity,
+} from "react-native"
 import {useSelector, useDispatch} from "react-redux"
 import {toggleDescription} from "../../redux/features/visibilitySlice"
 import {useNavigation} from "@react-navigation/native"
@@ -23,11 +30,11 @@ const CinemaMovies = ({id}) => {
     return (
         <ScrollView
             style={styles.scroller}
-            contentContainerStyle={{paddingBottom: 200}}
+            contentContainerStyle={{paddingBottom: 200, paddingTop: 100}}
         >
             {filteredMovies.map((movie) => (
                 <View key={movie.id}>
-                    <Pressable
+                    <TouchableOpacity
                         style={styles.card}
                         onPress={() => handlePress(movie.id)}
                     >
@@ -56,7 +63,7 @@ const CinemaMovies = ({id}) => {
                                 <Text style={styles.year}>{movie.year}</Text>
                             </View>
                         </View>
-                    </Pressable>
+                    </TouchableOpacity>
                 </View>
             ))}
         </ScrollView>

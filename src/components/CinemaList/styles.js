@@ -63,6 +63,11 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: mediumWhite,
     },
+
+    centerElement: {
+        borderColor: "red",
+        borderWidth: 2,
+    },
 })
 
 export default styles
