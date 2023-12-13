@@ -7,6 +7,7 @@ import Cinema from "../views/Cinema"
 import AllCinemas from "../views/AllCinemas"
 import Movie from "../views/Movie"
 import UpcomingMovies from "../components/UpcomingMovies"
+import UpcomingDetail from "../components/UpcomingDetail"
 import CustomTabBar from "../components/CustomTabBar"
 
 
@@ -38,6 +39,7 @@ function UpcomingStackScreen() {
     return (
         <UpcomingStack.Navigator>
             <UpcomingStack.Screen name="Upcoming Movies Page" component={UpcomingMovies} />
+            <UpcomingStack.Screen name="Upcoming Detail" component={UpcomingDetail} />
         </UpcomingStack.Navigator>
     )
 }
