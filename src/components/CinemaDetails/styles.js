@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 0,
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
-        borderColor: "rgba(220, 20, 60, 0.25)",
+        borderColor: "#C9B082",
         shadowColor: "black",
         shadowOpacity: 0.5,
         shadowRadius: 5,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     infoButText: {
-        color: "crimson",
+        color: strongWhite,
         fontSize: 18,
     },
 

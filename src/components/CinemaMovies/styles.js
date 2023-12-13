@@ -22,7 +22,7 @@ export default StyleSheet.create({
             height: 0,
         },
         borderBottomWidth: 1,
-        borderColor: strongWhite,
+        borderColor: "#C9B082",
     },
     poster: {
         marginVertical: -3,
