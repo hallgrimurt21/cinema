@@ -1,31 +1,28 @@
 /* eslint-disable max-len */
-import React, {useEffect, useState} from "react"
+import React, {useEffect} from "react"
 import {View, Text, Pressable} from "react-native"
-import {useSelector} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
 import {useNavigation} from "@react-navigation/native"
 import {SafeAreaView} from "react-native-safe-area-context"
 import YoutubePlayer from "react-native-youtube-iframe"
+import styles from "./styles"
+import {setMounted, setUnmounted} from "../../redux/features/isMountedSlice"
 
 
 const UpcomingDetail = ({id}) => {
     const navigate = useNavigation().navigate
     const upcomingMovies = useSelector((state) => state.upcomingMovies.movies)
+    const isMounted = useSelector((state) => state.isMounted)
+    const dispatch = useDispatch()
     const upcoming = upcomingMovies.find((movie) => movie._id === id)
-    const [isMounted, setIsMounted] = useState(false)
 
     useEffect(() => {
-        setIsMounted(true)
+        dispatch(setMounted())
 
         return () => {
-            setIsMounted(false)
+            dispatch(setUnmounted())
         }
-    }, [])
-
-
-    console.log("upcoming 1: ", upcoming)
-
-
-    console.log("upcoming 2: ", upcoming)
+    }, [dispatch])
 
     if (!upcoming) {
         return <Text>Loading...</Text>

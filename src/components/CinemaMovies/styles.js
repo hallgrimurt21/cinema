@@ -63,4 +63,8 @@ export default StyleSheet.create({
     scroller: {
         height: deviceHeight,
     },
-})
+    someBackground: {
+        backgroundColor: strongGrey,
+    },
+},
+)
