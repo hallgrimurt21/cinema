@@ -9,7 +9,6 @@ import Movie from "../views/Movie"
 import UpcomingMovies from "../components/UpcomingMovies"
 import CustomTabBar from "../components/CustomTabBar"
 
-
 const Tab = createBottomTabNavigator()
 const CinemaStack = createStackNavigator()
 const UpcomingStack = createStackNavigator()
@@ -17,13 +16,14 @@ const UpcomingStack = createStackNavigator()
 function CinemaStackScreen() {
     return (
         <CinemaStack.Navigator>
-            <CinemaStack.Screen name="Cinemas Page" component={AllCinemas} />
             <CinemaStack.Screen
-
+                name="Cinemas Page"
+                component={AllCinemas}
+                options={{headerShown: false}}
+            />
+            <CinemaStack.Screen
                 name="Cinema Page"
-
                 component={Cinema}
-
                 options={{headerShown: false}}
             />
             <CinemaStack.Screen
@@ -37,7 +37,10 @@ function CinemaStackScreen() {
 function UpcomingStackScreen() {
     return (
         <UpcomingStack.Navigator>
-            <UpcomingStack.Screen name="Upcoming Movies Page" component={UpcomingMovies} />
+            <UpcomingStack.Screen
+                name="Upcoming Movies Page"
+                component={UpcomingMovies}
+            />
         </UpcomingStack.Navigator>
     )
 }
@@ -72,7 +75,10 @@ function Routes() {
                 screenOptions={{headerShown: false}} // Add this line
             >
                 <Tab.Screen name="Cinemas" component={CinemaStackScreen} />
-                <Tab.Screen name="Upcoming Movies" component={UpcomingStackScreen} />
+                <Tab.Screen
+                    name="Upcoming Movies"
+                    component={UpcomingStackScreen}
+                />
             </Tab.Navigator>
         </NavigationContainer>
     )
