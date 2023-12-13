@@ -7,6 +7,7 @@ import Cinema from "../views/Cinema"
 import AllCinemas from "../views/AllCinemas"
 import Movie from "../views/Movie"
 import UpcomingMovies from "../components/UpcomingMovies"
+import UpcomingDetail from "../components/UpcomingDetail"
 import CustomTabBar from "../components/CustomTabBar"
 
 const Tab = createBottomTabNavigator()
@@ -41,33 +42,14 @@ function UpcomingStackScreen() {
                 name="Upcoming Movies Page"
                 component={UpcomingMovies}
             />
+            <UpcomingStack.Screen
+                name="Upcoming Detail"
+                component={UpcomingDetail}
+            />
         </UpcomingStack.Navigator>
     )
 }
 function Routes() {
-    // const TabOptions = {
-    //     tabBarActiveTintColor: "white",
-    //     headerShown: false,
-    //     tabBarInactiveTintColor: "grey",
-    //     tabBarIcon: () => null,
-    //     tabBarLabelStyle: {
-    //         fontSize: 20,
-    //         marginBottom: 25,
-    //         textShadowColor: "black",
-    //         textShadowOffset: {width: -1, height: -1},
-    //         textShadowRadius: 0.1,
-    //     },
-    //     tabBarStyle: {
-    //         flexDirection: "row",
-    //         justifyContent: "space-between",
-    //         backgroundColor: "black",
-    //     },
-    //     tabBarItemStyle: {
-    //         height: 75,
-    //         borderRightWidth: 1,
-    //         borderColor: "red",
-    //     },
-    // }
     return (
         <NavigationContainer>
             <Tab.Navigator

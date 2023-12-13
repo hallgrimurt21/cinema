@@ -1,27 +1,38 @@
-import React, {useEffect} from "react"
-import {View, Text} from "react-native"
-import {useDispatch, useSelector} from "react-redux"
-import {fetchUpcomingMovieByID} from "../../redux/features/upcomingMovieOne"
+import React from "react"
+import {View, Text, Pressable} from "react-native"
+import {useSelector} from "react-redux"
+import {useNavigation} from "@react-navigation/native"
+import {SafeAreaView} from "react-native-safe-area-context"
 
-const UpcomingDetail = ({id}) => {
-    const dispatch = useDispatch()
-    const upcoming = useSelector((state) => state.upcoming)
+const UpcomingDetail = ({route}) => {
+    const {id} = route.params
+    console.log("id: ", id)
+    const navigate = useNavigation().navigate
+    const upcomingMovies = useSelector((state) => state.upcomingMovies.movies)
+    const upcoming = upcomingMovies.find((movie) => movie._id === id)
+
 
     console.log("upcoming 1: ", upcoming)
-    useEffect(() => {
-        dispatch(fetchUpcomingMovieByID(id))
-    }, [dispatch, id])
+
 
     console.log("upcoming 2: ", upcoming)
 
     if (!upcoming) {
         return <Text>Loading...</Text>
     }
+
     return (
-        <View>
-            <Text>{upcoming.title}</Text>
-            <Text>{upcoming["release-dateIS"]}</Text>
-        </View>
+        <SafeAreaView>
+            <View>
+                <Pressable onPress={navigate.goBack}>
+                    <Text>Back</Text>
+                </Pressable>
+                <Text>{upcoming.title}</Text>
+                <Text>{upcoming["release-dateIS"]}</Text>
+            </View>
+        </SafeAreaView>
+
+
     )
 }
 
