@@ -19,13 +19,8 @@ const MovieStack = createStackNavigator()
 function CinemaStackScreen() {
     const CinemaStackOptions = {headerShown: false}
     return (
-        <CinemaStack.Navigator
-            screenOptions={CinemaStackOptions}
-        >
-            <CinemaStack.Screen
-                name="Cinemas Screen"
-                component={AllCinemas}
-            />
+        <CinemaStack.Navigator screenOptions={CinemaStackOptions}>
+            <CinemaStack.Screen name="Cinemas Screen" component={AllCinemas} />
             <CinemaStack.Screen
                 name="Cinema Screen"
                 component={Cinema}
@@ -34,23 +29,15 @@ function CinemaStackScreen() {
                         CardStyleInterpolators.forVerticalIOS,
                 }}
             />
-            <CinemaStack.Screen
-                name="Movie Screen"
-                component={Movie}
-            />
+            <CinemaStack.Screen name="Movie Screen" component={Movie} />
         </CinemaStack.Navigator>
     )
 }
 function MovieStackScreen() {
     const MovieStackOptions = {headerShown: false}
     return (
-        <MovieStack.Navigator
-            screenOptions={MovieStackOptions}
-        >
-            <MovieStack.Screen
-                name="Movies Screen"
-                component={AllMovies}
-            />
+        <MovieStack.Navigator screenOptions={MovieStackOptions}>
+            <MovieStack.Screen name="Movies Screen" component={AllMovies} />
             <MovieStack.Screen
                 name="Upcoming Movies Screen"
                 component={AllUpcomings}
@@ -70,14 +57,8 @@ function Routes() {
                 tabBar={(props) => <CustomTabBar {...props} />}
                 screenOptions={TabOptions}
             >
-                <Tab.Screen
-                    name="Cinemas"
-                    component={CinemaStackScreen}
-                />
-                <Tab.Screen
-                    name="Movies"
-                    component={MovieStackScreen}
-                />
+                <Tab.Screen name="Cinemas" component={CinemaStackScreen} />
+                <Tab.Screen name="Movies" component={MovieStackScreen} />
             </Tab.Navigator>
         </NavigationContainer>
     )
