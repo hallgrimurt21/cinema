@@ -4,6 +4,7 @@ import {
     mediumGrey,
     mediumWhite,
     strongWhite,
+    crimson,
 } from "../../styles/colors"
 
 export default StyleSheet.create({
