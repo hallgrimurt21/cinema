@@ -6,6 +6,7 @@ import {
     strongWhite,
     mediumWhite,
     black,
+    champagne,
 } from "../../styles/colors"
 import hexToRGBA from "../../styles/hexToRgba"
 
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     },
     info: {
         marginTop: 10,
-        padding: 10,
+        padding: 20,
         backgroundColor: hexToRGBA(mediumGrey, 0.95),
         borderRadius: 15,
         shadowColor: black,
@@ -37,8 +38,8 @@ const styles = StyleSheet.create({
         },
         width: deviceWidth - 20,
         alignSelf: "center",
-        borderColor: "rgba(220, 20, 60, 0.25)",
-        borderWidth: 1,
+        borderColor: black,
+        borderWidth: 0.2,
     },
     topPart: {
         backgroundColor: hexToRGBA(strongGrey, 0.95),
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
         overflow: "hidden",
         width: deviceWidth / 5,
         marginRight: 10,
-        borderWidth: 1,
+        borderWidth: 0.2,
     },
     infoButText: {
         color: strongWhite,

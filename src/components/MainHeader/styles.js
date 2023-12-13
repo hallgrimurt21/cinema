@@ -5,6 +5,7 @@ import {
     mediumWhite,
     strongWhite,
     black,
+    champagne,
 } from "../../styles/colors"
 import {deviceWidth} from "../../styles/sizes"
 import hexToRGBA from "../../styles/hexToRgba"
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 20,
         borderWidth: 1,
         borderTopWidth: 0,
-        borderColor: "rgba(220, 20, 60, 0.25)",
+        borderColor: champagne,
         width: deviceWidth,
         position: "absolute",
         alignItems: "center",
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: "bold",
         textAlign: "center",
-        textShadowColor: "crimson",
+        textShadowColor: champagne,
         textShadowOffset: {width: -1, height: -1},
         textShadowRadius: 4,
         paddingBottom: 10,

@@ -5,6 +5,7 @@ import {
     mediumWhite,
     strongWhite,
     black,
+    champagne,
 } from "../../styles/colors"
 import {deviceWidth} from "../../styles/sizes"
 
@@ -13,7 +14,6 @@ const styles = StyleSheet.create({
         backgroundColor: strongGrey,
     },
     cinemaContainer: {
-        marginLeft: 10,
         backgroundColor: mediumGrey,
         padding: 10,
         flexDirection: "row",
@@ -21,8 +21,6 @@ const styles = StyleSheet.create({
         height: deviceWidth / 5,
         alignItems: "center",
         flex: 1,
-        borderBottomLeftRadius: 10,
-        borderTopLeftRadius: 10,
     },
 
     linkContainer: {
@@ -33,14 +31,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         height: deviceWidth / 5,
         alignItems: "center",
-        shadowColor: strongGrey,
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
+        borderLeftWidth: 1,
+        borderColor: strongGrey,
         elevation: 1,
-        marginRight: 10,
-        borderTopRightRadius: 10,
-        borderBottomRightRadius: 10,
     },
 
     buttons: {
@@ -52,6 +45,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowRadius: 2,
         elevation: 1,
+        borderBottomWidth: 0.4,
+        borderColor: champagne,
     },
 
     cinemaName: {

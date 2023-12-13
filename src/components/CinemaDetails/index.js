@@ -48,7 +48,7 @@ const CinemaDetails = ({id}) => {
         }),
         borderColor: fadeAnim.interpolate({
             inputRange: [0, 1],
-            outputRange: ["transparent", "crimson"], // Change the colors as per your need
+            outputRange: ["transparent", "black"], // Change the colors as per your need
         }),
     }
 
