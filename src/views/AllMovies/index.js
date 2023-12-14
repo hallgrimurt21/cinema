@@ -1,18 +1,26 @@
-import React from "react"
+import React, {useState} from "react"
 import {View, Text, TouchableOpacity} from "react-native"
 import MainHeader from "../../components/MainHeader"
 import styles from "./styles"
 import CinemaMovies from "../../components/CinemaMovies"
+import UpcomingMovies from "../../components/UpcomingMovies" // Import the UpcomingMovies component
 
 const AllMovies = ({navigation}) => {
-    const navigate = navigation.navigate
+    const [showUpcoming, setShowUpcoming] = useState(false) // Add a state variable
+
+    const toggleMovies = () => {
+        setShowUpcoming(!showUpcoming) // Toggle the state variable when the button is pressed
+    }
+
     return (
         <View style={styles.container}>
             <MainHeader />
-            <TouchableOpacity onPress={() => navigate("Upcoming Movies Screen")}>
-                <Text style={{color: "white", marginTop: 100, fontSize:15}}>Upcoming Movies</Text>
+            <TouchableOpacity onPress={toggleMovies} style={styles.toggleButton}>
+                <Text style={{color: "white", marginTop: 35, fontSize: 15}}>
+                    {showUpcoming ? "Show\nCinema" : "Show\nUpcoming"}
+                </Text>
             </TouchableOpacity>
-            <CinemaMovies />
+            {showUpcoming ? <UpcomingMovies /> : <CinemaMovies />}
         </View>
     )
 }
