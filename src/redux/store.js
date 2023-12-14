@@ -5,6 +5,7 @@ import authReducer from "./features/authSlice"
 import upcomingMoviesReducer from "./features/upcomingMovies"
 import visibilityReducer from "./features/visibilitySlice"
 // import modalReducer from "./features/modalSlice"
+import searchReducer from "./features/searchSlice"
 import isMountedReducer from "./features/isMountedSlice"
 
 export const store = configureStore({
@@ -14,6 +15,7 @@ export const store = configureStore({
         auth: authReducer,
         upcomingMovies: upcomingMoviesReducer,
         visibility: visibilityReducer,
+        search: searchReducer,
         isMounted: isMountedReducer,
     },
 })
