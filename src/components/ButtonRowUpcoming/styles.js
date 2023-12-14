@@ -1,11 +1,12 @@
 import {StyleSheet} from "react-native"
-import {deviceHeight, deviceWidth} from "../../styles/sizes"
+import {deviceWidth} from "../../styles/sizes"
 import {
     mediumWhite,
     mediumGrey,
     strongGrey,
     strongWhite,
     crimson,
+    champagne,
 } from "../../styles/colors"
 
 const styles = StyleSheet.create({
@@ -57,9 +58,12 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     plot: {
+        backgroundColor: mediumGrey,
+        marginTop: 10,
         color: mediumWhite,
-        textAlign: "center",
+        textAlign: "left",
         padding: 10,
+        fontSize: 16,
     },
     genre: {
         color: mediumWhite,
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
     allShows: {
         flexDirection: "row",
         flexWrap: "wrap",
-        justifyContent: "space-between",
+        justifyContent: "flex-start",
         shadowColor: "#000000",
         shadowOffset: {width: 0, height: 0},
         shadowOpacity: 0.5,
@@ -85,9 +89,11 @@ const styles = StyleSheet.create({
         width: "33.33%",
     },
     genres: {
+        marginTop: 10,
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-around",
+        backgroundColor: mediumGrey,
     },
     buttonRow: {
         flexDirection: "row",
@@ -126,21 +132,12 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    modal: {
-        width: "100%", // adjust this as needed
-        height: 200, // adjust this as needed
-        backgroundColor: crimson,
-    },
     trailerButton: {
         backgroundColor: mediumGrey,
-        marginTop: 10,
         padding: 10,
         alignItems: "center",
         justifyContent: "center",
         height: 50,
-    },
-    extraView: {
-        height: deviceHeight,
     },
 })
 
