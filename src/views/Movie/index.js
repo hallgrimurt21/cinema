@@ -21,6 +21,12 @@ import {useNavigation} from "@react-navigation/native"
 import ButtonRow from "../../components/ButtonRow"
 import MovieHeader from "../../components/MovieHeader"
 
+/**
+ * Displays the movie details
+ * @param {Object} param0 - The props object
+ * @param {Object} param0.route - The route object
+ * @return {JSX.Element} The movie details component
+ */
 function Movie({route}) {
     const {cinemaID, movieID} = route.params
     const movies = useSelector((state) => state.movies.movies)
@@ -52,17 +58,17 @@ function Movie({route}) {
             dispatch(hideAll())
         } else {
             switch (section) {
-                case "plot":
-                    dispatch(showPlot())
-                    break
-                case "genres":
-                    dispatch(showGenres())
-                    break
-                case "showtimes":
-                    dispatch(showShowtimes())
-                    break
-                default:
-                    break
+            case "plot":
+                dispatch(showPlot())
+                break
+            case "genres":
+                dispatch(showGenres())
+                break
+            case "showtimes":
+                dispatch(showShowtimes())
+                break
+            default:
+                break
             }
         }
     }
@@ -80,10 +86,10 @@ function Movie({route}) {
             />
 
             {movie.trailers &&
-                movie.trailers[0] &&
-                movie.trailers[0].results &&
-                movie.trailers[0].results[0] &&
-                movie.trailers[0].results[0].key && (
+            movie.trailers[0] &&
+            movie.trailers[0].results &&
+            movie.trailers[0].results[0] &&
+            movie.trailers[0].results[0].key ? (
                     <Pressable
                         style={({pressed}) => [
                             {opacity: pressed ? 0.5 : 1},
@@ -97,6 +103,10 @@ function Movie({route}) {
                     >
                         <Text style={styles.time}>Watch Trailer</Text>
                     </Pressable>
+                ) : (
+                    <View style={styles.trailerButton}>
+                        <Text style={styles.time}>No Trailer available</Text>
+                    </View>
                 )}
         </ScrollView>
     )

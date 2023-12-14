@@ -1,11 +1,12 @@
 import {StyleSheet} from "react-native"
-import {deviceHeight, deviceWidth} from "../../styles/sizes"
+import {deviceWidth} from "../../styles/sizes"
 import {
     mediumWhite,
     mediumGrey,
     strongGrey,
     strongWhite,
     crimson,
+    champagne,
 } from "../../styles/colors"
 
 const styles = StyleSheet.create({
@@ -126,21 +127,12 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    modal: {
-        width: "100%", // adjust this as needed
-        height: 200, // adjust this as needed
-        backgroundColor: crimson,
-    },
     trailerButton: {
         backgroundColor: mediumGrey,
-        marginTop: 10,
         padding: 10,
         alignItems: "center",
         justifyContent: "center",
         height: 50,
-    },
-    extraView: {
-        height: deviceHeight,
     },
 })
 
