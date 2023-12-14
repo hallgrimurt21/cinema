@@ -55,6 +55,13 @@ function MovieStackScreen() {
                 component={Upcoming}
 
             />
+            <MovieStack.Screen name="Trailer"
+                component={Trailer}
+                options={{
+                    cardStyleInterpolator:
+                        CardStyleInterpolators.forModalPresentationIOS,
+                }}
+            />
         </MovieStack.Navigator>
     )
 }
