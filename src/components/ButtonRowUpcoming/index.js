@@ -2,49 +2,75 @@ import React from "react"
 import {View, Pressable, Text} from "react-native"
 import styles from "./styles" // import your styles
 
-const ButtonRow = ({
-    handleToggle,
-    visibleSection,
-    upcoming,
-    release,
-
-}) => (
+const ButtonRow = ({handleToggle, visibleSection, movie}) => (
     <View>
         <View style={styles.buttonRow}>
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    styles.botButton,
+                    visibleSection === "plot"
+                        ? styles.activeButton
+                        : styles.botButton,
                 ]}
                 onPress={() => handleToggle("plot")}
             >
-                <Text style={styles.botButText}>Plot</Text>
+                <Text
+                    style={
+                        visibleSection === "plot"
+                            ? styles.activeButtonText
+                            : styles.botButText
+                    }
+                >
+                    Plot
+                </Text>
             </Pressable>
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    styles.botButton,
+                    visibleSection === "genres"
+                        ? styles.activeButton
+                        : styles.botButton,
                 ]}
                 onPress={() => handleToggle("genres")}
             >
-                <Text style={styles.botButText}>Genres</Text>
+                <Text
+                    style={
+                        visibleSection === "genres"
+                            ? styles.activeButtonText
+                            : styles.botButText
+                    }
+                >
+                    Genres
+                </Text>
             </Pressable>
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    styles.botButton,
+                    visibleSection === "release"
+                        ? styles.activeButton
+                        : styles.botButton,
                 ]}
                 onPress={() => handleToggle("release")}
             >
-                <Text style={styles.botButText}>Release</Text>
+                <Text
+                    style={
+                        visibleSection === "release"
+                            ? styles.activeButtonText
+                            : styles.botButText
+                    }
+                >
+                    Release
+                </Text>
             </Pressable>
         </View>
         {visibleSection === "plot" && (
-            <Text style={styles.plot}>{upcoming.plot}</Text>
+            <View style={styles.plotBox}>
+                <Text style={styles.plot}>{movie.plot}</Text>
+            </View>
         )}
         {visibleSection === "genres" && (
             <View style={styles.genres}>
-                {upcoming.genres.map((genre, index) => (
+                {movie.genres.map((genre, index) => (
                     <Text style={styles.genre} key={index}>
                         {genre["NameEN\t"]}
                     </Text>
@@ -52,12 +78,11 @@ const ButtonRow = ({
             </View>
         )}
         {visibleSection === "release" && (
-            <View style={styles.genres}>
-                <Text style={styles.plot}>
-                Release date: {upcoming["release-dateIS"]}
+            <View style={styles.releaseBox}>
+                <Text style={styles.releaseText}>
+                    Release date: {movie["release-dateIS"]}
                 </Text>
             </View>
-
         )}
     </View>
 )
