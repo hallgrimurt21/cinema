@@ -3,7 +3,7 @@ import {deviceWidth} from "../../styles/sizes"
 
 const styles = StyleSheet.create({
     container: {
-        marginRight: 10,
+        marginRight: deviceWidth * 0.01,
         width: "20%",
         justifyContent: "flex-end",
         alignItems: "flex-end",

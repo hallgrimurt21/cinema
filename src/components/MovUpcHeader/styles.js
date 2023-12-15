@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         alignSelf: "center",
     },
     toggleButton: {
-        marginLeft: 30,
+        marginLeft: deviceWidth * 0.05,
         width: "20%",
         marginBottom: 15,
         zIndex: 3,

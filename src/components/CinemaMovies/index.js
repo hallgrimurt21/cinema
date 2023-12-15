@@ -11,6 +11,7 @@ import {useSelector, useDispatch} from "react-redux"
 import {toggleDescription} from "../../redux/features/visibilitySlice"
 import {useNavigation} from "@react-navigation/native"
 import styles from "./styles"
+import {deviceHeight} from "../../styles/sizes"
 
 const CinemaMovies = ({id}) => {
     let filteredMovies
@@ -41,7 +42,10 @@ const CinemaMovies = ({id}) => {
     return (
         <ScrollView
             style={styles.scroller}
-            contentContainerStyle={{paddingBottom: 200, paddingTop: 120}}
+            contentContainerStyle={{
+                paddingBottom: 200,
+                paddingTop: deviceHeight * 0.12,
+            }}
         >
             {filteredMovies.map((movie) => (
                 <View key={movie.id}>

@@ -5,6 +5,7 @@ import {View, Text, TouchableOpacity, Image} from "react-native"
 import {useNavigation} from "@react-navigation/native"
 import {ScrollView} from "react-native-gesture-handler"
 import styles from "../CinemaMovies/styles"
+import {deviceWidth, deviceHeight} from "../../styles/sizes"
 
 const UpcomingMovies = () => {
     let filteredMovies
@@ -24,7 +25,10 @@ const UpcomingMovies = () => {
         <View style={styles.someBackground}>
             <ScrollView
                 style={styles.scroller}
-                contentContainerStyle={{paddingBottom: 200, paddingTop: 120}}
+                contentContainerStyle={{
+                    paddingBottom: 200,
+                    paddingTop: deviceHeight * 0.12,
+                }}
             >
                 <View>
                     {filteredMovies.map((movie, index) => (
