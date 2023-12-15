@@ -9,6 +9,7 @@ import {
     champagne,
     black,
 } from "../../styles/colors"
+import hexToRGBA from "../../styles/hexToRgba"
 
 const buttonCore = {
     flex: 1,
@@ -28,6 +29,8 @@ const showButtonCore = {
     width: "33.33%",
     marginTop: -1,
     marginRight: -1,
+    borderLeftColor: hexToRGBA(black, 0.4),
+    borderTopColor: hexToRGBA(black, 0.5),
 }
 
 const styles = StyleSheet.create({
@@ -131,11 +134,24 @@ const styles = StyleSheet.create({
     showtime: {
         ...showButtonCore,
         backgroundColor: mediumGrey,
+        borderLeftWidth: 1,
+        borderTopWidth: 1,
     },
 
     pressedShowtime: {
         ...showButtonCore,
         backgroundColor: strongGrey,
+        borderColor: strongGrey,
+        borderTopColor: strongGrey,
+        borderLeftColor: strongGrey,
+        borderWidth: 8,
+        borderBottomWidth: 1,
+        borderTopWidth: 1,
+        zIndex: 1,
+        shadowColor: black,
+        shadowOffset: {width: 0, height: 0},
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
     },
 
     time: {
