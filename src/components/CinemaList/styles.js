@@ -11,7 +11,7 @@ import {deviceWidth} from "../../styles/sizes"
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: strongGrey,
+        backgroundColor: black,
     },
     cinemaContainer: {
         backgroundColor: mediumGrey,
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 1,
         borderBottomWidth: 0.4,
-        borderColor: champagne,
+        // borderColor: champagne,
     },
 
     cinemaName: {

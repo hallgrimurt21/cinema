@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 20,
         borderWidth: 1,
         borderTopWidth: 0,
-        borderColor: champagne,
+        // borderColor: champagne,
         width: deviceWidth,
         position: "absolute",
         alignItems: "center",
