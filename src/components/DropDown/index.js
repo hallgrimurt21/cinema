@@ -58,6 +58,7 @@ const dropDown = ({selectedOptions}) => {
                 <Icon name="filter" size={20} color="#fff" />
             </TouchableOpacity>
             <ModalDropdown
+                defaultIndex={0}
                 ref={dropdownRef}
                 options={selectedOptions}
                 renderRow={renderRow}
