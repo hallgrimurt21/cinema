@@ -11,6 +11,14 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: strongGrey,
     },
+
+    toggleButton: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        padding: 10,
+        zIndex: 1,
+    },
 })
 
 export default styles
