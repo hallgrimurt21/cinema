@@ -7,6 +7,7 @@ import visibilityReducer from "./features/visibilitySlice"
 import modalReducer from "./features/modalSlice"
 import isMountedReducer from "./features/isMountedSlice"
 import trailerReducer from "./features/trailerSlice"
+import toggle from "./features/toggle"
 
 export const store = configureStore({
     reducer: {
@@ -18,5 +19,6 @@ export const store = configureStore({
         isMounted: isMountedReducer,
         trailer: trailerReducer,
         modal: modalReducer,
+        toggle: toggle,
     },
 })

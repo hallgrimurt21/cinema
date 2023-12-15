@@ -81,9 +81,6 @@ const UpcomingDetail = ({id}) => {
                 />
 
                 <View>
-                    <Pressable onPress={navigation.goBack}>
-                        <Text>Back</Text>
-                    </Pressable>
                     {isMounted &&
                 upcoming.trailers &&
                 upcoming.trailers[0] &&
