@@ -17,6 +17,8 @@ const buttonCore = {
     alignItems: "center",
     justifyContent: "center",
     height: 50,
+    borderLeftColor: hexToRGBA(black, 0.25),
+    borderLeftWidth: 1,
 }
 
 const showButtonCore = {

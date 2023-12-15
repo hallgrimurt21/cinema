@@ -1,14 +1,6 @@
 /* eslint-disable max-len */
 import React from "react"
-import {
-    View,
-    Text,
-    Linking,
-    Pressable,
-    ImageBackground,
-    ScrollView,
-    SafeAreaView,
-} from "react-native"
+import {Linking, ScrollView, LayoutAnimation, UIManager} from "react-native"
 import styles from "./styles"
 import {useSelector, useDispatch} from "react-redux"
 import {
@@ -28,6 +20,8 @@ import MovieHeader from "../../components/MovieHeader"
  * @return {JSX.Element} The movie details component
  */
 function Movie({route}) {
+    UIManager.setLayoutAnimationEnabledExperimental &&
+        UIManager.setLayoutAnimationEnabledExperimental(true)
     const {cinemaID, movieID} = route.params
     const movies = useSelector((state) => state.movies.movies)
     const movie = movies.find((movie) => movie.id === movieID)
@@ -53,7 +47,29 @@ function Movie({route}) {
             navigation.goBack()
         }
     }
+
+    const customAnimation = {
+        duration: 750, // Duration in milliseconds.
+        create: {
+            type: LayoutAnimation.Types.spring,
+            property: LayoutAnimation.Properties.opacity,
+            springDamping: 0.4,
+            duration: 700,
+        },
+        update: {
+            type: LayoutAnimation.Types.spring,
+            springDamping: 0.4,
+        },
+        delete: {
+            type: LayoutAnimation.Types.linear,
+            property: LayoutAnimation.Properties.opacity,
+            duration: 100,
+        },
+    }
+
     const handleToggle = (section) => {
+        LayoutAnimation.configureNext(customAnimation)
+
         if (visibleSection === section) {
             dispatch(hideAll())
         } else {
