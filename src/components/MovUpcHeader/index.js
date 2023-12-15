@@ -6,6 +6,7 @@ import {toggleShowUpcoming} from "../../redux/features/toggle"
 import SearchBar from "../../components/SearchBar"
 import OpenSearchButton from "../../components/OpenSearchButton"
 import styles from "./styles"
+import GenresDropDown from "../GenresDropDown"
 
 function MovUpcHeader({}) {
     const dispatch = useDispatch()
@@ -32,6 +33,8 @@ function MovUpcHeader({}) {
                 <SafeAreaView style={styles.safeDrBox}>
                     <Text style={styles.drText}>Dr.Cinema</Text>
                 </SafeAreaView>
+                <View style={{flex: 1}} />
+                <GenresDropDown />
                 <OpenSearchButton style={styles.spyGlass} />
 
                 {searchStatus !== "closed" && (

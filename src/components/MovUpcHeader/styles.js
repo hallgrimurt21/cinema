@@ -75,9 +75,7 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 16,
     },
-    spyGlass: {
-        paddingRight: 20,
-    },
+    spyGlass: {width: 100, paddingRight: 10, marginRight: 10},
     searcher: {
         width: "100%",
         flexDirection: "row",
