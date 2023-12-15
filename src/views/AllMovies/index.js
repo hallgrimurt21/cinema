@@ -17,8 +17,7 @@ import OpenSearchButton from "../../components/OpenSearchButton"
 import styles from "./styles"
 import GenresDropDown from "../../components/GenresDropDown"
 
-const AllMovies = ({navigation}) => {
-    const navigate = navigation.navigate
+const AllMovies = () => {
     const dispatch = useDispatch()
     const showUpcoming = useSelector((state) => state.toggle.showUpcoming)
     const searchStatus = useSelector((state) => state.search.status)

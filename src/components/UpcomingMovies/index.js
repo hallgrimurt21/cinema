@@ -1,24 +1,14 @@
 /* eslint-disable max-len */
 import React from "react"
-import {useSelector} from "react-redux"
 import {View, Text, TouchableOpacity, Image} from "react-native"
 import {useNavigation} from "@react-navigation/native"
 import {ScrollView} from "react-native-gesture-handler"
+import filterMovies from "../../utils/filterMovies"
 import styles from "../CinemaMovies/styles"
 
 const UpcomingMovies = () => {
-    let filteredMovies
+    const filteredMovies = filterMovies({id: null})
     const navigate = useNavigation().navigate
-    const upcomingMovies = useSelector((state) => state.upcomingMovies.movies)
-    const searchWord = useSelector((state) => state.search.value)
-
-    if (searchWord) {
-        filteredMovies = upcomingMovies.filter((movie) =>
-            movie.title.toLowerCase().includes(searchWord.toLowerCase()),
-        )
-    } else {
-        filteredMovies = upcomingMovies
-    }
 
     return (
         <View style={styles.someBackground}>
