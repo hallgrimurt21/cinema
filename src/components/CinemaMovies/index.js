@@ -43,7 +43,7 @@ const CinemaMovies = ({id}) => {
     return (
         <ScrollView
             style={styles.scroller}
-            contentContainerStyle={{paddingBottom: 200, paddingTop: 120}}
+            contentContainerStyle={{paddingBottom: 200, paddingTop: 0}}
         >
             {filteredMovies.map((movie) => (
                 <View key={movie.id}>

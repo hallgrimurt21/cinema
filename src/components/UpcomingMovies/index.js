@@ -24,7 +24,7 @@ const UpcomingMovies = () => {
         <View style={styles.someBackground}>
             <ScrollView
                 style={styles.scroller}
-                contentContainerStyle={{paddingBottom: 200, paddingTop: 100}}
+                contentContainerStyle={{paddingBottom: 200, paddingTop: 0}}
             >
                 <View>
                     {filteredMovies.map((movie, index) => (
