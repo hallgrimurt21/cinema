@@ -1,10 +1,9 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 
 // Async thunk for fetching data
-export const fetchCinemas = createAsyncThunk(
+const fetchCinemas = createAsyncThunk(
     "cinema/fetchCinemas",
     async(token) => {
-        console.log("fetchCinemas", token)
         const response = await fetch("https://api.kvikmyndir.is/theaters", {
             headers: {
                 "x-access-token": token,
@@ -45,5 +44,7 @@ const cinemasSlice = createSlice({
     },
 })
 
-// Export reducer
+export {fetchCinemas}
+
 export default cinemasSlice.reducer
+

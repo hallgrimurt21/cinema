@@ -31,7 +31,8 @@ function CinemaStackScreen() {
                 }}
             />
             <CinemaStack.Screen name="Movie Screen" component={Movie} />
-            <CinemaStack.Screen name="Trailer"
+            <CinemaStack.Screen
+                name="Trailer"
                 component={Trailer}
                 options={{
                     cardStyleInterpolator:
@@ -54,7 +55,6 @@ function MovieStackScreen() {
             <MovieStack.Screen
                 name="Upcoming Movie Screen"
                 component={Upcoming}
-
             />
             <MovieStack.Screen name="Trailer"
                 component={Trailer}
