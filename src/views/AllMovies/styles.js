@@ -26,6 +26,14 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 16,
     },
+
+    toggleButton: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        padding: 10,
+        zIndex: 1,
+    },
 })
 
 export default styles

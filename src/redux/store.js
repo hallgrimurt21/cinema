@@ -7,6 +7,7 @@ import isMountedReducer from "./features/isMountedSlice"
 import modalReducer from "./features/modalSlice"
 import moviesReducer from "./features/moviesSlice"
 import searchReducer from "./features/searchSlice"
+import toggle from "./features/toggle"
 import trailerReducer from "./features/trailerSlice"
 import upcomingMoviesReducer from "./features/upcomingMovies"
 import visibilityReducer from "./features/visibilitySlice"
@@ -21,6 +22,7 @@ export const store = configureStore({
         modal: modalReducer,
         movies: moviesReducer,
         search: searchReducer,
+        toggle: toggle,
         trailer: trailerReducer,
         upcomingMovies: upcomingMoviesReducer,
         visibility: visibilityReducer,

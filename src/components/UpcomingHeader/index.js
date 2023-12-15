@@ -13,7 +13,7 @@ const UpcomingHeader = ({upcoming, handleNavigate}) => {
         <ImageBackground style={styles.poster} source={{uri: upcoming.poster}}>
             <View style={styles.header}>
                 <SafeAreaView style={styles.safe}>
-                    <Pressable onPress={handleNavigate}>
+                    <Pressable onPress={handleNavigate()}>
                         <Text style={styles.back}>Back</Text>
                     </Pressable>
                     <View style={styles.rightInfo}>
