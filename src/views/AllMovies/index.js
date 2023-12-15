@@ -17,6 +17,7 @@ import SearchBar from "../../components/SearchBar"
 import OpenSearchButton from "../../components/OpenSearchButton"
 import styles from "./styles"
 import GenresDropDown from "../../components/GenresDropDown"
+import MovUpcHeader from "../../components/MovUpcHeader"
 
 const AllMovies = ({navigation}) => {
     const navigate = navigation.navigate
@@ -35,42 +36,36 @@ const AllMovies = ({navigation}) => {
             return () => dispatch(clearSearch())
         }, []),
     )
-    const toggleMovies = () => {
-        dispatch(toggleShowUpcoming()) // Dispatch the action
-        dispatch(clearSearch())
-    }
-    const ClearnOrDropDown = () => {
-        if (searchValue) {
-            return (
-                <TouchableOpacity onPress={() => dispatch(clearSearch())}>
-                    <Text style={styles.clearText}>Clear</Text>
-                </TouchableOpacity>
-            )
-        } else {
-            return <GenresDropDown />
-        }
-    }
+
     return (
         <TouchableWithoutFeedback onPress={handleOutsidePress}>
             <View style={styles.container}>
-                {searchStatus !== "closed" && <SearchBar />}
-                <OpenSearchButton />
-                <SafeAreaView style={styles.safer}>
-                    <TouchableOpacity
-                        onPress={toggleMovies}
-                        style={styles.toggleButton}
-                    >
-                        <Text style={styles.switchBtnText}>
-                            {showUpcoming ? "Showing" : "Upcoming"}
-                        </Text>
-                    </TouchableOpacity>
-                </SafeAreaView>
-                <MainHeader />
-
-                <ClearnOrDropDown />
+                <MovUpcHeader />
                 {showUpcoming ? <UpcomingMovies /> : <CinemaMovies />}
             </View>
         </TouchableWithoutFeedback>
+    )
+}
+
+function extra() {
+    return (
+        <View style={styles.container}>
+            {searchStatus !== "closed" && <SearchBar />}
+            <OpenSearchButton />
+            <SafeAreaView style={styles.safer}>
+                <TouchableOpacity
+                    onPress={toggleMovies}
+                    style={styles.toggleButton}
+                >
+                    <Text style={styles.switchBtnText}>
+                        {showUpcoming ? "Showing" : "Upcoming"}
+                    </Text>
+                </TouchableOpacity>
+            </SafeAreaView>
+            <MainHeader />
+
+            <ClearnOrDropDown />
+        </View>
     )
 }
 

@@ -31,9 +31,7 @@ const CinemaMovies = ({id}) => {
     }
     if (searchWord) {
         filteredMovies = filteredMovies.filter((movie) =>
-            movie.title
-                .toLowerCase()
-                .includes(searchWord.toLowerCase()),
+            movie.title.toLowerCase().includes(searchWord.toLowerCase()),
         )
     }
 
@@ -43,7 +41,7 @@ const CinemaMovies = ({id}) => {
     return (
         <ScrollView
             style={styles.scroller}
-            contentContainerStyle={{paddingBottom: 200, paddingTop: 0}}
+            contentContainerStyle={{paddingBottom: 200, paddingTop: 120}}
         >
             {filteredMovies.map((movie) => (
                 <View key={movie.id}>

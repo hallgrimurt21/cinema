@@ -1,16 +1,14 @@
 import {StyleSheet} from "react-native"
+import {deviceWidth} from "../../styles/sizes"
 
 const styles = StyleSheet.create({
     container: {
-        position: "absolute",
-        top: 30,
-        right: 10,
-        padding: 10,
-        zIndex: 2,
-    },
-    image: {
-        width: 50,
-        height: 50,
+        marginRight: 10,
+        width: "20%",
+        justifyContent: "flex-end",
+        alignItems: "flex-end",
+        paddingRight: "7%",
+        marginBottom: 10,
     },
 })
 
