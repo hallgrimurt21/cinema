@@ -30,11 +30,17 @@ const styles = StyleSheet.create({
     },
 
     toggleButton: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        padding: 10,
-        zIndex: 1,
+        zIndex: 3,
+        width: deviceWidth / 4,
+        marginTop: 8,
+        marginLeft: 20,
+    },
+    safer: {
+        zIndex: 2,
+    },
+    switchBtnText: {
+        color: "white",
+        fontSize: 16,
     },
 })
 

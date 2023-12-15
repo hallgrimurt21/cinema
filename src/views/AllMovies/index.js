@@ -4,6 +4,7 @@ import {
     Text,
     TouchableOpacity,
     TouchableWithoutFeedback,
+    SafeAreaView,
 } from "react-native"
 import {useSelector, useDispatch} from "react-redux"
 import {useFocusEffect} from "@react-navigation/native"
@@ -54,15 +55,18 @@ const AllMovies = ({navigation}) => {
             <View style={styles.container}>
                 {searchStatus !== "closed" && <SearchBar />}
                 <OpenSearchButton />
+                <SafeAreaView style={styles.safer}>
+                    <TouchableOpacity
+                        onPress={toggleMovies}
+                        style={styles.toggleButton}
+                    >
+                        <Text style={styles.switchBtnText}>
+                            {showUpcoming ? "Showing" : "Upcoming"}
+                        </Text>
+                    </TouchableOpacity>
+                </SafeAreaView>
                 <MainHeader />
-                <TouchableOpacity
-                    onPress={toggleMovies}
-                    style={styles.toggleButton}
-                >
-                    <Text style={{color: "white", marginTop: 45, marginLeft: 10, fontSize: 15}}>
-                        {showUpcoming ? "Showing" : "Upcoming"}
-                    </Text>
-                </TouchableOpacity>
+
                 <ClearnOrDropDown />
                 {showUpcoming ? <UpcomingMovies /> : <CinemaMovies />}
             </View>
