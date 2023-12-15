@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux"
 import {TouchableOpacity, Image} from "react-native"
 import {openSearch} from "../../redux/features/searchSlice"
 import styles from "./styles"
+import Icon from "react-native-vector-icons/MaterialIcons"
 
 const OpenSearchButton = () => {
     const dispatch = useDispatch()
@@ -12,10 +13,7 @@ const OpenSearchButton = () => {
             style={styles.container}
             onPress={() => dispatch(openSearch())}
         >
-            <Image
-                style={styles.image}
-                source={require("../../resources/images/searchIcon.png")}
-            />
+            <Icon name="search" size={30} color="#fff" />
         </TouchableOpacity>
     )
 }

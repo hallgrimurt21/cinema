@@ -4,6 +4,7 @@ import {View, Text, TouchableOpacity, Linking} from "react-native"
 import {useNavigation} from "@react-navigation/native"
 import styles from "./styles"
 import {ScrollView} from "react-native-gesture-handler"
+import {deviceWidth, deviceHeight} from "../../styles/sizes"
 
 const CinemaList = () => {
     const navigate = useNavigation().navigate
@@ -12,7 +13,10 @@ const CinemaList = () => {
     return (
         <ScrollView
             style={styles.container}
-            contentContainerStyle={{paddingTop: 120, paddingBottom: 100}}
+            contentContainerStyle={{
+                paddingTop: deviceHeight * 0.12,
+                paddingBottom: 100,
+            }}
         >
             <View>
                 {cinemas.map((cinema, index) => (

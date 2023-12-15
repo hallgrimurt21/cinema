@@ -53,7 +53,10 @@ const UpcomingDetail = ({id}) => {
 
     return (
         <View style={styles.extraView}>
-            <ScrollView style={{...styles.container, flex: 1}}>
+            <ScrollView
+                contentContainerStyle={{paddingBottom: 100}}
+                style={{...styles.container, flex: 1}}
+            >
                 <UpcomingHeader
                     upcoming={upcoming}
                     handleNavigate={handleNavigate}

@@ -16,10 +16,7 @@ const GenresDropDown = () => {
     return (
         <View style={styles.dropDown}>
             {Array.isArray(genreNames) && (
-                <DropDown
-                    selectedOptions={genreNames}
-                    defaultValue="Filter by genres"
-                />
+                <DropDown selectedOptions={genreNames} />
             )}
         </View>
     )

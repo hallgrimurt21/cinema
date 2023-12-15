@@ -1,11 +1,14 @@
-import React from "react"
+import React, {useRef} from "react"
 import {useDispatch} from "react-redux"
 import ModalDropdown from "react-native-modal-dropdown"
 import {CheckBox} from "react-native-elements"
 import {toggleOption} from "../../redux/features/dropDownSlice"
+import Icon from "react-native-vector-icons/FontAwesome"
+import {TouchableOpacity} from "react-native"
 
-const dropDown = ({selectedOptions}, {defaultValue}) => {
+const dropDown = ({selectedOptions}) => {
     const dispatch = useDispatch()
+    const dropdownRef = useRef(null) // Add this line
 
     const renderRow = (option) => (
         <CheckBox
@@ -16,19 +19,24 @@ const dropDown = ({selectedOptions}, {defaultValue}) => {
     )
 
     return (
-        // ...
-        <ModalDropdown
-            options={selectedOptions}
-            renderRow={renderRow}
-            defaultValue={defaultValue}
-            adjustFrame={(style) => {
-                return {...style}
+        <TouchableOpacity
+            onPress={(event) => {
+                dropdownRef.current.show()
             }}
-            style={{marginTop: 100}}
-            textStyle={{color: "white", fontSize: 16}}
-            dropdownStyle={{zIndex: 2, width: "50%", textAlign: "right"}}
-        />
-        // ...
+        >
+            <Icon name="filter" size={20} color="#fff" />
+            <ModalDropdown
+                ref={dropdownRef}
+                options={selectedOptions}
+                renderRow={renderRow}
+                defaultValue=""
+                adjustFrame={(style) => {
+                    return {...style}
+                }}
+                dropdownStyle={{zIndex: 2, width: "50%", textAlign: "right"}}
+                showsVerticalScrollIndicator={false}
+            />
+        </TouchableOpacity>
     )
 }
 

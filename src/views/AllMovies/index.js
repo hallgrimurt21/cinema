@@ -4,18 +4,16 @@ import {
     Text,
     TouchableOpacity,
     TouchableWithoutFeedback,
+    SafeAreaView,
 } from "react-native"
 import {useSelector, useDispatch} from "react-redux"
 import {useFocusEffect} from "@react-navigation/native"
 import {closeSearch, clearSearch} from "../../redux/features/searchSlice"
-import {toggleShowUpcoming} from "../../redux/features/toggle"
 import UpcomingMovies from "../../components/UpcomingMovies"
-import MainHeader from "../../components/MainHeader"
 import CinemaMovies from "../../components/CinemaMovies"
-import SearchBar from "../../components/SearchBar"
-import OpenSearchButton from "../../components/OpenSearchButton"
 import styles from "./styles"
 import GenresDropDown from "../../components/GenresDropDown"
+import MovUpcHeader from "../../components/MovUpcHeader"
 
 const AllMovies = () => {
     const dispatch = useDispatch()
@@ -33,36 +31,25 @@ const AllMovies = () => {
             return () => dispatch(clearSearch())
         }, []),
     )
-    const toggleMovies = () => {
-        dispatch(toggleShowUpcoming()) // Dispatch the action
-        dispatch(clearSearch())
-    }
-    const ClearnOrDropDown = () => {
-        if (searchValue) {
-            return (
-                <TouchableOpacity onPress={() => dispatch(clearSearch())}>
-                    <Text style={styles.clearText}>Clear</Text>
-                </TouchableOpacity>
-            )
-        } else {
-            return <GenresDropDown />
-        }
-    }
+
+    //================== old code ==================//
+    // const ClearnOrDropDown = () => {
+    //     if (searchValue) {
+    //         return (
+    //             <TouchableOpacity onPress={() => dispatch(clearSearch())}>
+    //                 <Text style={styles.clearText}>Clear</Text>
+    //             </TouchableOpacity>
+    //         )
+    //     } else {
+    //         return <GenresDropDown />
+    //     }
+    // }
+    //===============================================//
+
     return (
         <TouchableWithoutFeedback onPress={handleOutsidePress}>
             <View style={styles.container}>
-                {searchStatus !== "closed" && <SearchBar />}
-                <OpenSearchButton />
-                <MainHeader />
-                <TouchableOpacity
-                    onPress={toggleMovies}
-                    style={styles.toggleButton}
-                >
-                    <Text style={{color: "white", marginTop: 45, marginLeft: 10, fontSize: 15}}>
-                        {showUpcoming ? "Showing" : "Upcoming"}
-                    </Text>
-                </TouchableOpacity>
-                <ClearnOrDropDown />
+                <MovUpcHeader />
                 {showUpcoming ? <UpcomingMovies /> : <CinemaMovies />}
             </View>
         </TouchableWithoutFeedback>

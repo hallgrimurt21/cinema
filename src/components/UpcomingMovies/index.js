@@ -6,6 +6,7 @@ import {ScrollView} from "react-native-gesture-handler"
 import {useSelector} from "react-redux"
 import filterMovies from "../../utils/filterMovies"
 import styles from "../CinemaMovies/styles"
+import {deviceWidth, deviceHeight} from "../../styles/sizes"
 
 const UpcomingMovies = () => {
     const movies = useSelector((state) => state.upcomingMovies.movies)
@@ -24,7 +25,10 @@ const UpcomingMovies = () => {
         <View style={styles.someBackground}>
             <ScrollView
                 style={styles.scroller}
-                contentContainerStyle={{paddingBottom: 200, paddingTop: 0}}
+                contentContainerStyle={{
+                    paddingBottom: 200,
+                    paddingTop: deviceHeight * 0.12,
+                }}
             >
                 <View>
                     {filteredMovies.map((movie, index) => (
