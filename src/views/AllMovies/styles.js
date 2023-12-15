@@ -22,6 +22,10 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
     },
+    clearText: {
+        color: "white",
+        fontSize: 16,
+    },
 })
 
 export default styles

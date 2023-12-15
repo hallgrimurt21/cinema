@@ -1,24 +1,28 @@
 import {configureStore} from "@reduxjs/toolkit"
-import cinemasReducer from "./features/cinemasSlice"
-import moviesReducer from "./features/moviesSlice"
 import authReducer from "./features/authSlice"
+import cinemasReducer from "./features/cinemasSlice"
+import dropDownReducer from "./features/dropDownSlice"
+import genresReducer from "./features/genresSlice"
+import isMountedReducer from "./features/isMountedSlice"
+import modalReducer from "./features/modalSlice"
+import moviesReducer from "./features/moviesSlice"
+import searchReducer from "./features/searchSlice"
+import trailerReducer from "./features/trailerSlice"
 import upcomingMoviesReducer from "./features/upcomingMovies"
 import visibilityReducer from "./features/visibilitySlice"
-import modalReducer from "./features/modalSlice"
-import searchReducer from "./features/searchSlice"
-import isMountedReducer from "./features/isMountedSlice"
-import trailerReducer from "./features/trailerSlice"
 
 export const store = configureStore({
     reducer: {
-        cinemas: cinemasReducer,
-        movies: moviesReducer,
         auth: authReducer,
+        cinemas: cinemasReducer,
+        dropDown: dropDownReducer,
+        genres: genresReducer,
+        isMounted: isMountedReducer,
+        modal: modalReducer,
+        movies: moviesReducer,
+        search: searchReducer,
+        trailer: trailerReducer,
         upcomingMovies: upcomingMoviesReducer,
         visibility: visibilityReducer,
-        search: searchReducer,
-        isMounted: isMountedReducer,
-        trailer: trailerReducer,
-        modal: modalReducer,
     },
 })
