@@ -15,6 +15,7 @@ import styles from "./styles"
 const CinemaMovies = ({id}) => {
     let filteredMovies
     const movies = useSelector((state) => state.movies.movies)
+    const searchWord = useSelector((state) => state.search.value)
     const dispatch = useDispatch()
     const navigate = useNavigation().navigate
     if (id) {
@@ -27,6 +28,13 @@ const CinemaMovies = ({id}) => {
         }
     } else {
         filteredMovies = movies
+    }
+    if (searchWord) {
+        filteredMovies = filteredMovies.filter((movie) =>
+            movie.title
+                .toLowerCase()
+                .includes(searchWord.toLowerCase()),
+        )
     }
 
     const handlePress = (movieID) => {

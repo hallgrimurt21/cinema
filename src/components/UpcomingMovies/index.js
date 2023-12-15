@@ -7,8 +7,18 @@ import {ScrollView} from "react-native-gesture-handler"
 import styles from "../CinemaMovies/styles"
 
 const UpcomingMovies = () => {
+    let filteredMovies
     const navigate = useNavigation().navigate
     const upcomingMovies = useSelector((state) => state.upcomingMovies.movies)
+    const searchWord = useSelector((state) => state.search.value)
+
+    if (searchWord) {
+        filteredMovies = upcomingMovies.filter((movie) =>
+            movie.title.toLowerCase().includes(searchWord.toLowerCase()),
+        )
+    } else {
+        filteredMovies = upcomingMovies
+    }
 
     return (
         <View style={styles.someBackground}>
@@ -17,11 +27,15 @@ const UpcomingMovies = () => {
                 contentContainerStyle={{paddingBottom: 200, paddingTop: 100}}
             >
                 <View>
-                    {upcomingMovies.map((movie, index) => (
+                    {filteredMovies.map((movie, index) => (
                         <TouchableOpacity
                             style={styles.card}
                             key={index}
-                            onPress={() => navigate("Upcoming Movie Screen", {id: movie._id})}
+                            onPress={() =>
+                                navigate("Upcoming Movie Screen", {
+                                    id: movie._id,
+                                })
+                            }
                         >
                             <Image
                                 source={{uri: movie.poster}}
@@ -39,14 +53,15 @@ const UpcomingMovies = () => {
                                 </View>
                                 <View style={styles.bottomPart}>
                                     <View style={styles.genres}>
-                                        <Text style={styles.genre}>Release Date: {movie["release-dateIS"]}</Text>
+                                        <Text style={styles.genre}>
+                                            Release Date:{" "}
+                                            {movie["release-dateIS"]}
+                                        </Text>
                                     </View>
-
                                 </View>
                             </View>
                         </TouchableOpacity>
                     ))}
-
                 </View>
             </ScrollView>
         </View>

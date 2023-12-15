@@ -7,6 +7,7 @@ import Appcontainer from "./src/routes"
 import {fetchCinemas} from "./src/redux/features/cinemasSlice"
 import {fetchMovies} from "./src/redux/features/moviesSlice"
 import {fetchUpcomingMovies} from "./src/redux/features/upcomingMovies"
+import {fetchGenres} from "./src/redux/features/genresSlice"
 import {useDispatch, useSelector} from "react-redux"
 import {getAuthToken} from "./src/redux/features/authSlice"
 import {LogBox} from "react-native"
@@ -26,6 +27,7 @@ function AppContent() {
             dispatch(fetchCinemas(token))
             dispatch(fetchMovies(token))
             dispatch(fetchUpcomingMovies(token))
+            dispatch(fetchGenres(token))
         }
     }, [dispatch, token])
 
