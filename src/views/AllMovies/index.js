@@ -22,6 +22,7 @@ const AllMovies = ({navigation}) => {
     const dispatch = useDispatch()
     const showUpcoming = useSelector((state) => state.toggle.showUpcoming)
     const searchStatus = useSelector((state) => state.search.status)
+    const searchValue = useSelector((state) => state.search.value)
     const handleOutsidePress = () => {
         if (searchStatus !== "closed") {
             dispatch(closeSearch())
@@ -37,6 +38,17 @@ const AllMovies = ({navigation}) => {
         dispatch(toggleShowUpcoming()) // Dispatch the action
         dispatch(clearSearch())
     }
+    const ClearnOrDropDown = () => {
+        if (searchValue) {
+            return (
+                <TouchableOpacity onPress={() => dispatch(clearSearch())}>
+                    <Text style={styles.clearText}>Clear</Text>
+                </TouchableOpacity>
+            )
+        } else {
+            return <GenresDropDown />
+        }
+    }
     return (
         <TouchableWithoutFeedback onPress={handleOutsidePress}>
             <View style={styles.container}>
@@ -51,10 +63,7 @@ const AllMovies = ({navigation}) => {
                         {showUpcoming ? "Show\nCinema" : "Show\nUpcoming"}
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => dispatch(clearSearch())}>
-                    <Text style={styles.clearText}>Clear</Text>
-                </TouchableOpacity>
-                <GenresDropDown />
+                <ClearnOrDropDown />
                 {showUpcoming ? <UpcomingMovies /> : <CinemaMovies />}
             </View>
         </TouchableWithoutFeedback>

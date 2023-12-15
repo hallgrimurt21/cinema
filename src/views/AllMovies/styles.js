@@ -23,8 +23,10 @@ const styles = StyleSheet.create({
         height: 50,
     },
     clearText: {
+        marginTop: 100,
         color: "white",
         fontSize: 16,
+        textAlign: "right",
     },
 
     toggleButton: {

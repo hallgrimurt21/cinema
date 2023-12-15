@@ -2,6 +2,7 @@ import React from "react"
 import {View} from "react-native"
 import {useSelector} from "react-redux"
 import DropDown from "../DropDown"
+import styles from "../CinemaMovies/styles"
 
 const GenresDropDown = () => {
     const genres = useSelector((state) => state.genres.genres)
@@ -13,7 +14,7 @@ const GenresDropDown = () => {
     )
     const genreNames = filteredGenres.map((genre) => genre["NameEN\t"])
     return (
-        <View>
+        <View style={styles.dropDown}>
             {Array.isArray(genreNames) && (
                 <DropDown
                     selectedOptions={genreNames}
