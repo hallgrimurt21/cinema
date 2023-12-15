@@ -114,6 +114,8 @@ const styles = StyleSheet.create({
         backgroundColor: mediumGrey,
         borderBottomWidth: 1,
         borderColor: champagne,
+        width: deviceWidth * 0.97,
+        alignSelf: "center",
     },
     genre: {
         color: mediumWhite,
@@ -121,49 +123,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         padding: 10,
     },
-    // ==================== SHOWTIMES ==================== //
-    allShows: {
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "flex-start",
-        shadowColor: "#000000",
-        shadowOffset: {width: 0, height: 0},
-        shadowOpacity: 0.5,
-        shadowRadius: 5,
-        marginTop: 10,
-        marginRight: -4,
-    },
-    showtime: {
-        ...showButtonCore,
-        backgroundColor: mediumGrey,
-        borderLeftWidth: 1,
-        borderTopWidth: 1,
-    },
 
-    pressedShowtime: {
-        ...showButtonCore,
-        backgroundColor: strongGrey,
-        borderColor: strongGrey,
-        borderTopColor: strongGrey,
-        borderLeftColor: strongGrey,
-        borderWidth: 8,
-        borderBottomWidth: 1,
-        borderTopWidth: 1,
-        zIndex: 1,
-        shadowColor: black,
-        shadowOffset: {width: 0, height: 0},
-        shadowOpacity: 0.5,
-        shadowRadius: 5,
-    },
-
-    time: {
-        color: mediumWhite,
-        fontSize: 15,
-    },
-    buy: {
-        color: mediumWhite,
-        fontSize: 10,
-    },
     // ==================== BUTTONS ==================== //
     buttonRow: {
         flexDirection: "row",

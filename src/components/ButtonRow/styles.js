@@ -114,6 +114,8 @@ const styles = StyleSheet.create({
         backgroundColor: mediumGrey,
         borderBottomWidth: 1,
         borderColor: champagne,
+        width: deviceWidth * 0.97,
+        alignSelf: "center",
     },
     genre: {
         color: mediumWhite,
