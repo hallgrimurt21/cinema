@@ -7,13 +7,40 @@ import {
     strongWhite,
     crimson,
     champagne,
+    black,
 } from "../../styles/colors"
+import hexToRGBA from "../../styles/hexToRgba"
+
+const buttonCore = {
+    flex: 1,
+    padding: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 50,
+    borderLeftColor: hexToRGBA(black, 0.25),
+    borderLeftWidth: 1,
+}
+
+const showButtonCore = {
+    borderBottomWidth: 1,
+    borderRightWidth: 1,
+    borderColor: champagne,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "33.33%",
+    marginTop: -1,
+    marginRight: -1,
+    borderLeftColor: hexToRGBA(black, 0.4),
+    borderTopColor: hexToRGBA(black, 0.5),
+}
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: strongGrey,
     },
+    // ==================== HEADER ==================== //
     header: {
         paddingRight: 20,
         paddingLeft: 20,
@@ -57,13 +84,38 @@ const styles = StyleSheet.create({
         textAlign: "right",
         width: "100%",
     },
+    // ==================== PLOT ==================== //
     plot: {
-        backgroundColor: mediumGrey,
-        marginTop: 10,
         color: mediumWhite,
         textAlign: "left",
-        padding: 10,
         fontSize: 16,
+        backgroundColor: mediumGrey,
+        textShadowColor: black,
+        textShadowOffset: {width: 0, height: 0},
+        textShadowRadius: 5,
+        padding: 10,
+    },
+
+    plotBox: {
+        width: deviceWidth * 0.97,
+        backgroundColor: mediumGrey,
+        marginTop: 10,
+        alignSelf: "center",
+        padding: 17,
+        borderBottomWidth: 1,
+        borderColor: champagne,
+    },
+    // ==================== GENRES ==================== //
+    genres: {
+        marginTop: 10,
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        backgroundColor: mediumGrey,
+        borderBottomWidth: 1,
+        borderColor: champagne,
+        width: deviceWidth * 0.97,
+        alignSelf: "center",
     },
     genre: {
         color: mediumWhite,
@@ -71,30 +123,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
         padding: 10,
     },
-    allShows: {
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "flex-start",
-        shadowColor: "#000000",
-        shadowOffset: {width: 0, height: 0},
-        shadowOpacity: 0.5,
-        shadowRadius: 5,
-        marginTop: 10,
-    },
-    showtime: {
-        backgroundColor: mediumGrey,
-        padding: 10,
-        justifyContent: "center",
-        alignItems: "center",
-        width: "33.33%",
-    },
-    genres: {
-        marginTop: 10,
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "space-around",
-        backgroundColor: mediumGrey,
-    },
+
+    // ==================== BUTTONS ==================== //
     buttonRow: {
         flexDirection: "row",
         justifyContent: "space-between",
@@ -104,25 +134,29 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 5,
     },
+
     botButton: {
+        ...buttonCore,
         backgroundColor: mediumGrey,
-        flex: 1,
-        padding: 10,
-        alignItems: "center",
-        justifyContent: "center",
-        height: 50,
     },
+    activeButton: {
+        ...buttonCore,
+        backgroundColor: strongGrey,
+        borderBottomWidth: 1,
+        borderColor: champagne,
+    },
+
     botButText: {
         color: mediumWhite,
+        fontSize: 16,
     },
-    time: {
-        color: mediumWhite,
-        fontSize: 15,
+
+    activeButtonText: {
+        color: strongWhite,
+        fontSize: 16,
     },
-    buy: {
-        color: mediumWhite,
-        fontSize: 10,
-    },
+
+    // ==================== TRAILER ==================== //
     ytContainer: {
         flexDirection: "row",
     },
@@ -138,6 +172,24 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         height: 50,
+    },
+
+    // ==================== release ==================== //
+
+    releaseBox: {
+        width: deviceWidth * 0.97,
+        backgroundColor: mediumGrey,
+        marginTop: 10,
+        alignSelf: "center",
+        padding: 17,
+        borderBottomWidth: 1,
+        borderColor: champagne,
+    },
+
+    releaseText: {
+        color: mediumWhite,
+        fontSize: 16,
+        textAlign: "center",
     },
 })
 

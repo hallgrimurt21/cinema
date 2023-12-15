@@ -14,33 +14,65 @@ const ButtonRow = ({
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    styles.botButton,
+                    visibleSection === "plot"
+                        ? styles.activeButton
+                        : styles.botButton,
                 ]}
                 onPress={() => handleToggle("plot")}
             >
-                <Text style={styles.botButText}>Plot</Text>
+                <Text
+                    style={
+                        visibleSection === "plot"
+                            ? styles.activeButtonText
+                            : styles.botButText
+                    }
+                >
+                    Plot
+                </Text>
             </Pressable>
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    styles.botButton,
+                    visibleSection === "genres"
+                        ? styles.activeButton
+                        : styles.botButton,
                 ]}
                 onPress={() => handleToggle("genres")}
             >
-                <Text style={styles.botButText}>Genres</Text>
+                <Text
+                    style={
+                        visibleSection === "genres"
+                            ? styles.activeButtonText
+                            : styles.botButText
+                    }
+                >
+                    Genres
+                </Text>
             </Pressable>
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    styles.botButton,
+                    visibleSection === "showtimes"
+                        ? styles.activeButton
+                        : styles.botButton,
                 ]}
                 onPress={() => handleToggle("showtimes")}
             >
-                <Text style={styles.botButText}>Showtimes</Text>
+                <Text
+                    style={
+                        visibleSection === "showtimes"
+                            ? styles.activeButtonText
+                            : styles.botButText
+                    }
+                >
+                    Showtimes
+                </Text>
             </Pressable>
         </View>
         {visibleSection === "plot" && (
-            <Text style={styles.plot}>{movie.plot}</Text>
+            <View style={styles.plotBox}>
+                <Text style={styles.plot}>{movie.plot}</Text>
+            </View>
         )}
         {visibleSection === "genres" && (
             <View style={styles.genres}>
@@ -56,8 +88,7 @@ const ButtonRow = ({
                 {showtimes.map((showtime, index) => (
                     <Pressable
                         style={({pressed}) => [
-                            {opacity: pressed ? 0.5 : 1},
-                            styles.showtime,
+                            pressed ? styles.pressedShowtime : styles.showtime,
                         ]}
                         key={index}
                         onPress={() => handlePress(showtime.purchase_url)}

@@ -12,9 +12,7 @@ import {
     showGenres,
     showRelease,
     hideAll,
-}
-    from "../../redux/features/visibilitySlice"
-
+} from "../../redux/features/visibilitySlice"
 
 const UpcomingDetail = ({id}) => {
     const navigation = useNavigation()
@@ -25,7 +23,6 @@ const UpcomingDetail = ({id}) => {
     const visibleSection = useSelector(
         (state) => state.visibility.visibleSection,
     )
-
 
     const handleNavigate = () => {
         return () => {
@@ -39,71 +36,33 @@ const UpcomingDetail = ({id}) => {
             dispatch(hideAll())
         } else {
             switch (section) {
-            case "plot":
-                dispatch(showPlot())
-                break
-            case "genres":
-                dispatch(showGenres())
-                break
-            case "release":
-                dispatch(showRelease())
-                break
-            default:
-                break
+                case "plot":
+                    dispatch(showPlot())
+                    break
+                case "genres":
+                    dispatch(showGenres())
+                    break
+                case "release":
+                    dispatch(showRelease())
+                    break
+                default:
+                    break
             }
         }
     }
 
-    useEffect(() => {
-        dispatch(setMounted())
-
-        return () => {
-            dispatch(setUnmounted())
-        }
-    }, [dispatch])
-
-    if (!upcoming) {
-        return <Text>Loading...</Text>
-    }
-
-
     return (
         <View style={styles.extraView}>
             <ScrollView style={{...styles.container, flex: 1}}>
-                <UpcomingHeader upcoming={upcoming} handleNavigate={handleNavigate}/>
+                <UpcomingHeader
+                    upcoming={upcoming}
+                    handleNavigate={handleNavigate}
+                />
                 <ButtonRowUpcoming
                     handleToggle={handleToggle}
                     visibleSection={visibleSection}
-                    upcoming={upcoming}
-                    release={upcoming.release}
+                    movie={upcoming}
                 />
-
-                <View>
-                    {isMounted &&
-                upcoming.trailers &&
-                upcoming.trailers[0] &&
-                upcoming.trailers[0].results &&
-                upcoming.trailers[0].results[0] &&
-                upcoming.trailers[0].results[0].key ? (
-                            <Pressable
-                                style={({pressed}) => [
-                                    {opacity: pressed ? 0.5 : 1},
-                                    styles.trailerButton,
-                                ]}
-                                onPress={() =>
-                                    navigation.navigate("Trailer", {
-                                        trailerID: upcoming.trailers[0].results[0].key,
-                                    })
-                                }
-                            >
-                                <Text style={styles.time}>Watch Trailer</Text>
-                            </Pressable>
-                        ) : (
-                            <View style={styles.trailerButton}>
-                                <Text style={styles.time}>No Trailer available</Text>
-                            </View>
-                        )}
-                </View>
             </ScrollView>
         </View>
     )
