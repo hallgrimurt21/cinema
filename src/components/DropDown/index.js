@@ -21,6 +21,9 @@ const dropDown = ({selectedOptions}, {defaultValue}) => {
             options={selectedOptions}
             renderRow={renderRow}
             defaultValue={defaultValue}
+            adjustFrame={(style) => {
+                return {...style}
+            }}
             style={{marginTop: 100}}
             textStyle={{color: "white", fontSize: 16}}
             dropdownStyle={{zIndex: 2, width: "50%", textAlign: "right"}}

@@ -3,6 +3,7 @@ import {createSlice} from "@reduxjs/toolkit"
 const initialState = {
     selectedOptions: [],
     error: null,
+    defaultValue: "Select...",
 }
 export const dropDownSlice = createSlice({
     name: "dropdown",

@@ -1,11 +1,21 @@
 import React from "react"
 import {View, Text, Image, ScrollView, TouchableOpacity} from "react-native"
 import {useNavigation} from "@react-navigation/native"
+import {useSelector} from "react-redux"
 import filterMovies from "../../utils/filterMovies"
 import styles from "./styles"
 
 const CinemaMovies = ({id}) => {
-    const filteredMovies = filterMovies({id: id ? id : null})
+    const movies = useSelector((state) => state.movies.movies)
+    const searchWord = useSelector((state) => state.search.value)
+    const genreFilter = useSelector((state) => state.dropDown.selectedOptions)
+
+    const filteredMovies = filterMovies({
+        id: id ? id : null,
+        movies,
+        searchWord,
+        genreFilter,
+    })
     const navigate = useNavigation().navigate
 
     const handlePress = (movieID) => {
