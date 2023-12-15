@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     },
     poster: {
         width: deviceWidth,
-        height: deviceWidth * 1.5,
+        height: deviceWidth * 1.42,
     },
     title: {
         fontSize: 20,
@@ -128,11 +128,15 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     trailerButton: {
-        backgroundColor: mediumGrey,
+        backgroundColor: "rgba(0,0,0,0.8)",
         padding: 10,
         alignItems: "center",
         justifyContent: "center",
-        height: 50,
+        alignSelf: "flex-end",
+        height: 40,
+        marginTop: 10,
+        marginRight: 10,
+        width: deviceWidth * 0.4,
     },
 })
 

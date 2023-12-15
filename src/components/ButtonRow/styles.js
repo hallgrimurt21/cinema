@@ -7,7 +7,16 @@ import {
     strongWhite,
     crimson,
     champagne,
+    black,
 } from "../../styles/colors"
+
+const buttonCore = {
+    flex: 1,
+    padding: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 50,
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -58,13 +67,26 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     plot: {
-        backgroundColor: mediumGrey,
-        marginTop: 10,
         color: mediumWhite,
         textAlign: "left",
-        padding: 10,
         fontSize: 16,
+        backgroundColor: mediumGrey,
+        textShadowColor: black,
+        textShadowOffset: {width: 0, height: 0},
+        textShadowRadius: 5,
+        padding: 10,
     },
+
+    plotBox: {
+        width: deviceWidth * 0.97,
+        backgroundColor: mediumGrey,
+        marginTop: 10,
+        alignSelf: "center",
+        padding: 17,
+        borderBottomWidth: 1,
+        borderColor: champagne,
+    },
+
     genre: {
         color: mediumWhite,
         fontSize: 20,
@@ -104,17 +126,28 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 5,
     },
+
     botButton: {
+        ...buttonCore,
         backgroundColor: mediumGrey,
-        flex: 1,
-        padding: 10,
-        alignItems: "center",
-        justifyContent: "center",
-        height: 50,
     },
+    activeButton: {
+        ...buttonCore,
+        backgroundColor: strongGrey,
+        borderBottomWidth: 1,
+        borderColor: champagne,
+    },
+
     botButText: {
         color: mediumWhite,
+        fontSize: 16,
     },
+
+    activeButtonText: {
+        color: strongWhite,
+        fontSize: 16,
+    },
+
     time: {
         color: mediumWhite,
         fontSize: 15,
