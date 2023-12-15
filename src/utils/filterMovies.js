@@ -1,4 +1,10 @@
-const filterMovies = ({id, movies, searchWord, genreFilter}) => {
+const filterMovies = ({
+    id,
+    movies,
+    searchFilter,
+    genreFilter,
+    similarFilter,
+}) => {
     let filteredMovies = movies
 
     if (id) {
@@ -7,9 +13,9 @@ const filterMovies = ({id, movies, searchWord, genreFilter}) => {
         )
     }
 
-    if (searchWord) {
+    if (searchFilter) {
         filteredMovies = filteredMovies.filter((movie) =>
-            movie.title.toLowerCase().includes(searchWord.toLowerCase()),
+            movie.title.toLowerCase().includes(searchFilter.toLowerCase()),
         )
     }
 
@@ -18,6 +24,14 @@ const filterMovies = ({id, movies, searchWord, genreFilter}) => {
             genreFilter.every((genre) =>
                 movie.genres.some((g) => g["NameEN\t"] === genre),
             ),
+        )
+    }
+    if (similarFilter.length > 0) {
+        filteredMovies = filteredMovies.filter(
+            (movie) =>
+                similarFilter.genreList.every((genre) =>
+                    movie.genres.some((g) => g["NameEN\t"] === genre),
+                ) && movie.id !== similarFilter.id,
         )
     }
 

@@ -11,6 +11,7 @@ import toggle from "./features/toggle"
 import trailerReducer from "./features/trailerSlice"
 import upcomingMoviesReducer from "./features/upcomingMovies"
 import visibilityReducer from "./features/visibilitySlice"
+import similarReducer from "./features/similarSlice"
 
 export const store = configureStore({
     reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
         modal: modalReducer,
         movies: moviesReducer,
         search: searchReducer,
+        similar: similarReducer,
         toggle: toggle,
         trailer: trailerReducer,
         upcomingMovies: upcomingMoviesReducer,

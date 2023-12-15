@@ -8,14 +8,15 @@ import {deviceHeight} from "../../styles/sizes"
 
 const CinemaMovies = ({id}) => {
     const movies = useSelector((state) => state.movies.movies)
-    const searchWord = useSelector((state) => state.search.value)
+    const searchFilter = useSelector((state) => state.search.value)
     const genreFilter = useSelector((state) => state.dropDown.selectedOptions)
 
     const filteredMovies = filterMovies({
         id: id ? id : null,
         movies,
-        searchWord,
+        searchFilter,
         genreFilter,
+        similarFilter: [],
     })
     const navigate = useNavigation().navigate
 

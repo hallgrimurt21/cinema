@@ -6,3 +6,5 @@ Extra:
 Search in movies
 Genres in movies
 filter by area cinemas
+genres in movie
+show what cinema you're clicking through 

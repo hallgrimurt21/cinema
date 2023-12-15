@@ -10,14 +10,15 @@ import {deviceWidth, deviceHeight} from "../../styles/sizes"
 
 const UpcomingMovies = () => {
     const movies = useSelector((state) => state.upcomingMovies.movies)
-    const searchWord = useSelector((state) => state.search.value)
+    const searchFilter = useSelector((state) => state.search.value)
     const genreFilter = useSelector((state) => state.dropDown.selectedOptions)
 
     const filteredMovies = filterMovies({
         id: null,
         movies,
-        searchWord,
+        searchFilter,
         genreFilter,
+        similarFilter: [],
     })
     const navigate = useNavigation().navigate
 
