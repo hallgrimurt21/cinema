@@ -15,7 +15,7 @@ import styles from "./styles"
 import GenresDropDown from "../../components/GenresDropDown"
 import MovUpcHeader from "../../components/MovUpcHeader"
 
-const AllMovies = ({navigation}) => {
+const AllMovies = () => {
     const dispatch = useDispatch()
     const showUpcoming = useSelector((state) => state.toggle.showUpcoming)
     const searchStatus = useSelector((state) => state.search.status)

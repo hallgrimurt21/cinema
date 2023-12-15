@@ -1,40 +1,23 @@
-import React, {useEffect} from "react"
-import {
-    View,
-    Text,
-    Pressable,
-    Image,
-    ScrollView,
-    TouchableOpacity,
-} from "react-native"
-import {useSelector, useDispatch} from "react-redux"
-import {toggleDescription} from "../../redux/features/visibilitySlice"
+import React from "react"
+import {View, Text, Image, ScrollView, TouchableOpacity} from "react-native"
 import {useNavigation} from "@react-navigation/native"
+import {useSelector} from "react-redux"
+import filterMovies from "../../utils/filterMovies"
 import styles from "./styles"
 import {deviceHeight} from "../../styles/sizes"
 
 const CinemaMovies = ({id}) => {
-    let filteredMovies
     const movies = useSelector((state) => state.movies.movies)
     const searchWord = useSelector((state) => state.search.value)
-    const dispatch = useDispatch()
-    const navigate = useNavigation().navigate
-    if (id) {
-        filteredMovies = movies.filter((movie) =>
-            movie.showtimes.some((showtime) => showtime.cinema.id === id),
-        )
+    const genreFilter = useSelector((state) => state.dropDown.selectedOptions)
 
-        if (filteredMovies.length === 0) {
-            dispatch(toggleDescription())
-        }
-    } else {
-        filteredMovies = movies
-    }
-    if (searchWord) {
-        filteredMovies = filteredMovies.filter((movie) =>
-            movie.title.toLowerCase().includes(searchWord.toLowerCase()),
-        )
-    }
+    const filteredMovies = filterMovies({
+        id: id ? id : null,
+        movies,
+        searchWord,
+        genreFilter,
+    })
+    const navigate = useNavigation().navigate
 
     const handlePress = (movieID) => {
         navigate("Movie Screen", {movieID, cinemaID: id})
