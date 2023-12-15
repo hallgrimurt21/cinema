@@ -1,15 +1,17 @@
 import React from "react"
 import {View, Text, Image, ScrollView, TouchableOpacity} from "react-native"
 import {useNavigation} from "@react-navigation/native"
-import {useSelector} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
 import filterMovies from "../../utils/filterMovies"
 import styles from "./styles"
 import {deviceHeight} from "../../styles/sizes"
+import {toggleDescription} from "../../redux/features/visibilitySlice"
 
 const CinemaMovies = ({id}) => {
     const movies = useSelector((state) => state.movies.movies)
     const searchWord = useSelector((state) => state.search.value)
     const genreFilter = useSelector((state) => state.dropDown.selectedOptions)
+    const dispatch = useDispatch()
 
     const filteredMovies = filterMovies({
         id: id ? id : null,
@@ -17,6 +19,10 @@ const CinemaMovies = ({id}) => {
         searchWord,
         genreFilter,
     })
+
+    if (filteredMovies.length === 0) {
+        dispatch(toggleDescription())
+    }
     const navigate = useNavigation().navigate
 
     const handlePress = (movieID) => {
