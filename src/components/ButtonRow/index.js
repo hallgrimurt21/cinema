@@ -88,8 +88,7 @@ const ButtonRow = ({
                 {showtimes.map((showtime, index) => (
                     <Pressable
                         style={({pressed}) => [
-                            {opacity: pressed ? 0.5 : 1},
-                            styles.showtime,
+                            pressed ? styles.pressedShowtime : styles.showtime,
                         ]}
                         key={index}
                         onPress={() => handlePress(showtime.purchase_url)}

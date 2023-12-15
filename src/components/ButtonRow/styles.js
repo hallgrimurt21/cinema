@@ -18,11 +18,24 @@ const buttonCore = {
     height: 50,
 }
 
+const showButtonCore = {
+    borderBottomWidth: 1,
+    borderRightWidth: 1,
+    borderColor: champagne,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "33.33%",
+    marginTop: -1,
+    marginRight: -1,
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: strongGrey,
     },
+    // ==================== HEADER ==================== //
     header: {
         paddingRight: 20,
         paddingLeft: 20,
@@ -66,6 +79,7 @@ const styles = StyleSheet.create({
         textAlign: "right",
         width: "100%",
     },
+    // ==================== PLOT ==================== //
     plot: {
         color: mediumWhite,
         textAlign: "left",
@@ -86,13 +100,23 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor: champagne,
     },
-
+    // ==================== GENRES ==================== //
+    genres: {
+        marginTop: 10,
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        backgroundColor: mediumGrey,
+        borderBottomWidth: 1,
+        borderColor: champagne,
+    },
     genre: {
         color: mediumWhite,
         fontSize: 20,
         textAlign: "center",
         padding: 10,
     },
+    // ==================== SHOWTIMES ==================== //
     allShows: {
         flexDirection: "row",
         flexWrap: "wrap",
@@ -102,21 +126,27 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 5,
         marginTop: 10,
+        marginRight: -4,
     },
     showtime: {
-        backgroundColor: mediumGrey,
-        padding: 10,
-        justifyContent: "center",
-        alignItems: "center",
-        width: "33.33%",
-    },
-    genres: {
-        marginTop: 10,
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "space-around",
+        ...showButtonCore,
         backgroundColor: mediumGrey,
     },
+
+    pressedShowtime: {
+        ...showButtonCore,
+        backgroundColor: strongGrey,
+    },
+
+    time: {
+        color: mediumWhite,
+        fontSize: 15,
+    },
+    buy: {
+        color: mediumWhite,
+        fontSize: 10,
+    },
+    // ==================== BUTTONS ==================== //
     buttonRow: {
         flexDirection: "row",
         justifyContent: "space-between",
@@ -148,14 +178,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
 
-    time: {
-        color: mediumWhite,
-        fontSize: 15,
-    },
-    buy: {
-        color: mediumWhite,
-        fontSize: 10,
-    },
+    // ==================== TRAILER ==================== //
     ytContainer: {
         flexDirection: "row",
     },
