@@ -7,7 +7,6 @@ import Cinema from "../views/Cinema"
 import AllCinemas from "../views/AllCinemas"
 import Movie from "../views/Movie"
 import AllMovies from "../views/AllMovies"
-import AllUpcomings from "../views/AllUpcomings"
 import Upcoming from "../views/Upcoming"
 import CustomTabBar from "../components/CustomTabBar"
 import {CardStyleInterpolators} from "@react-navigation/stack"
@@ -49,14 +48,11 @@ function MovieStackScreen() {
             <MovieStack.Screen name="Movies Screen" component={AllMovies} />
             <CinemaStack.Screen name="Movie Screen" component={Movie} />
             <MovieStack.Screen
-                name="Upcoming Movies Screen"
-                component={AllUpcomings}
-            />
-            <MovieStack.Screen
                 name="Upcoming Movie Screen"
                 component={Upcoming}
             />
-            <MovieStack.Screen name="Trailer"
+            <MovieStack.Screen
+                name="Trailer"
                 component={Trailer}
                 options={{
                     cardStyleInterpolator:
