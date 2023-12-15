@@ -9,6 +9,9 @@ import {fetchMovies} from "./src/redux/features/moviesSlice"
 import {fetchUpcomingMovies} from "./src/redux/features/upcomingMovies"
 import {useDispatch, useSelector} from "react-redux"
 import {getAuthToken} from "./src/redux/features/authSlice"
+import {LogBox} from "react-native"
+
+LogBox.ignoreLogs(["Sending `onAnimatedValueUpdate` with no listeners registered."])
 
 function AppContent() {
     const dispatch = useDispatch()
