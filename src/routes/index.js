@@ -46,6 +46,7 @@ function MovieStackScreen() {
     return (
         <MovieStack.Navigator screenOptions={MovieStackOptions}>
             <MovieStack.Screen name="Movies Screen" component={AllMovies} />
+            <CinemaStack.Screen name="Movie Screen" component={Movie} />
             <MovieStack.Screen
                 name="Upcoming Movies Screen"
                 component={AllUpcomings}
