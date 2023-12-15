@@ -4,13 +4,11 @@ import {TextInput, View, TouchableOpacity, Image} from "react-native"
 import {
     updateSearchTerm,
     closeSearch,
-    openSearch,
-    clearSearch,
 } from "../../redux/features/searchSlice"
 import styles from "./styles"
 
 const SearchBar = () => {
-    const searchTerm = useSelector((state) => state.search)
+    const searchTerm = useSelector((state) => state.search.value)
     const dispatch = useDispatch()
 
     return (
