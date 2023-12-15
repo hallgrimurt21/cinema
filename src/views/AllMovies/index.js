@@ -59,8 +59,8 @@ const AllMovies = ({navigation}) => {
                     onPress={toggleMovies}
                     style={styles.toggleButton}
                 >
-                    <Text style={{color: "white", marginTop: 35, fontSize: 15}}>
-                        {showUpcoming ? "Show\nCinema" : "Show\nUpcoming"}
+                    <Text style={{color: "white", marginTop: 45, marginLeft: 10, fontSize: 15}}>
+                        {showUpcoming ? "Showing" : "Upcoming"}
                     </Text>
                 </TouchableOpacity>
                 <ClearnOrDropDown />
