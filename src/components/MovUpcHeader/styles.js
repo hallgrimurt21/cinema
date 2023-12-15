@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         alignItems: "center",
         justifyContent: "space-between",
-        backgroundColor: hexToRGBA(strongGrey, 0.97),
+        backgroundColor: hexToRGBA(black, 0.97),
         shadowColor: black,
         shadowOffset: {width: 0, height: 2},
         shadowOpacity: 0.8,

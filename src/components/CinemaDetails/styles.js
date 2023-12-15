@@ -21,13 +21,13 @@ const styles = StyleSheet.create({
     padder: {
         width: "100%",
         height: 100,
-        backgroundColor: hexToRGBA(strongGrey, 0.95),
+        backgroundColor: hexToRGBA(black, 0.95),
         marginTop: -100,
     },
     info: {
         marginTop: 10,
         padding: 20,
-        backgroundColor: hexToRGBA(mediumGrey, 0.95),
+        backgroundColor: hexToRGBA(strongGrey, 0.95),
         borderRadius: 15,
         shadowColor: black,
         shadowOpacity: 0.5,
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.2,
     },
     topPart: {
-        backgroundColor: hexToRGBA(strongGrey, 0.95),
+        backgroundColor: hexToRGBA(black, 0.95),
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",

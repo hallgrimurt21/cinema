@@ -12,11 +12,10 @@ import {useSelector, useDispatch} from "react-redux"
 import {toggleDescription} from "../../redux/features/visibilitySlice"
 import styles from "./styles"
 import {useNavigation} from "@react-navigation/native"
-import {mediumGrey, strongWhite} from "../../styles/colors"
+import {strongGrey} from "../../styles/colors"
 
 const CinemaDetails = ({id}) => {
     const fadeAnim = useRef(new Animated.Value(0)).current // Initial value for opacity: 0
-    const buttonAnim = useRef(new Animated.Value(0)).current // Initial value for button: 0
     const navigation = useNavigation()
     const dispatch = useDispatch()
     const cinemas = useSelector((state) => state.cinemas.cinemas)
@@ -44,7 +43,7 @@ const CinemaDetails = ({id}) => {
     const buttonStyle = {
         backgroundColor: fadeAnim.interpolate({
             inputRange: [0, 1],
-            outputRange: ["transparent", mediumGrey], // Change the colors as per your need
+            outputRange: ["transparent", strongGrey], // Change the colors as per your need
         }),
         borderColor: fadeAnim.interpolate({
             inputRange: [0, 1],
