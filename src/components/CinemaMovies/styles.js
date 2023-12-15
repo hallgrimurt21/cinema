@@ -5,6 +5,7 @@ import {
     mediumWhite,
     strongWhite,
     black,
+    champagne,
 } from "../../styles/colors"
 import {deviceHeight} from "../../styles/sizes"
 import hexToRGBA from "../../styles/hexToRgba"
@@ -22,7 +23,7 @@ export default StyleSheet.create({
             height: 0,
         },
         borderBottomWidth: 1,
-        borderColor: "#C9B082",
+        borderColor: champagne,
     },
     poster: {
         marginVertical: -3,
@@ -66,5 +67,4 @@ export default StyleSheet.create({
     someBackground: {
         backgroundColor: strongGrey,
     },
-},
-)
+})
