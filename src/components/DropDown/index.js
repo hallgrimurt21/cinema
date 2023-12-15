@@ -4,7 +4,7 @@ import ModalDropdown from "react-native-modal-dropdown"
 import {CheckBox} from "react-native-elements"
 import {toggleOption} from "../../redux/features/dropDownSlice"
 
-const dropDown = ({selectedOptions}) => {
+const dropDown = ({selectedOptions}, {defaultValue}) => {
     const dispatch = useDispatch()
 
     const renderRow = (option) => (
@@ -20,7 +20,7 @@ const dropDown = ({selectedOptions}) => {
         <ModalDropdown
             options={selectedOptions}
             renderRow={renderRow}
-            defaultValue="Select an option"
+            defaultValue={defaultValue}
             textStyle={{color: "white", fontSize: 15}}
             dropdownStyle={{zIndex: 2, width: "50%"}}
         />

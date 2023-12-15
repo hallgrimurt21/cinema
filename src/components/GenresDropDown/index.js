@@ -12,10 +12,14 @@ const GenresDropDown = () => {
         ),
     )
     const genreNames = filteredGenres.map((genre) => genre["NameEN\t"])
-    console.log(genreNames)
     return (
         <View>
-            {Array.isArray(genreNames) && <DropDown selectedOptions={genreNames} />}
+            {Array.isArray(genreNames) && (
+                <DropDown
+                    selectedOptions={genreNames}
+                    defaultValue="Filter by genres"
+                />
+            )}
         </View>
     )
 }
