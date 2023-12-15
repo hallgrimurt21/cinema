@@ -134,12 +134,16 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
         marginTop: 10,
         marginRight: -4,
+        width: deviceWidth * 0.97,
+        alignSelf: "center",
     },
     showtime: {
         ...showButtonCore,
         backgroundColor: mediumGrey,
         borderLeftWidth: 1,
         borderTopWidth: 1,
+        marginRight: -3,
+        height: 65,
     },
 
     pressedShowtime: {
