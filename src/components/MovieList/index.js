@@ -16,10 +16,7 @@ const MovieList = () => {
         >
             <View>
                 {Movies.map((movie, index) => (
-                    <TouchableOpacity
-                        key={index}
-                        style={styles.card}
-                    >
+                    <TouchableOpacity key={index} style={styles.card}>
                         <Image
                             source={{uri: movie.poster}}
                             style={styles.poster}

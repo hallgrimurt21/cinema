@@ -44,9 +44,11 @@ const CinemaList = () => {
                             }}
                             style={styles.linkContainer}
                         >
-                            <Text style={styles.cinemaWebsite}>
-                                {cinema.website}
-                            </Text>
+                            <View style={styles.linkTextCont}>
+                                <Text style={styles.cinemaWebsite}>
+                                    {cinema.website}
+                                </Text>
+                            </View>
                         </TouchableOpacity>
                     </View>
                 ))}
