@@ -1,8 +1,9 @@
-Core: 
-Finish styling
-remove linebreak from descriptions/text
+Todo:
+Movie Duration
 
-Extra: 
-Search in movies
-Genres in movies
-filter by area cinemas
+
+kannski:
+website link too big
+remove line break from cinema descriptions
+clickable link inside cinemadetails
+hringja
