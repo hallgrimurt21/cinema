@@ -11,8 +11,8 @@ import {strongGrey} from "../../styles/colors"
 
 const dropDown = ({selectedOptions}) => {
     const dispatch = useDispatch()
-    const dropdownRef = useRef(null) // Add this line
-    const [checkedOptions, setCheckedOptions] = useState([]) // Add this line
+    const dropdownRef = useRef(null)
+    const [checkedOptions, setCheckedOptions] = useState([])
 
     const handleToggleOption = (option) => {
         dispatch(toggleOption(option))
@@ -32,7 +32,7 @@ const dropDown = ({selectedOptions}) => {
                     <Checkbox
                         style={styles.checkbox}
                         value={checkedOptions.includes(option)}
-                        onValueChange={() => handleToggleOption(option)} // Add this line
+                        onValueChange={() => handleToggleOption(option)}
                         tintColor="white" // color of the border when the checkbox is unchecked
                         onCheckColor="black" // color of the check mark
                         onFillColor="brown"
@@ -74,7 +74,7 @@ const dropDown = ({selectedOptions}) => {
                 adjustFrame={(style) => {
                     return {...style}
                 }}
-                dropdownStyle={styles.dropdownStyle} // Modify this line
+                dropdownStyle={styles.dropdownStyle}
                 showsVerticalScrollIndicator={false}
             />
         </View>
