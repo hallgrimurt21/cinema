@@ -60,10 +60,11 @@ const styles = StyleSheet.create({
     drText: {
         color: strongWhite,
         fontSize: 30,
-        fontWeight: "bold",
         textAlign: "center",
         paddingBottom: 10,
-        alignSelf: "center",
+        textShadowColor: strongWhite,
+        textShadowOffset: {width: 0, height: 0},
+        textShadowRadius: 5,
     },
     toggleButton: {
         marginLeft: deviceWidth * 0.05,
