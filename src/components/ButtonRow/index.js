@@ -96,7 +96,7 @@ const ButtonRow = ({
                             </Text>
                         ))}
                     </View>
-                    <CinemaMovies />
+                    <CinemaMovies genreSet={true} />
                 </View>
             )}
             {visibleSection === "showtimes" && (

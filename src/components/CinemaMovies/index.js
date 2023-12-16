@@ -14,7 +14,6 @@ const CinemaMovies = ({id}) => {
     const genreFilter = useSelector((state) => state.dropDown.selectedOptions)
     const similarFilter = useSelector((state) => state.similar)
 
-
     const filteredMovies = filterMovies({
         id: id ? id : null,
         movies,
@@ -41,6 +40,9 @@ const CinemaMovies = ({id}) => {
                 paddingBottom: 200,
                 paddingTop: deviceHeight * 0.12,
             }}
+            scrollEnabled={
+                !(similarFilter.genres && similarFilter.genres.length !== 0)
+            }
         >
             {filteredMovies.map((movie) => (
                 <View key={movie.id}>
