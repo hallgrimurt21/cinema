@@ -1,11 +1,12 @@
 import {StyleSheet} from "react-native"
-import {deviceWidth} from "../../styles/sizes"
+
 import {
     mediumWhite,
     mediumGrey,
     strongGrey,
     strongWhite,
 } from "../../styles/colors"
+import {deviceWidth} from "../../styles/sizes"
 
 const styles = StyleSheet.create({
     container: {

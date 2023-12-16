@@ -1,16 +1,17 @@
 import React, {useEffect, useRef} from "react"
 import {
-    View,
-    Text,
-    Pressable,
-    SafeAreaView,
     Animated,
     LayoutAnimation,
+    Pressable,
+    SafeAreaView,
+    Text,
+    View,
 } from "react-native"
-import {useSelector, useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
+import {useNavigation} from "@react-navigation/native"
+
 import {toggleDescription} from "../../redux/features/visibilitySlice"
 import styles from "./styles"
-import {useNavigation} from "@react-navigation/native"
 import {strongGrey} from "../../styles/colors"
 
 const CinemaDetails = ({id}) => {

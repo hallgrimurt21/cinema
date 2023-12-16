@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native"
+
 import {strongGrey, black} from "../../styles/colors"
 
 export const styles = StyleSheet.create({

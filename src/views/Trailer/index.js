@@ -1,8 +1,9 @@
 import YoutubeIframe from "react-native-youtube-iframe"
 import React from "react"
-import {View, Pressable, Text} from "react-native"
-import styles from "./styles"
+import {Pressable, Text, View} from "react-native"
 import {useNavigation} from "@react-navigation/native"
+
+import styles from "./styles"
 
 const Trailer = ({route}) => {
     const {trailerID} = route.params
@@ -16,10 +17,7 @@ const Trailer = ({route}) => {
 
     return (
         <View style={styles.container}>
-            <Pressable
-                style={styles.close}
-                onPress={handleNavigate()}
-            >
+            <Pressable style={styles.close} onPress={handleNavigate()}>
                 <Text style={styles.closeText}>Close Trailer</Text>
             </Pressable>
             <View style={styles.trailer}>
@@ -29,10 +27,8 @@ const Trailer = ({route}) => {
                     backgroundColor="black"
                 />
             </View>
-
         </View>
     )
 }
-
 
 export default Trailer

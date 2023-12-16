@@ -1,13 +1,19 @@
 import React, {useRef, useState} from "react"
-import {useDispatch} from "react-redux"
-import ModalDropdown from "react-native-modal-dropdown"
+import {
+    Pressable,
+    Text,
+    TouchableOpacity,
+    TouchableWithoutFeedback,
+    View,
+} from "react-native"
 import Checkbox from "expo-checkbox"
-import {toggleOption} from "../../redux/features/dropDownSlice"
+import ModalDropdown from "react-native-modal-dropdown"
 import Icon from "react-native-vector-icons/FontAwesome"
-import {TouchableOpacity, View, Text, Pressable} from "react-native"
-import {TouchableWithoutFeedback} from "react-native"
-import {styles} from "./styles"
+import {useDispatch} from "react-redux"
+
+import {toggleOption} from "../../redux/features/dropDownSlice"
 import {strongGrey} from "../../styles/colors"
+import {styles} from "./styles"
 
 const dropDown = ({selectedOptions}) => {
     const dispatch = useDispatch()

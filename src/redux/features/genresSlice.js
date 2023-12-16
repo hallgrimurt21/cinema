@@ -1,4 +1,5 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
+
 const fetchGenres = createAsyncThunk("genres/fetchGenres", async(token) => {
     const response = await fetch("https://api.kvikmyndir.is/genres", {
         headers: {

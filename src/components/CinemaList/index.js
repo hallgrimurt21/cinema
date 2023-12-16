@@ -1,10 +1,11 @@
 import React from "react"
-import {useSelector} from "react-redux"
-import {View, Text, TouchableOpacity, Linking} from "react-native"
-import {useNavigation} from "@react-navigation/native"
-import styles from "./styles"
+import {Linking, Text, TouchableOpacity, View} from "react-native"
 import {ScrollView} from "react-native-gesture-handler"
+import {useSelector} from "react-redux"
+import {useNavigation} from "@react-navigation/native"
+
 import {deviceHeight} from "../../styles/sizes"
+import styles from "./styles"
 
 const CinemaList = () => {
     const navigate = useNavigation().navigate
@@ -30,7 +31,7 @@ const CinemaList = () => {
                             <Text style={styles.cinemaName}>{cinema.name}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={async() => {
+                            onPress={async () => {
                                 const url = `https://${cinema.website}`
                                 const supported = await Linking.canOpenURL(url)
 

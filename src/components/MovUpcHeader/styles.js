@@ -1,11 +1,8 @@
 import {StyleSheet} from "react-native"
-import {
-    strongWhite,
-    black,
-    champagne,
-} from "../../styles/colors"
-import {deviceWidth} from "../../styles/sizes"
+
+import {strongWhite, black, champagne} from "../../styles/colors"
 import hexToRGBA from "../../styles/hexToRgba"
+import {deviceWidth} from "../../styles/sizes"
 
 const styles = StyleSheet.create({
     overContainer: {

@@ -1,8 +1,9 @@
 import {StyleSheet} from "react-native"
-import {deviceWidth} from "../../styles/sizes"
+
 import {
     champagne,
 } from "../../styles/colors"
+import {deviceWidth} from "../../styles/sizes"
 
 const styles = StyleSheet.create({
     container: {

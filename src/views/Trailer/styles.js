@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native"
+
 import {deviceWidth} from "../../styles/sizes"
 
 const styles = StyleSheet.create({

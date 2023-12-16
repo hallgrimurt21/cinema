@@ -1,15 +1,14 @@
 import React from "react"
-import {
-    View,
-    TouchableWithoutFeedback,
-} from "react-native"
-import {useSelector, useDispatch} from "react-redux"
+import {TouchableWithoutFeedback, View} from "react-native"
 import {useFocusEffect} from "@react-navigation/native"
-import {closeSearch, clearSearch} from "../../redux/features/searchSlice"
-import UpcomingMovies from "../../components/UpcomingMovies"
+import {useDispatch, useSelector} from "react-redux"
+
+
+import {clearSearch, closeSearch} from "../../redux/features/searchSlice"
 import CinemaMovies from "../../components/CinemaMovies"
-import styles from "./styles"
 import MovUpcHeader from "../../components/MovUpcHeader"
+import UpcomingMovies from "../../components/UpcomingMovies"
+import styles from "./styles"
 
 const AllMovies = () => {
     const dispatch = useDispatch()
@@ -26,7 +25,6 @@ const AllMovies = () => {
             return () => dispatch(clearSearch())
         }, []),
     )
-
 
     return (
         <TouchableWithoutFeedback onPress={handleOutsidePress}>

@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native"
+
 import {
     strongGrey,
 } from "../../styles/colors"

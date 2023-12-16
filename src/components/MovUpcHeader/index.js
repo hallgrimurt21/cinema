@@ -1,13 +1,14 @@
 /* eslint-disable require-jsdoc */
 import React from "react"
-import {View, Text, TouchableOpacity, SafeAreaView} from "react-native"
-import {useSelector, useDispatch} from "react-redux"
+import {SafeAreaView, Text, TouchableOpacity, View} from "react-native"
+import {useDispatch, useSelector} from "react-redux"
+
 import {clearSearch} from "../../redux/features/searchSlice"
 import {toggleShowUpcoming} from "../../redux/features/toggle"
-import SearchBar from "../../components/SearchBar"
-import OpenSearchButton from "../../components/OpenSearchButton"
-import styles from "./styles"
 import GenresDropDown from "../GenresDropDown"
+import OpenSearchButton from "../../components/OpenSearchButton"
+import SearchBar from "../../components/SearchBar"
+import styles from "./styles"
 
 function MovUpcHeader({}) {
     const dispatch = useDispatch()

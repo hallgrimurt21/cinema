@@ -1,16 +1,17 @@
 import React from "react"
-import {View, ScrollView} from "react-native"
-import {useSelector, useDispatch} from "react-redux"
+import {ScrollView, View} from "react-native"
 import {useNavigation} from "@react-navigation/native"
-import styles from "../../views/Movie/styles"
+import {useDispatch, useSelector} from "react-redux"
+
+import {
+    hideAll,
+    showGenres,
+    showPlot,
+    showRelease,
+} from "../../redux/features/visibilitySlice"
 import UpcomingHeader from "../UpcomingHeader"
 import ButtonRowUpcoming from "../ButtonRowUpcoming"
-import {
-    showPlot,
-    showGenres,
-    showRelease,
-    hideAll,
-} from "../../redux/features/visibilitySlice"
+import styles from "../../views/Movie/styles"
 
 const UpcomingDetail = ({id}) => {
     const navigation = useNavigation()
@@ -33,17 +34,17 @@ const UpcomingDetail = ({id}) => {
             dispatch(hideAll())
         } else {
             switch (section) {
-            case "plot":
-                dispatch(showPlot())
-                break
-            case "genres":
-                dispatch(showGenres())
-                break
-            case "release":
-                dispatch(showRelease())
-                break
-            default:
-                break
+                case "plot":
+                    dispatch(showPlot())
+                    break
+                case "genres":
+                    dispatch(showGenres())
+                    break
+                case "release":
+                    dispatch(showRelease())
+                    break
+                default:
+                    break
             }
         }
     }
