@@ -137,6 +137,11 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginRight: 10,
         width: deviceWidth * 0.4,
+        marginBottom: 10,
+    },
+    overBox: {
+        flex: 1,
+        justifyContent: "space-between",
     },
 })
 
