@@ -1,6 +1,6 @@
 import React from "react"
 import {View, Pressable, Text} from "react-native"
-import styles from "./styles" // import your styles
+import styles from "./styles"
 
 const ButtonRow = ({handleToggle, visibleSection, movie}) => (
     <View>

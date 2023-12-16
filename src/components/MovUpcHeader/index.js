@@ -15,7 +15,7 @@ function MovUpcHeader({}) {
     const searchStatus = useSelector((state) => state.search.status)
 
     const toggleMovies = () => {
-        dispatch(toggleShowUpcoming()) // Dispatch the action
+        dispatch(toggleShowUpcoming())
         dispatch(clearSearch())
     }
     return (

@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     modal: {
-        width: "100%", // adjust this as needed
-        height: 200, // adjust this as needed
+        width: "100%",
+        height: 200,
         backgroundColor: crimson,
     },
     trailerButton: {
