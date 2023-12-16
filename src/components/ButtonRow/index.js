@@ -14,17 +14,17 @@ const ButtonRow = ({
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    visibleSection === "plot"
-                        ? styles.activeButton
-                        : styles.botButton,
+                    visibleSection === "plot" ?
+                        styles.activeButton :
+                        styles.botButton,
                 ]}
                 onPress={() => handleToggle("plot")}
             >
                 <Text
                     style={
-                        visibleSection === "plot"
-                            ? styles.activeButtonText
-                            : styles.botButText
+                        visibleSection === "plot" ?
+                            styles.activeButtonText :
+                            styles.botButText
                     }
                 >
                     Plot
@@ -33,17 +33,17 @@ const ButtonRow = ({
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    visibleSection === "genres"
-                        ? styles.activeButton
-                        : styles.botButton,
+                    visibleSection === "genres" ?
+                        styles.activeButton :
+                        styles.botButton,
                 ]}
                 onPress={() => handleToggle("genres")}
             >
                 <Text
                     style={
-                        visibleSection === "genres"
-                            ? styles.activeButtonText
-                            : styles.botButText
+                        visibleSection === "genres" ?
+                            styles.activeButtonText :
+                            styles.botButText
                     }
                 >
                     Genres
@@ -52,17 +52,17 @@ const ButtonRow = ({
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    visibleSection === "showtimes"
-                        ? styles.activeButton
-                        : styles.botButton,
+                    visibleSection === "showtimes" ?
+                        styles.activeButton :
+                        styles.botButton,
                 ]}
                 onPress={() => handleToggle("showtimes")}
             >
                 <Text
                     style={
-                        visibleSection === "showtimes"
-                            ? styles.activeButtonText
-                            : styles.botButText
+                        visibleSection === "showtimes" ?
+                            styles.activeButtonText :
+                            styles.botButText
                     }
                 >
                     Showtimes

@@ -6,7 +6,6 @@ import {
     SafeAreaView,
     Animated,
     LayoutAnimation,
-    Platform,
 } from "react-native"
 import {useSelector, useDispatch} from "react-redux"
 import {toggleDescription} from "../../redux/features/visibilitySlice"
@@ -70,9 +69,9 @@ const CinemaDetails = ({id}) => {
                 <Animated.View style={[buttonStyle, styles.animButton]}>
                     <Pressable
                         style={
-                            descriptionVisible
-                                ? styles.infoButtonToggled
-                                : styles.infoButton
+                            descriptionVisible ?
+                                styles.infoButtonToggled :
+                                styles.infoButton
                         }
                         onPress={() => dispatch(toggleDescription())}
                     >

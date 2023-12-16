@@ -8,17 +8,17 @@ const ButtonRow = ({handleToggle, visibleSection, movie}) => (
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    visibleSection === "plot"
-                        ? styles.activeButton
-                        : styles.botButton,
+                    visibleSection === "plot" ?
+                        styles.activeButton :
+                        styles.botButton,
                 ]}
                 onPress={() => handleToggle("plot")}
             >
                 <Text
                     style={
-                        visibleSection === "plot"
-                            ? styles.activeButtonText
-                            : styles.botButText
+                        visibleSection === "plot" ?
+                            styles.activeButtonText :
+                            styles.botButText
                     }
                 >
                     Plot
@@ -27,17 +27,17 @@ const ButtonRow = ({handleToggle, visibleSection, movie}) => (
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    visibleSection === "genres"
-                        ? styles.activeButton
-                        : styles.botButton,
+                    visibleSection === "genres" ?
+                        styles.activeButton :
+                        styles.botButton,
                 ]}
                 onPress={() => handleToggle("genres")}
             >
                 <Text
                     style={
-                        visibleSection === "genres"
-                            ? styles.activeButtonText
-                            : styles.botButText
+                        visibleSection === "genres" ?
+                            styles.activeButtonText :
+                            styles.botButText
                     }
                 >
                     Genres
@@ -46,17 +46,17 @@ const ButtonRow = ({handleToggle, visibleSection, movie}) => (
             <Pressable
                 style={({pressed}) => [
                     {opacity: pressed ? 0.5 : 1},
-                    visibleSection === "release"
-                        ? styles.activeButton
-                        : styles.botButton,
+                    visibleSection === "release" ?
+                        styles.activeButton :
+                        styles.botButton,
                 ]}
                 onPress={() => handleToggle("release")}
             >
                 <Text
                     style={
-                        visibleSection === "release"
-                            ? styles.activeButtonText
-                            : styles.botButText
+                        visibleSection === "release" ?
+                            styles.activeButtonText :
+                            styles.botButText
                     }
                 >
                     Release

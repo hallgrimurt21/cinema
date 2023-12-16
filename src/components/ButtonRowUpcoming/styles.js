@@ -5,7 +5,6 @@ import {
     mediumGrey,
     strongGrey,
     strongWhite,
-    crimson,
     champagne,
     black,
 } from "../../styles/colors"
@@ -19,20 +18,6 @@ const buttonCore = {
     height: 50,
     borderLeftColor: hexToRGBA(black, 0.25),
     borderLeftWidth: 1,
-}
-
-const showButtonCore = {
-    borderBottomWidth: 1,
-    borderRightWidth: 1,
-    borderColor: champagne,
-    padding: 10,
-    justifyContent: "center",
-    alignItems: "center",
-    width: "33.33%",
-    marginTop: -1,
-    marginRight: -1,
-    borderLeftColor: hexToRGBA(black, 0.4),
-    borderTopColor: hexToRGBA(black, 0.5),
 }
 
 const styles = StyleSheet.create({

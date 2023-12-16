@@ -1,8 +1,5 @@
 import {StyleSheet} from "react-native"
 import {
-    strongGrey,
-    mediumGrey,
-    mediumWhite,
     strongWhite,
     black,
     champagne,

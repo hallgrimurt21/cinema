@@ -2,11 +2,9 @@ import {StyleSheet} from "react-native"
 import {deviceWidth} from "../../styles/sizes"
 import {
     strongGrey,
-    mediumGrey,
     strongWhite,
     mediumWhite,
     black,
-    champagne,
 } from "../../styles/colors"
 import hexToRGBA from "../../styles/hexToRgba"
 
