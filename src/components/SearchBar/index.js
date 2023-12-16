@@ -9,6 +9,7 @@ import {
 } from "react-native"
 import {updateSearchTerm, closeSearch} from "../../redux/features/searchSlice"
 import styles from "./styles"
+import Icon from "react-native-vector-icons/MaterialIcons"
 
 const SearchBar = () => {
     const searchTerm = useSelector((state) => state.search.value)
@@ -26,9 +27,11 @@ const SearchBar = () => {
                     placeholderTextColor="#fff"
                 />
                 <TouchableOpacity onPress={() => dispatch(closeSearch())}>
-                    <Image
+                    <Icon
                         style={styles.searchImage}
-                        source={require("../../resources/images/searchIcon.png")}
+                        name="search"
+                        size={25}
+                        color="#fff"
                     />
                 </TouchableOpacity>
             </View>

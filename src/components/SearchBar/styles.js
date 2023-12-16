@@ -29,9 +29,7 @@ const styles = StyleSheet.create({
         zIndex: 4,
     },
     searchImage: {
-        width: 70,
-        height: 50,
-        marginRight: -5,
+        marginRight: 20,
     },
 })
 
