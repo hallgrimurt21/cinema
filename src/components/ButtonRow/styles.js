@@ -5,7 +5,6 @@ import {
     mediumGrey,
     strongGrey,
     strongWhite,
-    crimson,
     champagne,
     black,
 } from "../../styles/colors"

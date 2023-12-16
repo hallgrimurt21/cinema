@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 import React from "react"
 import {View, Text, TouchableOpacity, SafeAreaView} from "react-native"
 import {useSelector, useDispatch} from "react-redux"

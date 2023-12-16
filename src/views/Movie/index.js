@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from "react"
 import {Linking, ScrollView, LayoutAnimation, UIManager} from "react-native"
 import styles from "./styles"
@@ -74,17 +73,17 @@ function Movie({route}) {
             dispatch(hideAll())
         } else {
             switch (section) {
-                case "plot":
-                    dispatch(showPlot())
-                    break
-                case "genres":
-                    dispatch(showGenres())
-                    break
-                case "showtimes":
-                    dispatch(showShowtimes())
-                    break
-                default:
-                    break
+            case "plot":
+                dispatch(showPlot())
+                break
+            case "genres":
+                dispatch(showGenres())
+                break
+            case "showtimes":
+                dispatch(showShowtimes())
+                break
+            default:
+                break
             }
         }
     }
