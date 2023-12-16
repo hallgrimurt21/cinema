@@ -20,7 +20,7 @@ const ButtonRow = ({
     } // open the url to showtime in the browser
 
     return (
-        //=========================Buttons for switching info=========================//
+        // =========================Buttons for switching info=========================//
         <View>
             <View style={styles.buttonRow}>
                 <InfoButton visibleSection={visibleSection} section="plot" />
@@ -51,9 +51,9 @@ const ButtonRow = ({
                         // ===================== Showtime buttons mapper ====================== //
                         <Pressable
                             style={({pressed}) => [
-                                pressed
-                                    ? styles.pressedShowtime
-                                    : styles.showtime,
+                                pressed ?
+                                    styles.pressedShowtime :
+                                    styles.showtime,
                             ]}
                             key={index}
                             onPress={() => handlePress(showtime.purchase_url)}

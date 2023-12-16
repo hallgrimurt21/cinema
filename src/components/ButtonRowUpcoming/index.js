@@ -12,7 +12,7 @@ const ButtonRow = ({movie}) => {
         (state) => state.visibility.visibleSection,
     )
     return (
-        //=========================Buttons for switching info=========================//
+        // =========================Buttons for switching info=========================//
         <View>
             <View style={styles.buttonRow}>
                 <InfoButton section="plot" />

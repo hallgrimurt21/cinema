@@ -19,10 +19,10 @@ const CinemaMovies = ({id}) => {
         movies,
         searchWord,
         genreFilter,
-    })
+    }) // filters the movies
 
     useEffect(() => {
-        if (filteredMovies.length === 0) {
+        if (filteredMovies.length === 0) { // if there are no movies, hide the description
             dispatch(toggleDescription())
         }
     }, [filteredMovies, dispatch])

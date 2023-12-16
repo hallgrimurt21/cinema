@@ -7,10 +7,10 @@ import {
     ImageBackground,
 } from "react-native"
 import {useNavigation} from "@react-navigation/native"
-import styles from "./styles" // import your styles
+import styles from "./styles"
 import TrailerButton from "../TrailerButton"
 
-const MovieHeader = ({movie, handleNavigate}) => {
+const MovieHeader = ({movie, handleNavigate}) => { // movie is the movie object, handleNavigate is the function that handles navigation back
     const navigation = useNavigation()
 
     return (

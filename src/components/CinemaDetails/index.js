@@ -72,9 +72,9 @@ const CinemaDetails = ({id}) => {
                 <Animated.View style={[buttonStyle, styles.animButton]}>
                     <Pressable
                         style={
-                            descriptionVisible
-                                ? styles.infoButtonToggled
-                                : styles.infoButton
+                            descriptionVisible ?
+                                styles.infoButtonToggled :
+                                styles.infoButton
                         }
                         onPress={() => dispatch(toggleDescription())}
                     >

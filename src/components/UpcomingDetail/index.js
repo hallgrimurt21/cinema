@@ -7,13 +7,13 @@ import UpcomingHeader from "../UpcomingHeader"
 import ButtonRowUpcoming from "../ButtonRowUpcoming"
 import styles from "./styles"
 
-const UpcomingDetail = ({id}) => {
-    const navigation = useNavigation()
-    const upcomingMovies = useSelector((state) => state.upcomingMovies.movies)
-    const dispatch = useDispatch()
-    const upcoming = upcomingMovies.find((movie) => movie._id === id)
+const UpcomingDetail = ({id}) => { // redirects to UpcomingHeader and ButtonRowUpcoming components
+    const navigation = useNavigation() // get the navigation prop from useNavigation hook
+    const upcomingMovies = useSelector((state) => state.upcomingMovies.movies) // get the upcomingMovies state from the redux store
+    const dispatch = useDispatch() // get the dispatch function from useDispatch hook
+    const upcoming = upcomingMovies.find((movie) => movie._id === id) // get the upcoming movie from the redux store
 
-    const handleNavigate = () => {
+    const handleNavigate = () => { // handles navigating back to the previous screen
         return () => {
             dispatch(hideAll())
             navigation.goBack()

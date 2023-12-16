@@ -10,19 +10,19 @@ import OpenSearchButton from "../../components/OpenSearchButton"
 import SearchBar from "../../components/SearchBar"
 import styles from "./styles"
 
-function MovUpcHeader({}) {
+function MovUpcHeader({}) { // header component for the movies and upcoming movies screens
     const dispatch = useDispatch()
     const showUpcoming = useSelector((state) => state.toggle.showUpcoming)
     const searchStatus = useSelector((state) => state.search.status)
 
-    const toggleMovies = () => {
+    const toggleMovies = () => { // toggles between showing upcoming movies and showing movies
         dispatch(toggleShowUpcoming())
         dispatch(clearSearch())
     }
     return (
         <View style={styles.overContainer}>
             <SafeAreaView style={styles.safeContainer}>
-                {searchStatus === "closed" && ( //if search is closed, show toggle button
+                {searchStatus === "closed" && ( // if search is closed, show toggle button
                     <TouchableOpacity
                         onPress={toggleMovies}
                         style={styles.toggleButton}
@@ -39,7 +39,7 @@ function MovUpcHeader({}) {
                 <GenresDropDown />
                 <OpenSearchButton style={styles.spyGlass} />
 
-                {searchStatus !== "closed" && ( //if search is open, show search bar
+                {searchStatus !== "closed" && ( // if search is open, show search bar
                     <SearchBar style={styles.searcher} />
                 )}
             </SafeAreaView>
