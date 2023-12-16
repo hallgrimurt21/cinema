@@ -2,15 +2,15 @@
 import React from "react"
 import {NavigationContainer} from "@react-navigation/native"
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
-import {createStackNavigator} from "@react-navigation/stack"
-import Cinema from "../views/Cinema"
+import {createStackNavigator, CardStyleInterpolators} from "@react-navigation/stack"
+
 import AllCinemas from "../views/AllCinemas"
-import Movie from "../views/Movie"
 import AllMovies from "../views/AllMovies"
+import Cinema from "../views/Cinema"
+import Movie from "../views/Movie"
+import Trailer from "../views/Trailer"
 import Upcoming from "../views/Upcoming"
 import CustomTabBar from "../components/CustomTabBar"
-import {CardStyleInterpolators} from "@react-navigation/stack"
-import Trailer from "../views/Trailer"
 
 const Tab = createBottomTabNavigator()
 const CinemaStack = createStackNavigator()

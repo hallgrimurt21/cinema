@@ -1,18 +1,24 @@
 import React, {useRef, useState} from "react"
-import {useDispatch} from "react-redux"
-import ModalDropdown from "react-native-modal-dropdown"
+import {
+    Pressable,
+    Text,
+    TouchableOpacity,
+    TouchableWithoutFeedback,
+    View,
+} from "react-native"
 import Checkbox from "expo-checkbox"
-import {toggleOption} from "../../redux/features/dropDownSlice"
+import ModalDropdown from "react-native-modal-dropdown"
 import Icon from "react-native-vector-icons/FontAwesome"
-import {TouchableOpacity, View, Text, Pressable} from "react-native"
-import {TouchableWithoutFeedback} from "react-native"
-import {styles} from "./styles"
+import {useDispatch} from "react-redux"
+
+import {toggleOption} from "../../redux/features/dropDownSlice"
 import {strongGrey} from "../../styles/colors"
+import {styles} from "./styles"
 
 const dropDown = ({selectedOptions}) => {
     const dispatch = useDispatch()
-    const dropdownRef = useRef(null) // Add this line
-    const [checkedOptions, setCheckedOptions] = useState([]) // Add this line
+    const dropdownRef = useRef(null)
+    const [checkedOptions, setCheckedOptions] = useState([])
 
     const handleToggleOption = (option) => {
         dispatch(toggleOption(option))
@@ -32,7 +38,7 @@ const dropDown = ({selectedOptions}) => {
                     <Checkbox
                         style={styles.checkbox}
                         value={checkedOptions.includes(option)}
-                        onValueChange={() => handleToggleOption(option)} // Add this line
+                        onValueChange={() => handleToggleOption(option)}
                         tintColor="white" // color of the border when the checkbox is unchecked
                         onCheckColor="black" // color of the check mark
                         onFillColor="brown"
@@ -74,7 +80,7 @@ const dropDown = ({selectedOptions}) => {
                 adjustFrame={(style) => {
                     return {...style}
                 }}
-                dropdownStyle={styles.dropdownStyle} // Modify this line
+                dropdownStyle={styles.dropdownStyle}
                 showsVerticalScrollIndicator={false}
             />
         </View>

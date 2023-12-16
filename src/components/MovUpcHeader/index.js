@@ -1,13 +1,14 @@
 /* eslint-disable require-jsdoc */
 import React from "react"
-import {View, Text, TouchableOpacity, SafeAreaView} from "react-native"
-import {useSelector, useDispatch} from "react-redux"
+import {SafeAreaView, Text, TouchableOpacity, View} from "react-native"
+import {useDispatch, useSelector} from "react-redux"
+
 import {clearSearch} from "../../redux/features/searchSlice"
 import {toggleShowUpcoming} from "../../redux/features/toggle"
-import SearchBar from "../../components/SearchBar"
-import OpenSearchButton from "../../components/OpenSearchButton"
-import styles from "./styles"
 import GenresDropDown from "../GenresDropDown"
+import OpenSearchButton from "../../components/OpenSearchButton"
+import SearchBar from "../../components/SearchBar"
+import styles from "./styles"
 
 function MovUpcHeader({}) {
     const dispatch = useDispatch()
@@ -15,8 +16,7 @@ function MovUpcHeader({}) {
     const searchStatus = useSelector((state) => state.search.status)
 
     const toggleMovies = () => {
-        //toggle for setting view for upcoming movies or showing movies
-        dispatch(toggleShowUpcoming()) // Dispatch the action
+        dispatch(toggleShowUpcoming())
         dispatch(clearSearch())
     }
     return (

@@ -1,13 +1,14 @@
 import React from "react"
-import {useSelector, useDispatch} from "react-redux"
 import {
-    TextInput,
-    View,
-    TouchableOpacity,
     Image,
     SafeAreaView,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from "react-native"
-import {updateSearchTerm, closeSearch} from "../../redux/features/searchSlice"
+import {useDispatch, useSelector} from "react-redux"
+
+import {closeSearch, updateSearchTerm} from "../../redux/features/searchSlice"
 import styles from "./styles"
 import Icon from "react-native-vector-icons/MaterialIcons"
 
@@ -22,7 +23,7 @@ const SearchBar = () => {
                     style={styles.textInput}
                     value={searchTerm}
                     onChangeText={(term) => dispatch(updateSearchTerm(term))}
-                    onBlur={() => dispatch(closeSearch())} // Add this line
+                    onBlur={() => dispatch(closeSearch())}
                     placeholder="Search..."
                     placeholderTextColor="#fff"
                 />

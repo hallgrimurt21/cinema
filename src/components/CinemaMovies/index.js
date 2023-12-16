@@ -1,11 +1,12 @@
 import React, {useEffect} from "react"
-import {View, Text, Image, ScrollView, TouchableOpacity} from "react-native"
+import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native"
+import {useDispatch, useSelector} from "react-redux"
 import {useNavigation} from "@react-navigation/native"
-import {useSelector, useDispatch} from "react-redux"
-import filterMovies from "../../utils/filterMovies"
-import styles from "./styles"
-import {deviceHeight} from "../../styles/sizes"
+
 import {toggleDescription} from "../../redux/features/visibilitySlice"
+import filterMovies from "../../utils/filterMovies"
+import {deviceHeight} from "../../styles/sizes"
+import styles from "./styles"
 
 const CinemaMovies = ({id}) => {
     const movies = useSelector((state) => state.movies.movies)

@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native"
+
 import {deviceWidth} from "../../styles/sizes"
 
 const styles = StyleSheet.create({
@@ -14,8 +15,8 @@ const styles = StyleSheet.create({
     },
     close: {
         position: "absolute",
-        top: 10, // adjust as needed
-        left: 10, // adjust as needed
+        top: 10,
+        left: 10,
     },
     closeText: {
         color: "white",

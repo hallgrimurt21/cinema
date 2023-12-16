@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native"
+
 import {strongGrey, black} from "../../styles/colors"
 
 export const styles = StyleSheet.create({
@@ -52,11 +53,11 @@ export const styles = StyleSheet.create({
             width: 0,
             height: 2,
         },
-        shadowOpacity: 0.5, // Increase this value to make the shadow darker
-        shadowRadius: 15, //
+        shadowOpacity: 0.5,
+        shadowRadius: 15,
 
         borderTopLeftRadius: 5,
         borderTopRightRadius: 0,
         borderBottomRightRadius: 0,
-    }, // Modify this line
+    },
 })

@@ -1,5 +1,6 @@
 import React from "react"
 import {View} from "react-native"
+
 import UpcomingDetail from "../../components/UpcomingDetail"
 
 const Upcoming = ({route}) => {

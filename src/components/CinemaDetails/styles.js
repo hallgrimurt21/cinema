@@ -1,12 +1,8 @@
 import {StyleSheet} from "react-native"
-import {deviceWidth} from "../../styles/sizes"
-import {
-    strongGrey,
-    strongWhite,
-    mediumWhite,
-    black,
-} from "../../styles/colors"
+
+import {black, mediumWhite, strongGrey, strongWhite} from "../../styles/colors"
 import hexToRGBA from "../../styles/hexToRgba"
+import {deviceWidth} from "../../styles/sizes"
 
 const styles = StyleSheet.create({
     header: {

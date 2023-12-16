@@ -1,11 +1,11 @@
 import React from "react"
-import {View, ScrollView} from "react-native"
-import {useSelector, useDispatch} from "react-redux"
+import {ScrollView, View} from "react-native"
 import {useNavigation} from "@react-navigation/native"
-import styles from "../../views/Movie/styles"
+import {useDispatch, useSelector} from "react-redux"
+import {hideAll} from "../../redux/features/visibilitySlice"
 import UpcomingHeader from "../UpcomingHeader"
 import ButtonRowUpcoming from "../ButtonRowUpcoming"
-import {hideAll} from "../../redux/features/visibilitySlice"
+import styles from "./styles"
 
 const UpcomingDetail = ({id}) => {
     const navigation = useNavigation()

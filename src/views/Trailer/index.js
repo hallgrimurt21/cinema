@@ -1,8 +1,9 @@
 import YoutubeIframe from "react-native-youtube-iframe"
 import React from "react"
-import {View, Pressable, Text} from "react-native"
-import styles from "./styles"
+import {Pressable, Text, View} from "react-native"
 import {useNavigation} from "@react-navigation/native"
+
+import styles from "./styles"
 
 const Trailer = ({route}) => {
     const {trailerID} = route.params

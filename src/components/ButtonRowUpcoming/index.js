@@ -1,7 +1,7 @@
 import React from "react"
 import {View, Text} from "react-native"
 import styles from "./styles" // import your styles
-import {useSelector, useDispatch} from "react-redux"
+import {useSelector} from "react-redux"
 import {UIManager} from "react-native"
 import InfoButton from "../InfoButton"
 

@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native"
-import {deviceWidth} from "../../styles/sizes"
+
 import {
     mediumWhite,
     mediumGrey,
@@ -9,6 +9,7 @@ import {
     black,
 } from "../../styles/colors"
 import hexToRGBA from "../../styles/hexToRgba"
+import {deviceWidth} from "../../styles/sizes"
 
 const buttonCore = {
     flex: 1,

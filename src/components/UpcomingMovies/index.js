@@ -1,11 +1,12 @@
 import React from "react"
-import {View, Text, TouchableOpacity, Image} from "react-native"
-import {useNavigation} from "@react-navigation/native"
+import {Image, Text, TouchableOpacity, View} from "react-native"
 import {ScrollView} from "react-native-gesture-handler"
+import {useNavigation} from "@react-navigation/native"
 import {useSelector} from "react-redux"
+
 import filterMovies from "../../utils/filterMovies"
-import styles from "../CinemaMovies/styles"
 import {deviceHeight} from "../../styles/sizes"
+import styles from "../CinemaMovies/styles"
 
 const UpcomingMovies = () => {
     const movies = useSelector((state) => state.upcomingMovies.movies)

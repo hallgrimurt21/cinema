@@ -1,6 +1,7 @@
+import base64 from "react-native-base64"
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 import {USERNAME, PASSWORD} from "@env"
-import base64 from "react-native-base64"
+
 
 export const getAuthToken = createAsyncThunk(
     "auth/getToken",

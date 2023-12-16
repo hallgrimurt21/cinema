@@ -1,9 +1,10 @@
 import React from "react"
-import {useDispatch} from "react-redux"
 import {TouchableOpacity} from "react-native"
+import {useDispatch} from "react-redux"
+import Icon from "react-native-vector-icons/MaterialIcons"
+
 import {openSearch} from "../../redux/features/searchSlice"
 import styles from "./styles"
-import Icon from "react-native-vector-icons/MaterialIcons"
 
 const OpenSearchButton = () => {
     const dispatch = useDispatch()
