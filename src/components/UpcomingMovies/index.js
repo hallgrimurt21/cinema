@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from "react"
 import {View, Text, TouchableOpacity, Image} from "react-native"
 import {useNavigation} from "@react-navigation/native"
@@ -6,7 +5,7 @@ import {ScrollView} from "react-native-gesture-handler"
 import {useSelector} from "react-redux"
 import filterMovies from "../../utils/filterMovies"
 import styles from "../CinemaMovies/styles"
-import {deviceWidth, deviceHeight} from "../../styles/sizes"
+import {deviceHeight} from "../../styles/sizes"
 
 const UpcomingMovies = () => {
     const movies = useSelector((state) => state.upcomingMovies.movies)

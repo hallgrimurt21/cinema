@@ -1,6 +1,6 @@
 import React from "react"
 import {useDispatch} from "react-redux"
-import {TouchableOpacity, Image} from "react-native"
+import {TouchableOpacity} from "react-native"
 import {openSearch} from "../../redux/features/searchSlice"
 import styles from "./styles"
 import Icon from "react-native-vector-icons/MaterialIcons"

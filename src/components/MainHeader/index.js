@@ -2,8 +2,6 @@ import React from "react"
 import {
     View,
     Text,
-    TouchableOpacity,
-    ImageBackground,
     SafeAreaView,
 } from "react-native"
 import styles from "./styles"

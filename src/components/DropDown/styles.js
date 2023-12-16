@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native"
-import {strongGrey, black, champagne} from "../../styles/colors"
+import {strongGrey, black} from "../../styles/colors"
 
 export const styles = StyleSheet.create({
     overContainer: {backgroundColor: strongGrey, width: "100%", height: "100%"},

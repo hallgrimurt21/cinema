@@ -1,4 +1,3 @@
-/* eslint-disable require-jsdoc */
 import React, {useEffect} from "react"
 import "react-native-gesture-handler"
 import {Provider as StoreProvider} from "react-redux"

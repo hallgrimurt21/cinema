@@ -7,7 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 import {TouchableOpacity, View, Text, Pressable} from "react-native"
 import {TouchableWithoutFeedback} from "react-native"
 import {styles} from "./styles"
-import {champagne, black, strongGrey} from "../../styles/colors"
+import {strongGrey} from "../../styles/colors"
 
 const dropDown = ({selectedOptions}) => {
     const dispatch = useDispatch()
@@ -35,7 +35,7 @@ const dropDown = ({selectedOptions}) => {
                         onValueChange={() => handleToggleOption(option)} // Add this line
                         tintColor="white" // color of the border when the checkbox is unchecked
                         onCheckColor="black" // color of the check mark
-                        onFillColor="brown" // color of the interior of the checkbox when it is checked
+                        onFillColor="brown"
                         size={20}
                     />
                 </Pressable>

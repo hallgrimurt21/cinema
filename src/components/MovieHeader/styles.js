@@ -5,8 +5,6 @@ import {
     mediumGrey,
     strongGrey,
     strongWhite,
-    crimson,
-    champagne,
 } from "../../styles/colors"
 
 const styles = StyleSheet.create({

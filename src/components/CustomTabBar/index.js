@@ -1,6 +1,5 @@
-/* eslint-disable require-jsdoc */
 import React from "react"
-import {View, Text, TouchableOpacity, ImageBackground} from "react-native"
+import {View, Text, TouchableOpacity} from "react-native"
 import styles from "./styles"
 import {strongGrey} from "../../styles/colors"
 
@@ -10,11 +9,11 @@ function CustomTabBar({state, descriptors, navigation}) {
             {state.routes.map((route, index) => {
                 const {options} = descriptors[route.key]
                 const label =
-                    options.tabBarLabel !== undefined
-                        ? options.tabBarLabel
-                        : options.title !== undefined
-                          ? options.title
-                          : route.name
+                    options.tabBarLabel !== undefined ?
+                        options.tabBarLabel :
+                        options.title !== undefined ?
+                            options.title :
+                            route.name
 
                 const isFocused = state.index === index
 
@@ -41,9 +40,9 @@ function CustomTabBar({state, descriptors, navigation}) {
                         style={{
                             ...tabStyle,
                             opacity: isFocused ? 1 : 0.5,
-                            backgroundColor: isFocused
-                                ? strongGrey
-                                : "transparent",
+                            backgroundColor: isFocused ?
+                                strongGrey :
+                                "transparent",
                         }}
                     >
                         {route.name === "Cinemas" ? (
