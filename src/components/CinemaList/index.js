@@ -31,7 +31,7 @@ const CinemaList = () => {
                             <Text style={styles.cinemaName}>{cinema.name}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={async () => {
+                            onPress={async() => {
                                 const url = `https://${cinema.website}`
                                 const supported = await Linking.canOpenURL(url)
 

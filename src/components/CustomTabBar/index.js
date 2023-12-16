@@ -11,11 +11,11 @@ function CustomTabBar({state, descriptors, navigation}) {
             {state.routes.map((route, index) => {
                 const {options} = descriptors[route.key]
                 const label =
-                    options.tabBarLabel !== undefined
-                        ? options.tabBarLabel
-                        : options.title !== undefined
-                          ? options.title
-                          : route.name
+                    options.tabBarLabel !== undefined ?
+                        options.tabBarLabel :
+                        options.title !== undefined ?
+                            options.title :
+                            route.name
 
                 const isFocused = state.index === index
 
@@ -42,9 +42,9 @@ function CustomTabBar({state, descriptors, navigation}) {
                         style={{
                             ...tabStyle,
                             opacity: isFocused ? 1 : 0.5,
-                            backgroundColor: isFocused
-                                ? strongGrey
-                                : "transparent",
+                            backgroundColor: isFocused ?
+                                strongGrey :
+                                "transparent",
                         }}
                     >
                         {route.name === "Cinemas" ? (

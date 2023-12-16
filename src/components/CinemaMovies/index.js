@@ -19,7 +19,7 @@ const CinemaMovies = ({id}) => {
         movies,
         searchWord,
         genreFilter,
-    })
+    }) // filters the movies
 
     useEffect(() => {
         if (

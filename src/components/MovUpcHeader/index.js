@@ -11,12 +11,12 @@ import OpenSearchButton from "../../components/OpenSearchButton"
 import SearchBar from "../../components/SearchBar"
 import styles from "./styles"
 
-function MovUpcHeader({}) {
+function MovUpcHeader({}) { // header component for the movies and upcoming movies screens
     const dispatch = useDispatch()
     const showUpcoming = useSelector((state) => state.toggle.showUpcoming)
     const searchStatus = useSelector((state) => state.search.status)
 
-    const toggleMovies = () => {
+    const toggleMovies = () => { // toggles between showing upcoming movies and showing movies
         dispatch(toggleShowUpcoming())
         dispatch(clearSearch())
         dispatch(clearSelected())

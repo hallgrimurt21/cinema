@@ -6,10 +6,11 @@ import {useNavigation} from "@react-navigation/native"
 import styles from "./styles"
 
 const Trailer = ({route}) => {
-    const {trailerID} = route.params
-    const navigation = useNavigation()
+    const {trailerID} = route.params // get the trailerID from the route params
+    const navigation = useNavigation() // get the navigation object from the react-navigation hook
 
     handleNavigate = () => {
+        // handles navigation back when close button is pressed
         return () => {
             navigation.goBack()
         }

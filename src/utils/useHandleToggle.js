@@ -23,20 +23,20 @@ const useHandleToggle = () => {
             dispatch(hideAll())
         } else {
             switch (section) {
-                case "plot":
-                    dispatch(showPlot())
-                    break
-                case "genres":
-                    dispatch(showGenres())
-                    break
-                case "showtimes":
-                    dispatch(showShowtimes())
-                    break
-                case "release":
-                    dispatch(showRelease())
-                    break
-                default:
-                    break
+            case "plot":
+                dispatch(showPlot())
+                break
+            case "genres":
+                dispatch(showGenres())
+                break
+            case "showtimes":
+                dispatch(showShowtimes())
+                break
+            case "release":
+                dispatch(showRelease())
+                break
+            default:
+                break
             }
         }
     }

@@ -15,7 +15,7 @@ import {toggleOption} from "../../redux/features/dropDownSlice"
 import {strongGrey} from "../../styles/colors"
 import {styles} from "./styles"
 
-const dropDown = ({selectedOptions}) => {
+const dropDown = ({selectedOptions}) => { // renders the drop down menu
     const dispatch = useDispatch()
     const dropdownRef = useRef(null)
     const [checkedOptions, setCheckedOptions] = useState([])
@@ -29,7 +29,7 @@ const dropDown = ({selectedOptions}) => {
                 return [...prevState, option]
             }
         })
-    }
+    } // handles toggling the options
 
     const renderRow = (option) => (
         <TouchableWithoutFeedback style={styles.overContainer}>
@@ -53,7 +53,7 @@ const dropDown = ({selectedOptions}) => {
                 </Pressable>
             </View>
         </TouchableWithoutFeedback>
-    )
+    ) // renders the options for the drop down menu
     return (
         <View>
             <TouchableOpacity

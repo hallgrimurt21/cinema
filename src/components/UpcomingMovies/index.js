@@ -8,12 +8,12 @@ import filterMovies from "../../utils/filterMovies"
 import {deviceHeight} from "../../styles/sizes"
 import styles from "../CinemaMovies/styles"
 
-const UpcomingMovies = () => {
-    const movies = useSelector((state) => state.upcomingMovies.movies)
-    const searchWord = useSelector((state) => state.search.value)
-    const genreFilter = useSelector((state) => state.dropDown.selectedOptions)
+const UpcomingMovies = () => { // renders the upcoming movies
+    const movies = useSelector((state) => state.upcomingMovies.movies) // get the movies from the redux store
+    const searchWord = useSelector((state) => state.search.value) // get the search word from the redux store
+    const genreFilter = useSelector((state) => state.dropDown.selectedOptions) // get the genre filter from the redux store
 
-    const filteredMovies = filterMovies({
+    const filteredMovies = filterMovies({ // filters the movies
         id: null,
         movies,
         searchWord,

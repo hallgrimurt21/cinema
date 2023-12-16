@@ -12,15 +12,15 @@ import styles from "./styles"
 
 const AllMovies = () => {
     const dispatch = useDispatch()
-    const showUpcoming = useSelector((state) => state.toggle.showUpcoming)
-    const searchStatus = useSelector((state) => state.search.status)
-    const handleOutsidePress = () => {
+    const showUpcoming = useSelector((state) => state.toggle.showUpcoming) // get the showUpcoming state from the redux store
+    const searchStatus = useSelector((state) => state.search.status) // get the search status from the redux store
+    const handleOutsidePress = () => { // handles closing the search bar when the user clicks outside of it
         if (searchStatus !== "closed") {
             dispatch(closeSearch())
         }
     }
     // clear search when the screen loses focus ///
-    useFocusEffect(
+    useFocusEffect( // useFocusEffect is a react-navigation hook that runs when the screen gains focus
         React.useCallback(() => {
             return () => {
                 dispatch(clearSearch())

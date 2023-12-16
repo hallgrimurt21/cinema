@@ -6,7 +6,7 @@ import {closeSearch, updateSearchTerm} from "../../redux/features/searchSlice"
 import styles from "./styles"
 import Icon from "react-native-vector-icons/MaterialIcons"
 
-const SearchBar = () => {
+const SearchBar = () => { // search bar component
     const searchTerm = useSelector((state) => state.search.value)
     const dispatch = useDispatch()
 
