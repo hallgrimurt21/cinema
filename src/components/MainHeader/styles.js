@@ -1,8 +1,5 @@
 import {StyleSheet} from "react-native"
 import {
-    strongGrey,
-    mediumGrey,
-    mediumWhite,
     strongWhite,
     black,
     champagne,
@@ -39,9 +36,11 @@ const styles = StyleSheet.create({
         color: strongWhite,
         marginTop: -6,
         fontSize: 30,
-        fontWeight: "bold",
         textAlign: "center",
         paddingBottom: 10,
+        textShadowColor: strongWhite,
+        textShadowOffset: {width: 0, height: 0},
+        textShadowRadius: 5,
     },
 })
 

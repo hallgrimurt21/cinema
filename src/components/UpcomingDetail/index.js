@@ -1,10 +1,8 @@
-/* eslint-disable max-len */
-import React, {useEffect} from "react"
-import {View, Text, Pressable, ScrollView} from "react-native"
+import React from "react"
+import {View, ScrollView} from "react-native"
 import {useSelector, useDispatch} from "react-redux"
 import {useNavigation} from "@react-navigation/native"
 import styles from "../../views/Movie/styles"
-import {setMounted, setUnmounted} from "../../redux/features/isMountedSlice"
 import UpcomingHeader from "../UpcomingHeader"
 import ButtonRowUpcoming from "../ButtonRowUpcoming"
 import {
@@ -19,7 +17,6 @@ import {clearSimilar} from "../../redux/features/similarSlice"
 const UpcomingDetail = ({id}) => {
     const navigation = useNavigation()
     const upcomingMovies = useSelector((state) => state.upcomingMovies.movies)
-    const isMounted = useSelector((state) => state.isMounted)
     const dispatch = useDispatch()
     const upcoming = upcomingMovies.find((movie) => movie._id === id)
     const visibleSection = useSelector(

@@ -8,7 +8,6 @@ import {
     champagne,
 } from "../../styles/colors"
 import {deviceHeight} from "../../styles/sizes"
-import hexToRGBA from "../../styles/hexToRgba"
 
 export default StyleSheet.create({
     card: {

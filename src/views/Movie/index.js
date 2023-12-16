@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from "react"
 import {Linking, ScrollView, LayoutAnimation, UIManager} from "react-native"
 import styles from "./styles"

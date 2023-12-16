@@ -3,7 +3,10 @@ import {View, Pressable, Text} from "react-native"
 import styles from "./styles" // import your styles
 import CinemaMovies from "../../components/CinemaMovies"
 import {useDispatch} from "react-redux"
-import {addGenresFromMovie, addIdFromMovie} from "../../redux/features/similarSlice"
+import {
+    addGenresFromMovie,
+    addIdFromMovie,
+} from "../../redux/features/similarSlice"
 
 const ButtonRow = ({
     handleToggle,
@@ -24,17 +27,17 @@ const ButtonRow = ({
                 <Pressable
                     style={({pressed}) => [
                         {opacity: pressed ? 0.5 : 1},
-                        visibleSection === "plot" ?
-                            styles.activeButton :
-                            styles.botButton,
+                        visibleSection === "plot"
+                            ? styles.activeButton
+                            : styles.botButton,
                     ]}
                     onPress={() => handleToggle("plot")}
                 >
                     <Text
                         style={
-                            visibleSection === "plot" ?
-                                styles.activeButtonText :
-                                styles.botButText
+                            visibleSection === "plot"
+                                ? styles.activeButtonText
+                                : styles.botButText
                         }
                     >
                         Plot
@@ -43,17 +46,17 @@ const ButtonRow = ({
                 <Pressable
                     style={({pressed}) => [
                         {opacity: pressed ? 0.5 : 1},
-                        visibleSection === "genres" ?
-                            styles.activeButton :
-                            styles.botButton,
+                        visibleSection === "genres"
+                            ? styles.activeButton
+                            : styles.botButton,
                     ]}
                     onPress={() => handleToggle("genres")}
                 >
                     <Text
                         style={
-                            visibleSection === "genres" ?
-                                styles.activeButtonText :
-                                styles.botButText
+                            visibleSection === "genres"
+                                ? styles.activeButtonText
+                                : styles.botButText
                         }
                     >
                         Genres
@@ -62,17 +65,17 @@ const ButtonRow = ({
                 <Pressable
                     style={({pressed}) => [
                         {opacity: pressed ? 0.5 : 1},
-                        visibleSection === "showtimes" ?
-                            styles.activeButton :
-                            styles.botButton,
+                        visibleSection === "showtimes"
+                            ? styles.activeButton
+                            : styles.botButton,
                     ]}
                     onPress={() => handleToggle("showtimes")}
                 >
                     <Text
                         style={
-                            visibleSection === "showtimes" ?
-                                styles.activeButtonText :
-                                styles.botButText
+                            visibleSection === "showtimes"
+                                ? styles.activeButtonText
+                                : styles.botButText
                         }
                     >
                         Showtimes
@@ -101,9 +104,9 @@ const ButtonRow = ({
                     {showtimes.map((showtime, index) => (
                         <Pressable
                             style={({pressed}) => [
-                                pressed ?
-                                    styles.pressedShowtime :
-                                    styles.showtime,
+                                pressed
+                                    ? styles.pressedShowtime
+                                    : styles.showtime,
                             ]}
                             key={index}
                             onPress={() => handlePress(showtime.purchase_url)}

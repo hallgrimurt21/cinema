@@ -3,8 +3,6 @@ import authReducer from "./features/authSlice"
 import cinemasReducer from "./features/cinemasSlice"
 import dropDownReducer from "./features/dropDownSlice"
 import genresReducer from "./features/genresSlice"
-import isMountedReducer from "./features/isMountedSlice"
-import modalReducer from "./features/modalSlice"
 import moviesReducer from "./features/moviesSlice"
 import searchReducer from "./features/searchSlice"
 import toggle from "./features/toggle"
@@ -19,8 +17,6 @@ export const store = configureStore({
         cinemas: cinemasReducer,
         dropDown: dropDownReducer,
         genres: genresReducer,
-        isMounted: isMountedReducer,
-        modal: modalReducer,
         movies: moviesReducer,
         search: searchReducer,
         similar: similarReducer,

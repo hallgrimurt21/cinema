@@ -4,7 +4,7 @@ import {View, Text, TouchableOpacity, Linking} from "react-native"
 import {useNavigation} from "@react-navigation/native"
 import styles from "./styles"
 import {ScrollView} from "react-native-gesture-handler"
-import {deviceWidth, deviceHeight} from "../../styles/sizes"
+import {deviceHeight} from "../../styles/sizes"
 
 const CinemaList = () => {
     const navigate = useNavigation().navigate
@@ -30,7 +30,7 @@ const CinemaList = () => {
                             <Text style={styles.cinemaName}>{cinema.name}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={async () => {
+                            onPress={async() => {
                                 const url = `https://${cinema.website}`
                                 const supported = await Linking.canOpenURL(url)
 
@@ -44,9 +44,11 @@ const CinemaList = () => {
                             }}
                             style={styles.linkContainer}
                         >
-                            <Text style={styles.cinemaWebsite}>
-                                {cinema.website}
-                            </Text>
+                            <View style={styles.linkTextCont}>
+                                <Text style={styles.cinemaWebsite}>
+                                    {cinema.website}
+                                </Text>
+                            </View>
                         </TouchableOpacity>
                     </View>
                 ))}

@@ -23,9 +23,12 @@ const CinemaMovies = ({id}) => {
         similarFilter,
     })
 
-    if (filteredMovies.length === 0) {
-        dispatch(toggleDescription())
-    }
+    useEffect(() => {
+        if (filteredMovies.length === 0) {
+            dispatch(toggleDescription())
+        }
+    }, [filteredMovies, dispatch])
+
     const navigate = useNavigation().navigate
 
     const handlePress = (movieID) => {
