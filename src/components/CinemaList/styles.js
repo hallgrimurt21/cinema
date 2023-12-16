@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
         backgroundColor: strongGrey,
     },
     cinemaContainer: {
-        backgroundColor: mediumGrey,
         padding: 10,
         flexDirection: "row",
         justifyContent: "center",
@@ -24,16 +23,13 @@ const styles = StyleSheet.create({
     },
 
     linkContainer: {
-        width: deviceWidth / 2.5,
         backgroundColor: mediumGrey,
-        padding: 10,
         flexDirection: "row",
         justifyContent: "center",
-        height: deviceWidth / 5,
         alignItems: "center",
-        borderLeftWidth: 1,
-        borderColor: strongGrey,
+        paddingRight: 20,
         elevation: 1,
+        height: "auto",
     },
 
     buttons: {
@@ -45,8 +41,10 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowRadius: 2,
         elevation: 1,
-        borderBottomWidth: 0.4,
+        borderBottomWidth: 0.5,
         borderColor: champagne,
+        height: deviceWidth / 5,
+        backgroundColor: mediumGrey,
     },
 
     cinemaName: {
@@ -62,6 +60,13 @@ const styles = StyleSheet.create({
     centerElement: {
         borderColor: "red",
         borderWidth: 2,
+    },
+    linkTextCont: {
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 10,
+        borderRadius: 15,
+        backgroundColor: strongGrey,
     },
 })
 
