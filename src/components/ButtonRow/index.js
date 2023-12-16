@@ -50,9 +50,9 @@ const ButtonRow = ({
                         // ===================== Showtime buttons mapper ====================== //
                         <Pressable
                             style={({pressed}) => [
-                                pressed
-                                    ? styles.pressedShowtime
-                                    : styles.showtime,
+                                pressed ?
+                                    styles.pressedShowtime :
+                                    styles.showtime,
                             ]}
                             key={index}
                             onPress={() => handlePress(showtime.purchase_url)}

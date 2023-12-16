@@ -1,5 +1,6 @@
 const filterMovies = ({id, movies, searchWord, genreFilter}) => {
     let filteredMovies = movies
+    // filter movies by cinema id
 
     if (id) {
         filteredMovies = movies.filter((movie) =>

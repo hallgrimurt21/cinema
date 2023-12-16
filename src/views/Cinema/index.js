@@ -5,6 +5,7 @@ import CinemaMovies from "../../components/CinemaMovies"
 import styles from "./styles"
 
 const Cinema = ({route}) => {
+    // redirects to CinemaDetails and CinemaMovies components
     const {id} = route.params
     return (
         <View style={styles.container}>
