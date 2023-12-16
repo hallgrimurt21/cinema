@@ -14,12 +14,13 @@ import {useNavigation} from "@react-navigation/native"
 import {strongGrey} from "../../styles/colors"
 
 const CinemaDetails = ({id}) => {
-    const fadeAnim = useRef(new Animated.Value(0)).current // Initial value for opacity: 0
     const navigation = useNavigation()
     const dispatch = useDispatch()
-    const cinemas = useSelector((state) => state.cinemas.cinemas)
-    const cinema = cinemas.find((cinema) => cinema.id === id)
+    const fadeAnim = useRef(new Animated.Value(0)).current // Initial value for opacity: 0 -- used for animations
+    const cinemas = useSelector((state) => state.cinemas.cinemas) // Get the cinemas from the redux store
+    const cinema = cinemas.find((cinema) => cinema.id === id) // Find the cinema with the id
     const descriptionVisible = useSelector(
+        // Get the descriptionVisible from the redux store
         (state) => state.visibility.descriptionVisible,
     )
 
@@ -31,6 +32,7 @@ const CinemaDetails = ({id}) => {
     }
 
     useEffect(() => {
+        // Animate the description
         Animated.timing(fadeAnim, {
             toValue: descriptionVisible ? 1 : 0,
             duration: 500,
@@ -69,9 +71,9 @@ const CinemaDetails = ({id}) => {
                 <Animated.View style={[buttonStyle, styles.animButton]}>
                     <Pressable
                         style={
-                            descriptionVisible ?
-                                styles.infoButtonToggled :
-                                styles.infoButton
+                            descriptionVisible
+                                ? styles.infoButtonToggled
+                                : styles.infoButton
                         }
                         onPress={() => dispatch(toggleDescription())}
                     >

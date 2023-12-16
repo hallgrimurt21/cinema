@@ -1,17 +1,16 @@
 import React from "react"
 import {Linking, ScrollView, LayoutAnimation, UIManager} from "react-native"
-import styles from "./styles"
 import {useSelector, useDispatch} from "react-redux"
+import {useNavigation} from "@react-navigation/native"
 import {
     showPlot,
     showGenres,
     showShowtimes,
     hideAll,
 } from "../../redux/features/visibilitySlice"
-import {useNavigation} from "@react-navigation/native"
 import ButtonRow from "../../components/ButtonRow"
 import MovieHeader from "../../components/MovieHeader"
-
+import styles from "./styles"
 /**
  * Displays the movie details
  * @param {Object} param0 - The props object
@@ -19,35 +18,37 @@ import MovieHeader from "../../components/MovieHeader"
  * @return {JSX.Element} The movie details component
  */
 function Movie({route}) {
-    UIManager.setLayoutAnimationEnabledExperimental &&
-        UIManager.setLayoutAnimationEnabledExperimental(true)
-    const {cinemaID, movieID} = route.params
-    const movies = useSelector((state) => state.movies.movies)
-    const movie = movies.find((movie) => movie.id === movieID)
     const dispatch = useDispatch()
     const navigation = useNavigation()
+    UIManager.setLayoutAnimationEnabledExperimental &&
+        UIManager.setLayoutAnimationEnabledExperimental(true) // set animation layout for android
+
+    const {cinemaID, movieID} = route.params // get the cinemaID and movieID from the route params
+    const movies = useSelector((state) => state.movies.movies) // get the movies from the redux store
+    const movie = movies.find((movie) => movie.id === movieID) // find the movie with the movieID
 
     const visibleSection = useSelector(
         (state) => state.visibility.visibleSection,
-    )
+    ) // get the visibleSection from the redux store
 
-    const showtimes = movie.showtimes
+    const showtimes = movie.showtimes // get the showtimes from the movie and list them nicely
         .filter((showtime) => showtime.cinema.id === cinemaID)
         .map((showtime) => showtime.schedule)
         .flat()
 
     const handlePress = (url) => {
         Linking.openURL(url)
-    }
+    } // open the url to showtime in the browser
 
     handleNavigate = () => {
         return () => {
             dispatch(hideAll())
             navigation.goBack()
         }
-    }
+    } // handle the navigation back to the previous screen
 
     const customAnimation = {
+        // set the animation for changing visibleSection
         duration: 750, // Duration in milliseconds.
         create: {
             type: LayoutAnimation.Types.spring,
@@ -67,23 +68,24 @@ function Movie({route}) {
     }
 
     const handleToggle = (section) => {
+        // handle the toggling of the visibleSection
         LayoutAnimation.configureNext(customAnimation)
 
         if (visibleSection === section) {
             dispatch(hideAll())
         } else {
             switch (section) {
-            case "plot":
-                dispatch(showPlot())
-                break
-            case "genres":
-                dispatch(showGenres())
-                break
-            case "showtimes":
-                dispatch(showShowtimes())
-                break
-            default:
-                break
+                case "plot":
+                    dispatch(showPlot())
+                    break
+                case "genres":
+                    dispatch(showGenres())
+                    break
+                case "showtimes":
+                    dispatch(showShowtimes())
+                    break
+                default:
+                    break
             }
         }
     }
