@@ -1,0 +1,31 @@
+Cinema - 
+
+Show cinema list
+show clickable link
+navigate to a selected cinema (Álfabakki )
+
+show selected cinema info
+show movie list and and card info
+navigate to a selected cinema movie (Thanksgiving)
+
+Cinema movie -
+
+talk about name, duration and release year
+navigate to trailer and play a few seconds
+Show all bottom row buttons(Plot,Genres and Showtimes)
+select a showtime and navigate to purchasing site
+
+All movies -
+
+Show all movies list(current)
+show search function
+show filter function
+Navigate to a current movie and mention no trailer is available (Uwierz w Mikolaja)
+navigate back
+
+toggle upcoming and current
+show upcoming movies
+navigate to a selected movie (Aquaman)
+show release
+
+EXTRA???
