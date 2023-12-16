@@ -17,8 +17,12 @@ export const dropDownSlice = createSlice({
                 state.selectedOptions.push(action.payload)
             }
         },
-    }})
+        clearSelected: (state) => {
+            state.selectedOptions = []
+        },
+    },
+})
 
-export const {toggleOption} = dropDownSlice.actions
+export const {toggleOption, clearSelected} = dropDownSlice.actions
 
 export default dropDownSlice.reducer

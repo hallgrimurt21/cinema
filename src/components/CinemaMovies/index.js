@@ -22,7 +22,11 @@ const CinemaMovies = ({id}) => {
     })
 
     useEffect(() => {
-        if (filteredMovies.length === 0) {
+        if (
+            filteredMovies.length === 0 &&
+            searchWord.length === 0 &&
+            genreFilter.length === 0
+        ) {
             dispatch(toggleDescription())
         }
     }, [filteredMovies, dispatch])

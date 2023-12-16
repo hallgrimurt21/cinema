@@ -3,7 +3,7 @@ import {TouchableWithoutFeedback, View} from "react-native"
 import {useFocusEffect} from "@react-navigation/native"
 import {useDispatch, useSelector} from "react-redux"
 
-
+import {clearSelected} from "../../redux/features/dropDownSlice"
 import {clearSearch, closeSearch} from "../../redux/features/searchSlice"
 import CinemaMovies from "../../components/CinemaMovies"
 import MovUpcHeader from "../../components/MovUpcHeader"
@@ -22,8 +22,11 @@ const AllMovies = () => {
     // clear search when the screen loses focus ///
     useFocusEffect(
         React.useCallback(() => {
-            return () => dispatch(clearSearch())
-        }, []),
+            return () => {
+                dispatch(clearSearch())
+                dispatch(clearSelected())
+            }
+        }, [dispatch]),
     )
 
     return (
