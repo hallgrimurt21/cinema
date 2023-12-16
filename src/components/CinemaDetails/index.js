@@ -43,11 +43,11 @@ const CinemaDetails = ({id}) => {
     const buttonStyle = {
         backgroundColor: fadeAnim.interpolate({
             inputRange: [0, 1],
-            outputRange: ["transparent", strongGrey], // Change the colors as per your need
+            outputRange: ["transparent", strongGrey],
         }),
         borderColor: fadeAnim.interpolate({
             inputRange: [0, 1],
-            outputRange: ["transparent", "black"], // Change the colors as per your need
+            outputRange: ["transparent", "black"],
         }),
     }
 

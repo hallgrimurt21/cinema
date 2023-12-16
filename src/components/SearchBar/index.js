@@ -22,7 +22,7 @@ const SearchBar = () => {
                     style={styles.textInput}
                     value={searchTerm}
                     onChangeText={(term) => dispatch(updateSearchTerm(term))}
-                    onBlur={() => dispatch(closeSearch())} // Add this line
+                    onBlur={() => dispatch(closeSearch())}
                     placeholder="Search..."
                     placeholderTextColor="#fff"
                 />
