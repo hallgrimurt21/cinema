@@ -20,9 +20,12 @@ const CinemaMovies = ({id}) => {
         genreFilter,
     })
 
-    if (filteredMovies.length === 0) {
-        dispatch(toggleDescription())
-    }
+    React.useEffect(() => {
+        if (filteredMovies.length === 0) {
+            dispatch(toggleDescription())
+        }
+    }, [filteredMovies, dispatch])
+
     const navigate = useNavigation().navigate
 
     const handlePress = (movieID) => {
