@@ -1,8 +1,17 @@
-Core: 
-Finish styling
-remove linebreak from descriptions/text
+Todo:
+A:
+Movie Duration
+Code Cleaning
 
-Extra: 
-Search in movies
-Genres in movies
-filter by area cinemas
+B:
+showtimes inside movies list 
+clear search
+search hard to click
+website link too big
+
+C:
+remove line break from cinema descriptions
+clickable link inside cinemadetails
+
+D:
+hringja

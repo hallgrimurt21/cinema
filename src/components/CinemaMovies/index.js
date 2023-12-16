@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {View, Text, Image, ScrollView, TouchableOpacity} from "react-native"
 import {useNavigation} from "@react-navigation/native"
 import {useSelector, useDispatch} from "react-redux"
@@ -20,9 +20,12 @@ const CinemaMovies = ({id}) => {
         genreFilter,
     })
 
-    if (filteredMovies.length === 0) {
-        dispatch(toggleDescription())
-    }
+    useEffect(() => {
+        if (filteredMovies.length === 0) {
+            dispatch(toggleDescription())
+        }
+    }, [filteredMovies, dispatch])
+
     const navigate = useNavigation().navigate
 
     const handlePress = (movieID) => {
