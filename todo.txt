@@ -1,9 +1,15 @@
 Todo:
+A:
 Movie Duration
 
-
-kannski:
+B:
+showtimes inside movies list 
+clear search
 website link too big
+
+C:
 remove line break from cinema descriptions
 clickable link inside cinemadetails
+
+D:
 hringja
