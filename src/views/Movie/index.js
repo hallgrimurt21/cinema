@@ -12,6 +12,8 @@ import {
 import {useNavigation} from "@react-navigation/native"
 import ButtonRow from "../../components/ButtonRow"
 import MovieHeader from "../../components/MovieHeader"
+import {useFocusEffect} from "@react-navigation/native"
+import {clearSimilar} from "../../redux/features/similarSlice"
 
 /**
  * Displays the movie details
@@ -66,6 +68,11 @@ function Movie({route}) {
             duration: 100,
         },
     }
+    useFocusEffect(
+        React.useCallback(() => {
+            return () => dispatch(clearSimilar())
+        }, []),
+    )
 
     const handleToggle = (section) => {
         LayoutAnimation.configureNext(customAnimation)
@@ -74,17 +81,17 @@ function Movie({route}) {
             dispatch(hideAll())
         } else {
             switch (section) {
-                case "plot":
-                    dispatch(showPlot())
-                    break
-                case "genres":
-                    dispatch(showGenres())
-                    break
-                case "showtimes":
-                    dispatch(showShowtimes())
-                    break
-                default:
-                    break
+            case "plot":
+                dispatch(showPlot())
+                break
+            case "genres":
+                dispatch(showGenres())
+                break
+            case "showtimes":
+                dispatch(showShowtimes())
+                break
+            default:
+                break
             }
         }
     }

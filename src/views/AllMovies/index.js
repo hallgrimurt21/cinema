@@ -19,7 +19,6 @@ const AllMovies = () => {
     const dispatch = useDispatch()
     const showUpcoming = useSelector((state) => state.toggle.showUpcoming)
     const searchStatus = useSelector((state) => state.search.status)
-    const searchValue = useSelector((state) => state.search.value)
     const handleOutsidePress = () => {
         if (searchStatus !== "closed") {
             dispatch(closeSearch())

@@ -13,6 +13,8 @@ import {
     showRelease,
     hideAll,
 } from "../../redux/features/visibilitySlice"
+import {useFocusEffect} from "@react-navigation/native"
+import {clearSimilar} from "../../redux/features/similarSlice"
 
 const UpcomingDetail = ({id}) => {
     const navigation = useNavigation()
@@ -36,20 +38,26 @@ const UpcomingDetail = ({id}) => {
             dispatch(hideAll())
         } else {
             switch (section) {
-                case "plot":
-                    dispatch(showPlot())
-                    break
-                case "genres":
-                    dispatch(showGenres())
-                    break
-                case "release":
-                    dispatch(showRelease())
-                    break
-                default:
-                    break
+            case "plot":
+                dispatch(showPlot())
+                break
+            case "genres":
+                dispatch(showGenres())
+                break
+            case "release":
+                dispatch(showRelease())
+                break
+            default:
+                break
             }
         }
     }
+
+    useFocusEffect(
+        React.useCallback(() => {
+            return () => dispatch(clearSimilar())
+        }, []),
+    )
 
     return (
         <View style={styles.extraView}>

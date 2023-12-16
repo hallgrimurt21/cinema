@@ -8,21 +8,22 @@ const similarSlice = createSlice({
     },
     reducers: {
         addGenresFromMovie: (state, action) => {
-            if (movie && movie.genre) {
-                const movie = action.payload
-                movie.genre.forEach((genre) => {
-                    if (!state.genres.includes(genre["NameEN\t"])) {
-                        state.genres.push(genre["NameEN\t"])
-                    }
-                })
-            }
+            const movie = action.payload
+            movie.genres.forEach((genre) => {
+                if (!state.genres.includes(genre["NameEN\t"])) {
+                    state.genres.push(genre["NameEN\t"])
+                }
+            })
         },
         addIdFromMovie: (state, action) => {
             state.id = action.payload
         },
+        clearSimilar: (state) => {
+            state.genres = []
+        },
     },
 })
 
-export const {addGenresFromMovie, addIdFromMovie} = similarSlice.actions
+export const {addGenresFromMovie, addIdFromMovie, clearSimilar} = similarSlice.actions
 
 export default similarSlice.reducer

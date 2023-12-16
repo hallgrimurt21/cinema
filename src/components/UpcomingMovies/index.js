@@ -12,13 +12,14 @@ const UpcomingMovies = () => {
     const movies = useSelector((state) => state.upcomingMovies.movies)
     const searchFilter = useSelector((state) => state.search.value)
     const genreFilter = useSelector((state) => state.dropDown.selectedOptions)
+    const similarFilter = useSelector((state) => state.similar)
 
     const filteredMovies = filterMovies({
         id: null,
         movies,
         searchFilter,
         genreFilter,
-        similarFilter: [],
+        similarFilter,
     })
     const navigate = useNavigation().navigate
 

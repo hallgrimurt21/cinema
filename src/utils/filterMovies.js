@@ -26,15 +26,14 @@ const filterMovies = ({
             ),
         )
     }
-    if (similarFilter.length > 0) {
+    if (similarFilter.genres.length > 0) {
         filteredMovies = filteredMovies.filter(
             (movie) =>
-                similarFilter.genreList.every((genre) =>
+                similarFilter.genres.some((genre) =>
                     movie.genres.some((g) => g["NameEN\t"] === genre),
                 ) && movie.id !== similarFilter.id,
         )
     }
-
     return filteredMovies
 }
 
