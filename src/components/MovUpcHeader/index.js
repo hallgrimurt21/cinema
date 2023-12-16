@@ -15,13 +15,14 @@ function MovUpcHeader({}) {
     const searchStatus = useSelector((state) => state.search.status)
 
     const toggleMovies = () => {
+        //toggle for setting view for upcoming movies or showing movies
         dispatch(toggleShowUpcoming()) // Dispatch the action
         dispatch(clearSearch())
     }
     return (
         <View style={styles.overContainer}>
             <SafeAreaView style={styles.safeContainer}>
-                {searchStatus === "closed" && (
+                {searchStatus === "closed" && ( //if search is closed, show toggle button
                     <TouchableOpacity
                         onPress={toggleMovies}
                         style={styles.toggleButton}
@@ -38,7 +39,7 @@ function MovUpcHeader({}) {
                 <GenresDropDown />
                 <OpenSearchButton style={styles.spyGlass} />
 
-                {searchStatus !== "closed" && (
+                {searchStatus !== "closed" && ( //if search is open, show search bar
                     <SearchBar style={styles.searcher} />
                 )}
             </SafeAreaView>
