@@ -25,7 +25,13 @@ const visibilitySlice = createSlice({
     },
 })
 
-export const {showPlot, showGenres, showShowtimes, showRelease, hideAll, toggleDescription} =
-    visibilitySlice.actions
+export const {
+    showPlot,
+    showGenres,
+    showShowtimes,
+    showRelease,
+    hideAll,
+    toggleDescription,
+} = visibilitySlice.actions
 
 export default visibilitySlice.reducer

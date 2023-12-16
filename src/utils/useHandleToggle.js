@@ -4,6 +4,7 @@ import {
     showGenres,
     showPlot,
     showShowtimes,
+    showRelease,
 } from "../redux/features/visibilitySlice"
 import {LayoutAnimation} from "react-native"
 import customAnimation from "../styles/customAnimation"
@@ -30,6 +31,9 @@ const useHandleToggle = () => {
                     break
                 case "showtimes":
                     dispatch(showShowtimes())
+                    break
+                case "release":
+                    dispatch(showRelease())
                     break
                 default:
                     break

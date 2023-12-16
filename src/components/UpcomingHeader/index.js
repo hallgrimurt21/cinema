@@ -8,6 +8,7 @@ import {
 } from "react-native"
 import {useNavigation} from "@react-navigation/native"
 import styles from "./styles" // import your styles
+import TrailerButton from "../TrailerButton"
 
 const UpcomingHeader = ({upcoming, handleNavigate}) => {
     const navigation = useNavigation()
@@ -24,29 +25,7 @@ const UpcomingHeader = ({upcoming, handleNavigate}) => {
                     </View>
                 </SafeAreaView>
             </View>
-            {upcoming.trailers &&
-            upcoming.trailers[0] &&
-            upcoming.trailers[0].results &&
-            upcoming.trailers[0].results[0] &&
-            upcoming.trailers[0].results[0].key ? (
-                    <Pressable
-                        style={({pressed}) => [
-                            {opacity: pressed ? 0.5 : 1},
-                            styles.trailerButton,
-                        ]}
-                        onPress={() =>
-                            navigation.navigate("Trailer", {
-                                trailerID: upcoming.trailers[0].results[0].key,
-                            })
-                        }
-                    >
-                        <Text style={styles.time}>Watch Trailer</Text>
-                    </Pressable>
-                ) : (
-                    <View style={styles.trailerButton}>
-                        <Text style={styles.time}>No Trailer available</Text>
-                    </View>
-                )}
+            <TrailerButton movie={upcoming} navigation={navigation} />
         </ImageBackground>
     )
 }

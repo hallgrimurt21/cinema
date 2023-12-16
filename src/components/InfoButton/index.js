@@ -2,9 +2,13 @@ import React from "react"
 import {Pressable, Text} from "react-native"
 import styles from "./styles"
 import useHandleToggle from "../../utils/useHandleToggle"
+import {useSelector} from "react-redux"
 
-const InfoButton = ({visibleSection, section}) => {
+const InfoButton = ({section}) => {
     const handleToggle = useHandleToggle()
+    const visibleSection = useSelector(
+        (state) => state.visibility.visibleSection,
+    )
 
     return (
         <Pressable

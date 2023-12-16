@@ -2,7 +2,7 @@ import React from "react"
 import {View, Pressable, Text} from "react-native"
 import styles from "./styles" // import your styles
 import InfoButton from "../InfoButton"
-import {useSelector, useDispatch} from "react-redux"
+import {useSelector} from "react-redux"
 import {Linking, UIManager} from "react-native"
 
 const ButtonRow = ({
