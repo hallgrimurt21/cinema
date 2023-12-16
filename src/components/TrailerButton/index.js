@@ -1,7 +1,8 @@
 // TrailerButton.js
 import React from "react"
 import {View, Pressable, Text} from "react-native"
-import styles from "./styles" // replace with the actual path to your styles
+
+import styles from "./styles"
 
 const TrailerButton = ({movie, navigation}) => {
     const hasTrailer =

@@ -1,9 +1,8 @@
 import React from "react"
-import {View, Pressable, Text} from "react-native"
-import styles from "./styles" // import your styles
-import InfoButton from "../InfoButton"
+import {Linking, UIManager, View, Pressable, Text} from "react-native"
 import {useSelector} from "react-redux"
-import {Linking, UIManager} from "react-native"
+import InfoButton from "../InfoButton"
+import styles from "./styles"
 
 const ButtonRow = ({
     movie, // object containing movie info

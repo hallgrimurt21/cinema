@@ -1,10 +1,5 @@
 import React from "react"
-import {
-    SafeAreaView,
-    TextInput,
-    TouchableOpacity,
-    View,
-} from "react-native"
+import {SafeAreaView, TextInput, TouchableOpacity, View} from "react-native"
 import {useDispatch, useSelector} from "react-redux"
 
 import {closeSearch, updateSearchTerm} from "../../redux/features/searchSlice"

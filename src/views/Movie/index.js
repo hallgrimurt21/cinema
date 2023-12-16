@@ -1,11 +1,13 @@
 import React from "react"
 import {ScrollView} from "react-native"
-import {useSelector, useDispatch} from "react-redux"
 import {useNavigation} from "@react-navigation/native"
+import {useDispatch, useSelector} from "react-redux"
+
 import {hideAll} from "../../redux/features/visibilitySlice"
 import ButtonRow from "../../components/ButtonRow"
 import MovieHeader from "../../components/MovieHeader"
 import styles from "./styles"
+
 /**
  * Displays the movie details
  * @param {Object} param0 - The props object

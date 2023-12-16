@@ -3,6 +3,7 @@ import React from "react"
 import {SafeAreaView, Text, TouchableOpacity, View} from "react-native"
 import {useDispatch, useSelector} from "react-redux"
 
+import {clearSelected} from "../../redux/features/dropDownSlice"
 import {clearSearch} from "../../redux/features/searchSlice"
 import {toggleShowUpcoming} from "../../redux/features/toggle"
 import GenresDropDown from "../GenresDropDown"
@@ -18,6 +19,7 @@ function MovUpcHeader({}) { // header component for the movies and upcoming movi
     const toggleMovies = () => { // toggles between showing upcoming movies and showing movies
         dispatch(toggleShowUpcoming())
         dispatch(clearSearch())
+        dispatch(clearSelected())
     }
     return (
         <View style={styles.overContainer}>
