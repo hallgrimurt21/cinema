@@ -1,4 +1,3 @@
-Add .env to connect to the api.kvikmyndir.is
 Tested on iOS
 
 Structure: 
@@ -12,6 +11,12 @@ src/views: Views that can be navigated to
 
 
 Instructions: 
+
+Add .env to connect to the api.kvikmyndir.is
+#format:
+
+USERNAME =
+PASSWORD = 
 
 
 Core functionality:
